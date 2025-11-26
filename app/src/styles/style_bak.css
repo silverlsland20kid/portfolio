@@ -861,13 +861,10 @@ ol {
   color: #333;
 }
 
-/* WorkDetail 전용 기본 레이아웃 */
 .project-detail-page {
   display: flex;
-  gap: 56px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 60px;
 }
 
 /* 한글 전용 폰트 적용 영역 */
@@ -876,13 +873,11 @@ ol {
     "Segoe UI", sans-serif;
 }
 
-/* 메인 콘텐츠 래퍼 */
 .project-detail-wrap {
   flex: 1;
   max-width: 760px;
 }
 
-/* 헤더 영역 (타이틀 + 서브타이틀) */
 .work-detail__header {
   margin-bottom: 32px;
 }
@@ -895,7 +890,6 @@ ol {
   margin: 0;
 }
 
-/* 메타 정보 블록 */
 .work-detail__meta-item {
   display: flex;
   align-items: baseline;

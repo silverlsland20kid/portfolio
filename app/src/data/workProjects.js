@@ -15,7 +15,7 @@ export const workProjects = {
       UI 구조화, 실제 서비스 UX 흐름을 코드로 풀어내는 과정 등을 학습하고 정리하는 데 중점을 둔 작업입니다.
     `,
     year: "2025",
-    role: "Frontend Developer · UI/UX Designer · Publisher",
+    role: "UI/UX Designer · Publisher",
     duration: "약 1주",
     skills: [
       "HTML5",
