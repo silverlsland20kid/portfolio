@@ -225,7 +225,7 @@ export default function WorkPage() {
           </Link>
 
           <Link
-            to="/work/ear-phone-brandpage"
+            to="/work/Earphone"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample09.png")}
             onMouseLeave={handleMouseLeave}
