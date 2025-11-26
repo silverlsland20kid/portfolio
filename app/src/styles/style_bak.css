@@ -876,12 +876,25 @@ ol {
   line-height: 1.55;
   margin-bottom: 2.4rem;
   color: #333;
+  font-family: "Oswald", Arial, sans-serif;
+  letter-spacing: 0.02rem;
 }
 
 .project-detail-page {
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.link-to-lab {
+  color: var(--purp);
+  transition: opacity 0.2s ease;
+  opacity: 0.8;
+}
+
+.link-to-lab:hover {
+  opacity: 1;
+  font-weight: bold;
 }
 
 /* 한글 전용 폰트 적용 영역 */
@@ -947,6 +960,7 @@ ol {
   line-height: 1.5;
   margin: 0 0 10px;
   opacity: 0.92;
+
 }
 
 .work-detail__list {

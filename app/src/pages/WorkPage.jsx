@@ -73,8 +73,8 @@ export default function WorkPage() {
         <div className="project-list__year-item"></div>
         <div className="project-list__year-item"></div>
         <div className="project-list__year-item"></div>
-        <div className="project-list__year-item">[2024]</div>
         <div className="project-list__year-item"></div>
+        <div className="project-list__year-item">[2024]</div>
         <div className="project-list__year-item">[2023]</div>
       </div>
 
@@ -118,7 +118,7 @@ export default function WorkPage() {
           </Link>
 
           <Link
-            to="/work/daily-diary"
+            to="/work/Dasoni"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample13.png")}
             onMouseLeave={handleMouseLeave}
@@ -130,14 +130,14 @@ export default function WorkPage() {
           </Link>
 
           <Link
-            to="/work/eider-exhibition"
+            to="/work/KVILLAGE"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample00.png")}
             onMouseLeave={handleMouseLeave}
           >
             <div className="project-card__content project-card__content--new-exp">
               <div className="project-card__title">
-                Eider <span>(exhibition)</span>
+                K2 / Eider <span>(exhibition)</span>
               </div>
               <div className="project-card__subtitle">
                 publishing
@@ -147,24 +147,7 @@ export default function WorkPage() {
           </Link>
 
           <Link
-            to="/work/k2-exhibition"
-            className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample01.png")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="project-card__content project-card__content--new-exp">
-              <div className="project-card__title">
-                K2 <span>(exhibition/event)</span>
-              </div>
-              <div className="project-card__subtitle">
-                publishing
-                <br />
-              </div>
-            </div>
-          </Link>
-
-          <Link
-            to="/work/handsome-magazine"
+            to="/work/Handsome"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample03.png")}
             onMouseLeave={handleMouseLeave}
@@ -181,7 +164,7 @@ export default function WorkPage() {
           </Link>
 
           <Link
-            to="/work/kolonmall-exhibition"
+            to="/work/kolonmall"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample04.png")}
             onMouseLeave={handleMouseLeave}
@@ -198,7 +181,7 @@ export default function WorkPage() {
           </Link>
 
           <Link
-            to="/work/agency-creative-audio"
+            to="/work/Agencycreativeaudio"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample07.png")}
             onMouseLeave={handleMouseLeave}
@@ -213,7 +196,7 @@ export default function WorkPage() {
           </Link>
 
           <Link
-            to="/work/namdo-mall"
+            to="/work/Namdomall"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample06.png")}
             onMouseLeave={handleMouseLeave}
@@ -227,7 +210,7 @@ export default function WorkPage() {
           </Link>
 
           <Link
-            to="/work/yeongam-mall"
+            to="/work/Yeongammall"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample05.png")}
             onMouseLeave={handleMouseLeave}

@@ -122,9 +122,9 @@ export default function WorkDetailPage() {
       <section className="about-main" ref={contentRef}>
         <div className="about-intro">
           <p>
-            신입과 경력의 경계에서 균형을 잡는 중고 신입 퍼블리셔
-            <strong>이은섬</strong>입니다. <br /> 한 번의 실무 경험으로 현장을
-            겪어봤고, 꼼꼼함은 기본 옵션입니다. 그렇다고 호기심과 패기를
+            신입과 경력의 경계에서 균형을 잡는 중고 신입 퍼블리셔&nbsp;
+            <strong>이은섬</strong>&nbsp;입니다. <br /> 한 번의 실무 경험으로
+            현장을 겪어봤고, 꼼꼼함은 기본 옵션입니다. 그렇다고 호기심과 패기를
             내려놓진 않았습니다.
             <br />
             <strong>배운 건 바로 써보고, 모르면 바로 묻는 타입</strong>
@@ -132,7 +132,8 @@ export default function WorkDetailPage() {
             이해되지 않는 부분은 혼자 끙끙대기보다 팀과 공유하며 해결하는 방식을
             선호합니다. INFJ답게 조용하지만 단단한 편이며, 혼자 깊이 파고들되
             프로젝트 전체의 맥락과 팀의 목표를 먼저 생각합니다.
-            <strong>“대충”</strong>은 저와 가장 거리가 먼 단어입니다. <br />
+            <strong>“대충”</strong>&nbsp;은 저와 가장 거리가 먼 단어입니다.
+            <br />
             마감 직전까지도 눈에 보이지 않는 부분을 한 번 더 점검하고, 이후
             유지보수까지 고려해 코드와 구조를 정리하려고 합니다.
           </p>

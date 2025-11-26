@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { workProjects } from "../data/workProjects";
@@ -9,6 +9,19 @@ export default function WorkDetailPage() {
   const project = workProjects[slug];
 
   const pageRef = useRef(null);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const el = document.querySelector(".link-to-lab");
+    if (el) {
+      el.style.cursor = "pointer";
+      el.addEventListener("click", () => navigate("/lab"));
+    }
+
+    return () => {
+      if (el) el.removeEventListener("click", () => navigate("/lab"));
+    };
+  }, []);
 
   useEffect(() => {
     // 이 페이지 안에서만 GSAP 적용
@@ -49,13 +62,6 @@ export default function WorkDetailPage() {
         프로젝트 정보를 찾을 수 없습니다.
       </div>
     );
-
-  // description을 문단 단위로 나누기 (보기 좋게)
-  const paragraphs = project.description
-    .split("\n")
-    .map((p) => p.trim())
-    .filter(Boolean);
-
   return (
     <div className="project-list project-detail-page">
       {/* SIDE (Clock + City) */}
@@ -134,11 +140,10 @@ export default function WorkDetailPage() {
         {/* OVERVIEW / DESCRIPTION */}
         <section className="work-detail__section">
           <h2 className="work-detail__section-title">Overview</h2>
-          <div className="work-detail__description">
-            {paragraphs.map((p, idx) => (
-              <p key={idx}>{p}</p>
-            ))}
-          </div>
+          <div
+            className="work-detail__description"
+            dangerouslySetInnerHTML={{ __html: project.description }}
+          ></div>
         </section>
 
         {/* (옵션) 하이라이트 섹션 - 나중에 workProjects에 추가하면 자동 노출됨 */}
@@ -174,7 +179,7 @@ export default function WorkDetailPage() {
                   rel="noopener noreferrer"
                   className="work-detail__link-btn work-detail__link-btn--secondary"
                 >
-                  Live Demo
+                  LINK
                 </a>
               )}
             </div>
