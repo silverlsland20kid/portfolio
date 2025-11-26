@@ -57,13 +57,13 @@ export default function ContactModal({ isOpen, onClose }) {
           </li>
           <li>
             <a
-              href="https://github.com/your-github-id"
+              href="https://github.com/silverlsland20kid"
               className="contact-modal__link"
               target="_blank"
               rel="noopener"
             >
               <span className="contact-modal__icon">👽</span>
-              github.com/your-github-id
+              https://github.com/silverlsland20kid
             </a>
           </li>
           <li>

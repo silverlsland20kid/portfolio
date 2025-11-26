@@ -1,10 +1,47 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import { workProjects } from "../data/workProjects";
 import ClockKST from "../components/ClockKST";
 
 export default function WorkDetailPage() {
   const { slug } = useParams();
   const project = workProjects[slug];
+
+  const pageRef = useRef(null);
+
+  useEffect(() => {
+    // 이 페이지 안에서만 GSAP 적용
+    const ctx = gsap.context(() => {
+      // 페이지 전체 살짝 아래에서 위로 + 페이드인
+      gsap.from(pageRef.current, {
+        opacity: 0,
+        y: 10,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+
+      // 타이틀 / 섹션들은 조금 더 디테일하게 순차 등장
+      gsap.from(".work-detail__header", {
+        opacity: 0,
+        y: 8,
+        duration: 0.7,
+        ease: "power2.out",
+        delay: 0.1,
+      });
+
+      gsap.from(".work-detail__section", {
+        opacity: 0,
+        y: 12,
+        duration: 0.7,
+        ease: "power2.out",
+        stagger: 0.08,
+        delay: 0.18,
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
 
   if (!project)
     return (
@@ -49,7 +86,10 @@ export default function WorkDetailPage() {
       </aside>
 
       {/* DETAIL CONTENT */}
-      <section className="about-main project-detail-wrap work-detail--kr">
+      <section
+        className="about-main project-detail-wrap work-detail--kr"
+        ref={pageRef}
+      >
         {/* HERO 영역: 타이틀 + 서브타이틀 */}
         <header className="work-detail__header">
           <h1 className="work-detail__title">{project.title}</h1>
@@ -107,18 +147,6 @@ export default function WorkDetailPage() {
             <h2 className="work-detail__section-title">Highlights</h2>
             <ul className="work-detail__list">
               {project.highlights.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {/* (옵션) 배운 점 / 회고 섹션 */}
-        {project.learnings && project.learnings.length > 0 && (
-          <section className="work-detail__section">
-            <h2 className="work-detail__section-title">What I Learned</h2>
-            <ul className="work-detail__list">
-              {project.learnings.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
             </ul>

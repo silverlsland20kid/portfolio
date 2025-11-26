@@ -89,31 +89,31 @@ export default function WorkPage() {
           >
             <div className="project-card__content project-card__content--figma">
               <div className="project-card__title">Subway</div>
-              <div className="project-card__subtitle">clone cording</div>
+              <div className="project-card__subtitle">Clonecoding</div>
             </div>
           </Link>
 
           <Link
-            to="/work/daily-diary"
+            to="/work/Nasmedia"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample11.png")}
             onMouseLeave={handleMouseLeave}
           >
             <div className="project-card__content project-card__content--figma">
               <div className="project-card__title">Nasmedia</div>
-              <div className="project-card__subtitle">clone cording</div>
+              <div className="project-card__subtitle">Clonecoding</div>
             </div>
           </Link>
 
           <Link
-            to="/work/daily-diary"
+            to="/work/Daewoong"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample12.png")}
             onMouseLeave={handleMouseLeave}
           >
             <div className="project-card__content project-card__content--figma">
               <div className="project-card__title">Daewoong</div>
-              <div className="project-card__subtitle">clone cording</div>
+              <div className="project-card__subtitle">Clonecoding</div>
             </div>
           </Link>
 
@@ -125,7 +125,7 @@ export default function WorkPage() {
           >
             <div className="project-card__content project-card__content--figma">
               <div className="project-card__title">Dasoni therapy</div>
-              <div className="project-card__subtitle">clone cording</div>
+              <div className="project-card__subtitle">Clonecoding</div>
             </div>
           </Link>
 
@@ -206,7 +206,7 @@ export default function WorkPage() {
             <div className="project-card__content project-card__content--retour">
               <div className="project-card__title">AGENCY CREATIVE AUDIO</div>
               <div className="project-card__subtitle">
-                clone cording
+                Clonecoding
                 <br />
               </div>
             </div>
@@ -250,7 +250,7 @@ export default function WorkPage() {
             <div className="project-card__content project-card__content--recchiuti">
               <div className="project-card__title">Earphone-brand</div>
               <div className="project-card__subtitle">
-                project
+                Clonecoding
                 <br />
               </div>
             </div>

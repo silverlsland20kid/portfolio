@@ -141,7 +141,7 @@ ol {
   letter-spacing: -.02em;
   font-family: "Oswald", sans-serif;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 18px;
   text-decoration: none;
   display: flex;
@@ -257,10 +257,10 @@ ol {
 
 .project-list__thumb-viewer {
   position: absolute;
-  width: 350px;
-  height: 240px;
-  bottom: 240px;
-  left: 130px;
+  width: 26rem;
+  height: 16rem;
+  bottom: 25%;
+  left: 7%;
   border-radius: 10px;
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.08);
   background-size: cover;
@@ -282,7 +282,7 @@ ol {
   align-self: flex-start;
   padding-right: 10px;
   display: block;
-  margin-left: 9rem;
+  margin-left: 2rem;
 }
 
 .project-list__year-item {
@@ -456,7 +456,7 @@ ol {
 
 .contact-modal__title {
   font-size: 1.5rem;
-  font-family: "Goblin One", serif;
+  font-family: 'Oswald', Arial, sans-serif;
   color: var(--black);
   margin-bottom: 2rem;
   letter-spacing: -.05em;
@@ -484,7 +484,7 @@ ol {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  font-family: 'Oswald', Arial, sans-serif;
+  font-family: "Libertinus Serif", serif;
 }
 
 .contact-modal__link:hover,
@@ -514,15 +514,20 @@ ol {
 }
 
 .about-main {
-  width: 45%;
+  width: 47%;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  margin-left: 14vw;
+  gap: 1.5rem;
+  margin-left: 10rem;
+}
+
+.about-intro,
+.about-columns {
+  padding-left: 3rem;
 }
 
 .about-intro p {
-  font-size: 1.02rem;
+  font-size: 1rem;
   line-height: 1.55;
   color: var(--black);
 }
@@ -573,8 +578,8 @@ ol {
 
 .about-block li {
   margin-bottom: 1.5rem;
-  line-height: 1.5rem;
-  font-size: 1.02rem;
+  line-height: 1.8rem;
+  font-size: 1rem;
   letter-spacing: 0.01em;
   word-break: keep-all;
   font-family: "Oswald", Arial, sans-serif;
@@ -586,6 +591,13 @@ ol {
 
 .about-block li strong {
   font-weight: 900;
+}
+
+.about-block .about-block__txt {
+  color: var(--purp);
+  font-size: 0.9rem;
+  margin-left: 1rem;
+  opacity: 0.8;
 }
 
 .about-aptitude-img {
@@ -706,6 +718,10 @@ ol {
   font-weight: bold;
 }
 
+.back-to-top a:hover {
+  color: var(--purp);
+  transition: all 0.5s;
+}
 
 /* WorkDetailPage.jsx css */
 .project-detail-wrap {
@@ -770,13 +786,14 @@ ol {
 .work-detail__links {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
 }
 
 .work-detail__links a {
   font-size: .9rem;
   text-decoration: none;
   border-bottom: 1px solid #333;
+  font-family: "Libertinus Serif", serif;
+  font-weight: bold;
 }
 
 .work-detail__hero img {
@@ -905,7 +922,8 @@ ol {
 
 .work-detail__meta-label {
   font-weight: 500;
-  opacity: 0.6;
+  opacity: 0.8;
+  color: var(--purp);
 }
 
 .work-detail__meta-value {
@@ -958,12 +976,6 @@ ol {
 }
 
 /* 링크 버튼 영역 */
-.work-detail__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 .work-detail__link-btn {
   display: inline-flex;
   align-items: center;
@@ -985,13 +997,61 @@ ol {
   background: rgba(255, 255, 255, 0.16);
   border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-1px);
-  opacity: 1;
+  opacity: 0.8;
+  color: var(--purp);
 }
 
 .work-detail__link-btn--secondary {
   background: transparent;
   border-style: dashed;
 }
+
+.about-block h2 {
+  margin-bottom: 1rem;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-tag {
+  border: 1px solid var(--black);
+  background: transparent;
+  color: var(--black);
+  font-size: 13px;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: transform 0.18s ease, background 0.18s ease,
+    border-color 0.18s ease, color 0.18s ease;
+}
+
+.about-tag:hover {
+  background: var(--purp);
+  color: var(--white-smoke);
+  border-color: var(--purp);
+  opacity: 0.8;
+}
+
+.about-tag:focus {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  background: var(--white-smoke);
+  color: var(--black);
+  border-color: var(--white-smoke);
+}
+
+
+.about-tag-desc {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--black);
+}
+
 
 /* 반응형 */
 @media (max-width: 1024px) {
