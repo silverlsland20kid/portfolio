@@ -62,7 +62,7 @@ export default function WorkDetailPage() {
   }, []);
 
   return (
-    <div className="project-list">
+    <div className="project-list project-list--about">
       {/* Side (시계/도시 등) */}
       <aside className="project-list__side">
         {/* 시계 행 */}
@@ -150,10 +150,7 @@ export default function WorkDetailPage() {
                 <button
                   key={item.id}
                   type="button"
-                  className={"about-tag"(
-                    // 활성화된 키워드에 따라 클래스명 추가
-                    activeKeyword === item.id ? " about-tag--active" : ""
-                  )}
+                  className={"about-tag"}
                   onMouseEnter={() => setActiveKeyword(item.id)}
                   onFocus={() => setActiveKeyword(item.id)}
                 >

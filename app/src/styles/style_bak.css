@@ -222,14 +222,13 @@ ol {
 
 .main-section {
   z-index: 0;
-  justify-content: space-between;
   align-items: stretch;
   margin: 0px 0rem;
   padding: 25vh 2rem 0;
-  display: flex;
+  display: block;
   position: relative;
   inset: 0%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .project-list {
@@ -256,7 +255,7 @@ ol {
 }
 
 .project-list__thumb-viewer {
-  position: absolute;
+  position: fixed;
   width: 20rem !important;
   height: 14rem !important;
   z-index: 50;
@@ -1069,13 +1068,83 @@ ol {
 
 /* 반응형 */
 @media (max-width: 1024px) {
+  .main-section {
+    width: 100%;
+    padding: 120px 3rem 3rem;
+  }
+
+  .site-header__container {
+    padding: 0 1rem;
+    margin-right: 0;
+  }
+
+  .site-header__nav-item:nth-child(4) {
+    padding-left: 0;
+  }
+
+  .project-list {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-bottom: 0;
+    gap: 4rem;
+  }
+
+  .project-list__side {
+    position: static;
+    inset: auto;
+    min-width: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .project-list__years {
+    display: none;
+  }
+
   .project-detail-page {
     padding: 60px 28px;
     gap: 40px;
   }
+
+  .project-list__info-row:last-child {
+    display: none;
+  }
+
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1020px) {
+  .project-list__info-row:last-child {
+    display: block;
+  }
+
+  .about-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .lab-videos {
+    margin: 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .site-header__container {
+    justify-content: space-between;
+  }
+
+  .project-list {
+    gap: 1.5rem;
+  }
+
+  .project-list__side {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
   .project-detail-page {
     flex-direction: column;
     padding: 40px 20px 60px;
@@ -1085,16 +1154,114 @@ ol {
     max-width: 100%;
   }
 
+  .about-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
   .work-detail__title {
     font-size: 26px;
   }
+
+  .project-list__info-row:last-child {
+    display: block;
+  }
+
+  .lab-videos {
+    margin: 0;
+  }
+
+  .lab-videos__grid {
+    margin-bottom: 2rem;
+  }
+
 }
 
 
 
 @media (max-width: 500px) {
+  .main-section {
+    padding: 10rem 3rem 3rem;
+  }
+
   .contact-modal__content {
-    min-width: 95vw;
+    min-width: 75vw;
     padding: 1.5rem 0.8rem 1.8rem;
+  }
+
+  .site-header__container {
+    justify-content: space-between;
+  }
+
+  .site-header__nav {
+    width: 55%;
+  }
+
+  .site-header__nav-item {
+    margin: 0;
+  }
+
+  .project-card__title {
+    font-size: 1.7rem;
+  }
+
+  .project-list {
+    gap: 4.5rem;
+    padding: 0;
+    gap: 0.5rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .project-card__content {
+    margin-bottom: 0.5rem;
+  }
+
+  .site-header__link {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .project-list__info-row:last-child {
+    display: none;
+  }
+
+  .site-header__nav-item:nth-child(4) .site-header__link {
+    border-left: none;
+    padding: 0;
+  }
+
+  .project-card__link {
+    margin-bottom: 1.5rem;
+  }
+
+  .project-list--about .project-list__side {
+    display: none;
+    position: static;
+    /* 혹시 레이아웃 꼬임 방지용 */
+  }
+
+  .about-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .about-columns {
+    display: flex;
+    flex-flow: column;
+    gap: 0;
+  }
+
+  .about-intro,
+  .about-columns {
+    padding: 0;
+    word-break: keep-all;
+  }
+
+  .lab-videos {
+    margin: 0;
+    width: 100%;
   }
 }

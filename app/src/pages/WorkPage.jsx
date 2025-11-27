@@ -33,7 +33,7 @@ export default function WorkPage() {
         scale: 1.1,
         autoAlpha: 1,
         y: 0,
-        duration: 0.35,
+        duration: 0.25,
         ease: "power2.out",
       }
     );
@@ -134,7 +134,7 @@ export default function WorkPage() {
   }, []);
 
   return (
-    <div className="project-list work-hero-fade">
+    <div className="project-list work-hero-fade project-list--about">
       {/* 왼쪽 사이드(시계/도시) */}
       <ProjectSide />
 
