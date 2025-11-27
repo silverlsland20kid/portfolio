@@ -248,11 +248,11 @@ export const workProjects = {
   },
 
   //Earphone
-  Earphone: {
-    title: "Earphone-brand",
-    subtitle: "Earphone-brand",
+  Fitz: {
+    title: "Earphone-brand (Fitz)",
+    subtitle: "Earphone-brand (Fitz)",
     description: `
-      Earphone-brand 홈페이지 직접 디자인, 퍼블리싱한 프로젝트입니다.</br>
+      Earphone-brand Fitz 라는 브랜드를 직접 디자인, 퍼블리싱한 프로젝트입니다.</br>
       평소에 관심있었던 이어폰 기기들을 생각하여 자체 브랜딩 및 홈페이지를 제작해보았으며,
       시맨틱 마크업 기준으로 반응형 레이아웃을 작업했습니다.</br>
       jQuery,bootstrap 기반으로 각섹션 마다 사용자로부터 상품이 돋보이도록 ui,ux 경험을 중심으로 작업했습니다.</br>

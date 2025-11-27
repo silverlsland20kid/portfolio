@@ -225,13 +225,13 @@ export default function WorkPage() {
           </Link>
 
           <Link
-            to="/work/Earphone"
+            to="/work/Fitz"
             className="project-card__link work-card-anim"
             onMouseEnter={() => handleMouseEnter("/thumbs/sample09.png")}
             onMouseLeave={handleMouseLeave}
           >
             <div className="project-card__content project-card__content--recchiuti">
-              <div className="project-card__title">Earphone-brand</div>
+              <div className="project-card__title">Fitz (Earphone-brand)</div>
               <div className="project-card__subtitle">
                 Clonecoding
                 <br />
