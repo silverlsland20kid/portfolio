@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// GSAP 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LabPage() {
@@ -17,13 +18,16 @@ export default function LabPage() {
     { type: "mo", src: "/assets/video10_mo.mp4" },
   ];
 
+  // 콘텐츠 레퍼런스
   const contentRef = useRef(null);
 
+  // TOP으로 스크롤 이동 함수
   const backToTop = (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // 페이지 진입 시 GSAP 애니메이션 적용
   useEffect(() => {
     gsap.from(contentRef.current, {
       opacity: 0,

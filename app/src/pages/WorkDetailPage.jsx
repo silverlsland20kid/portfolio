@@ -4,12 +4,15 @@ import gsap from "gsap";
 import { workProjects } from "../data/workProjects";
 import ClockKST from "../components/ClockKST";
 
+// GSAP 플러그인 등록
 export default function WorkDetailPage() {
+  // URL 파라미터에서 slug 추출 후 해당 프로젝트 데이터 로드
   const { slug } = useParams();
+  // slug에 해당하는 프로젝트 정보 가져오기
   const project = workProjects[slug];
-
+  // 페이지 전체 레퍼런스
   const pageRef = useRef(null);
-
+  // 페이지 내 네비게이션 훅
   const navigate = useNavigate();
   useEffect(() => {
     const el = document.querySelector(".link-to-lab");
@@ -23,6 +26,7 @@ export default function WorkDetailPage() {
     };
   }, []);
 
+  // 페이지 진입 시 GSAP 애니메이션 적용
   useEffect(() => {
     // 이 페이지 안에서만 GSAP 적용
     const ctx = gsap.context(() => {
@@ -43,6 +47,7 @@ export default function WorkDetailPage() {
         delay: 0.1,
       });
 
+      // 섹션들 순차 등장
       gsap.from(".work-detail__section", {
         opacity: 0,
         y: 12,
@@ -53,9 +58,11 @@ export default function WorkDetailPage() {
       });
     }, pageRef);
 
+    // 클린업 함수: 페이지 떠날 때 애니메이션 정리
     return () => ctx.revert();
   }, []);
 
+  // 프로젝트 정보가 없으면 간단 메시지 출력
   if (!project)
     return (
       <div style={{ padding: "40px", color: "#fff" }}>

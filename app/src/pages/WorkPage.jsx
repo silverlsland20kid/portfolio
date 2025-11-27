@@ -4,25 +4,99 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// GSAP ScrollTrigger 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
 export default function WorkPage() {
-  const handleMouseEnter = (thumbUrl) => {
-    const viewer = document.getElementById("cardThumbViewer");
-    if (thumbUrl && viewer) {
-      viewer.style.backgroundImage = `url('${thumbUrl}')`;
-      viewer.classList.add("is-active");
+  const pageRef = useRef(null); // 페이지 레퍼런스
+  const thumbViewerRef = useRef(null); // 썸네일 뷰어 레퍼런스
+
+  // 마우스 엔터 시 썸네일 뷰어 처리
+  const handleMouseEnter = (thumbUrl, e) => {
+    const viewer = thumbViewerRef.current; // 뷰어 레퍼런스 가져오기
+    if (!viewer || !thumbUrl) return; // 뷰어나 썸네일 URL이 없으면 종료
+
+    // 1) 배경 이미지 교체
+    viewer.style.backgroundImage = `url('${thumbUrl}')`;
+
+    // 2) is-active 클래스 추가
+    viewer.classList.add("is-active");
+
+    // 3) 이전 트윈 정리
+    gsap.killTweensOf(viewer);
+
+    // 4) GSAP로 등장 애니메이션
+    gsap.fromTo(
+      viewer,
+      { scale: 0.8, autoAlpha: 0, y: 8 },
+      {
+        scale: 1.1,
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.35,
+        ease: "power2.out",
+      }
+    );
+
+    // 카드도 살짝 떠오르게
+    if (e?.currentTarget) {
+      gsap.to(e.currentTarget, {
+        y: -6,
+        scale: 1.1,
+        duration: 0.25,
+        ease: "power2.out",
+      });
     }
   };
 
-  const handleMouseLeave = () => {
-    const viewer = document.getElementById("cardThumbViewer");
+  // 마우스 리브 시 썸네일 뷰어 처리
+  const handleMouseLeave = (e) => {
+    const viewer = thumbViewerRef.current;
+
+    // 뷰어가 없으면 종료
     if (viewer) {
-      viewer.classList.remove("is-active");
-      viewer.style.backgroundImage = "";
+      // 이전 트윈 정리
+      gsap.killTweensOf(viewer);
+
+      // GSAP로 사라지는 애니메이션
+      gsap.to(viewer, {
+        scale: 0.8,
+        autoAlpha: 0,
+        y: 4,
+        duration: 0.25,
+        ease: "power2.inOut",
+        onComplete: () => {
+          viewer.style.backgroundImage = "";
+          // is-active도 같이 제거
+          viewer.classList.remove("is-active");
+        },
+      });
+    }
+
+    // 카드 원위치
+    if (e?.currentTarget) {
+      gsap.to(e.currentTarget, {
+        y: 0,
+        scale: 1,
+        duration: 0.25,
+        ease: "power2.out",
+      });
     }
   };
-  const pageRef = useRef(null);
+
+  // 마우스 무브 시 썸네일 뷰어 위치 업데이트
+  const handleMouseMove = (e) => {
+    const viewer = thumbViewerRef.current;
+    // 뷰어가 없으면 종료
+    if (!viewer) return;
+
+    const offset = 50; // 마우스에서 살짝 떨어져 보이게 하는 오프셋
+    const { clientX, clientY } = e; // 마우스 좌표 가져오기
+
+    // position: fixed 기준
+    viewer.style.left = clientX + offset + "px";
+    viewer.style.top = clientY + offset + "px";
+  };
 
   // 홈페이지 인트로애니메이션 추가 GSAP
   useEffect(() => {
@@ -37,6 +111,7 @@ export default function WorkPage() {
 
       gsap.set(".work-card-anim", { opacity: 0, y: 14 }); // 초기상태 고정
 
+      // 카드들 하나씩 등장 애니메이션
       gsap.utils.toArray(".work-card-anim").forEach((el, i) => {
         gsap.to(el, {
           opacity: 1,
@@ -54,6 +129,7 @@ export default function WorkPage() {
       });
     }, pageRef);
 
+    // 정리 함수
     return () => ctx.revert();
   }, []);
 
@@ -63,7 +139,11 @@ export default function WorkPage() {
       <ProjectSide />
 
       {/* 가운데 썸네일 뷰어 */}
-      <div className="project-list__thumb-viewer" id="cardThumbViewer"></div>
+      <div
+        className="project-list__thumb-viewer"
+        id="cardThumbViewer"
+        ref={thumbViewerRef}
+      ></div>
 
       {/* 오른쪽 연도 영역 */}
       <div className="project-list__years">
@@ -84,8 +164,9 @@ export default function WorkPage() {
           <Link
             to="/work/Subway"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample10.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample10.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--figma">
               <div className="project-card__title">Subway</div>
@@ -96,8 +177,9 @@ export default function WorkPage() {
           <Link
             to="/work/Nasmedia"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample11.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample11.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--figma">
               <div className="project-card__title">Nasmedia</div>
@@ -108,8 +190,9 @@ export default function WorkPage() {
           <Link
             to="/work/Daewoong"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample12.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample12.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--figma">
               <div className="project-card__title">Daewoong</div>
@@ -120,8 +203,9 @@ export default function WorkPage() {
           <Link
             to="/work/Dasoni"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample13.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample13.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--figma">
               <div className="project-card__title">Dasoni therapy</div>
@@ -132,8 +216,9 @@ export default function WorkPage() {
           <Link
             to="/work/KVILLAGE"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample00.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample00.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--new-exp">
               <div className="project-card__title">
@@ -149,8 +234,9 @@ export default function WorkPage() {
           <Link
             to="/work/Handsome"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample03.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample03.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--circle">
               <div className="project-card__title">
@@ -166,8 +252,9 @@ export default function WorkPage() {
           <Link
             to="/work/kolonmall"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample04.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample04.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--snap">
               <div className="project-card__title">
@@ -183,8 +270,9 @@ export default function WorkPage() {
           <Link
             to="/work/Agencycreativeaudio"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample07.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample07.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--retour">
               <div className="project-card__title">AGENCY CREATIVE AUDIO</div>
@@ -198,8 +286,9 @@ export default function WorkPage() {
           <Link
             to="/work/Namdomall"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample06.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample06.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--eames">
               <div className="project-card__title">Namdo-mall</div>
@@ -212,8 +301,9 @@ export default function WorkPage() {
           <Link
             to="/work/Yeongammall"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample05.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample05.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--recchiuti">
               <div className="project-card__title">Yeongam-mall</div>
@@ -227,8 +317,9 @@ export default function WorkPage() {
           <Link
             to="/work/Fitz"
             className="project-card__link work-card-anim"
-            onMouseEnter={() => handleMouseEnter("/thumbs/sample09.png")}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample09.png", e)}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             <div className="project-card__content project-card__content--recchiuti">
               <div className="project-card__title">Fitz (Earphone-brand)</div>

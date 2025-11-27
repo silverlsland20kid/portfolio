@@ -5,13 +5,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;600&display=swap');
 
 /* 00. Reset */
-* {margin: 0;padding: 0;}
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
-a {color: inherit; text-decoration: inherit;}
-li {list-style: none;}
-address, em, i {font-style: normal;}
-button {background: none; border: none;}
-img {vertical-align: middle;}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+address,
+em,
+i {
+  font-style: normal;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+img {
+  vertical-align: middle;
+}
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -24,6 +110,7 @@ body {
   margin: 0 auto;
   background-color: #141212;
   color: #fff;
+  overflow-x: hidden;
 }
 
 header {
@@ -32,7 +119,9 @@ header {
   z-index: 9999;
 }
 
-header .inner {padding: 30px 50px 0;}
+header .inner {
+  padding: 30px 50px 0;
+}
 
 header .inner .logo {
   width: 150px;
@@ -40,9 +129,18 @@ header .inner .logo {
   justify-content: space-between;
 }
 
-header .inner .logo span {padding: 0 1px;}
-header .inner .logo span img {width: 100%;}
-header .gnb {text-align: center;}
+header .inner .logo span {
+  padding: 0 1px;
+}
+
+header .inner .logo span img {
+  width: 100%;
+}
+
+header .gnb {
+  text-align: center;
+}
+
 header .gnb .menuOpen {
   font-size: 10px;
   position: absolute;
@@ -79,7 +177,7 @@ header .gnb .menuBox {
   top: -1000%;
   background-color: rgba(55, 55, 55, .4);
   backdrop-filter: blur(30px);
-  border-radius: 5px; 
+  border-radius: 5px;
   padding: 100px 0 30px;
   box-sizing: border-box;
   transition: all 1.5s;
@@ -90,12 +188,26 @@ header .gnb .menuBox.on {
   transition: all 1s;
 }
 
-header .gnb .menuBox.on li a {transform: translateY(0px);}
-header .gnb .menuBox.on li:nth-child(2) a { transition-delay: all 0.1s;}
-header .gnb .menuBox.on li:nth-child(3) a { transition-delay: all 0.15s;}
-header .gnb .menuBox.on li:nth-child(4) a { transition-delay: all 0.2s;}
+header .gnb .menuBox.on li a {
+  transform: translateY(0px);
+}
 
-header .gnb .menuBox li {overflow: hidden;}
+header .gnb .menuBox.on li:nth-child(2) a {
+  transition-delay: all 0.1s;
+}
+
+header .gnb .menuBox.on li:nth-child(3) a {
+  transition-delay: all 0.15s;
+}
+
+header .gnb .menuBox.on li:nth-child(4) a {
+  transition-delay: all 0.2s;
+}
+
+header .gnb .menuBox li {
+  overflow: hidden;
+}
+
 header .gnb .menuBox li a {
   display: block;
   font-size: 40px;
@@ -104,7 +216,10 @@ header .gnb .menuBox li a {
 }
 
 /*visual*/
-.visual {margin-bottom: 0;}
+.visual {
+  margin-bottom: 0;
+}
+
 .visual .inner {
   display: grid;
   height: 100vh;
@@ -122,30 +237,51 @@ header .gnb .menuBox li a {
   letter-spacing: -2px;
 }
 
-.visual .inner .mainText sapn {display: block; overflow: hidden;}
-.visual .inner .mainText sapn i {display: block;}
+.visual .inner .mainText sapn {
+  display: block;
+  overflow: hidden;
+}
+
+.visual .inner .mainText sapn i {
+  display: block;
+}
+
 .visual .inner .subText {
   font-weight: normal;
   font-size: 20px;
   align-self: flex-end;
   margin-bottom: 50px;
 }
-.visual .inner .subText span {color: #585858;}
 
-.visual .logoWrap {display: flex; justify-content: space-between;}
-.visual .logoWrap span {width: 16%;}
-.visual .logoWrap span img {width: 100%;}
+.visual .inner .subText span {
+  color: #585858;
+}
+
+.visual .logoWrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.visual .logoWrap span {
+  width: 16%;
+}
+
+.visual .logoWrap span img {
+  width: 100%;
+}
 
 /*공통요소 스타일적용*/
-section {margin-bottom:150px;}
+section {
+  margin-bottom: 150px;
+}
 
 .inner {
-  padding: 0 50px; 
+  padding: 0 50px;
   box-sizing: border-box;
 }
 
 .box {
-  border-radius: 10px; 
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -167,7 +303,7 @@ section {margin-bottom:150px;}
   background-color: rgba(55, 55, 55, 0.4);
   backdrop-filter: blur(100px);
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   row-gap: 90px;
 }
 
@@ -190,6 +326,7 @@ section {margin-bottom:150px;}
   margin-top: 14px;
   position: relative;
 }
+
 .con1 .textAni:before {
   content: '';
   width: 110px;
@@ -201,11 +338,23 @@ section {margin-bottom:150px;}
   right: 0;
   animation: opa linear 1.5s infinite;
 }
+
 @keyframes opa {
-  0% {opacity: 0;}
-  30% {opacity: 1;}
-  80% {opacity: 1;}
-  100% {opacity: 0;}
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .con1 .textAni ul {
@@ -228,6 +377,7 @@ section {margin-bottom:150px;}
   position: relative;
   padding: 40px 50px;
 }
+
 .con2 .inner:before {
   content: '';
   width: 95%;
@@ -239,7 +389,10 @@ section {margin-bottom:150px;}
   top: 0;
 }
 
-.con2 .mainTextBox { position: relative;}
+.con2 .mainTextBox {
+  position: relative;
+}
+
 .con2 .mainTextBox span {
   position: absolute;
   right: 0;
@@ -257,7 +410,9 @@ section {margin-bottom:150px;}
   margin-right: 20px;
 }
 
-.con2 .mainTextBox .in .box video { width: 100%; }
+.con2 .mainTextBox .in .box video {
+  width: 100%;
+}
 
 .con2 .mainTextBox .title {
   font-size: 120px;
@@ -267,11 +422,19 @@ section {margin-bottom:150px;}
   overflow: hidden;
 }
 
-.con2 .mainTextBox .title i { display: block; }
-.con2 .mainTextBox .title.a { align-self: flex-end; }
-.con2 .mainTextBox .title.b { margin-right: 400px; }
+.con2 .mainTextBox .title i {
+  display: block;
+}
 
-.con2 .subTextBox { 
+.con2 .mainTextBox .title.a {
+  align-self: flex-end;
+}
+
+.con2 .mainTextBox .title.b {
+  margin-right: 400px;
+}
+
+.con2 .subTextBox {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -282,15 +445,23 @@ section {margin-bottom:150px;}
   font-size: 22px;
 }
 
-.con2 .subTextBox .subText p:nth-child(2) { margin-bottom: 20px; }
+.con2 .subTextBox .subText p:nth-child(2) {
+  margin-bottom: 20px;
+}
 
-.con2 .subTextBox .iconbox { display: flex; }
-.con2 .subTextBox .iconbox li { 
+.con2 .subTextBox .iconbox {
+  display: flex;
+}
+
+.con2 .subTextBox .iconbox li {
   width: 28px;
   margin: 0 10px;
-  place-items: center; 
+  place-items: center;
 }
-.con2 .subTextBox .iconbox li:last-child { width: 40px; }
+
+.con2 .subTextBox .iconbox li:last-child {
+  width: 40px;
+}
 
 /* con3 */
 .con3 .inner {
@@ -298,8 +469,11 @@ section {margin-bottom:150px;}
   justify-content: space-between;
 }
 
-.con3 .textBox { width: 28%; }
-.con3 .textBox h4 { 
+.con3 .textBox {
+  width: 28%;
+}
+
+.con3 .textBox h4 {
   font-size: 60px;
   font-weight: normal;
   position: sticky;
@@ -309,7 +483,7 @@ section {margin-bottom:150px;}
 }
 
 .con3 .listBox {
-  width: 70%; 
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -343,14 +517,31 @@ section {margin-bottom:150px;}
   opacity: 0.5;
 }
 
-.con3 .listBox li[data-color="a"]{--sub--color: #d1dbfd;}
-.con3 .listBox li[data-color="b"]{--sub--color: #90c3cd;}
-.con3 .listBox li[data-color="c"]{--sub--color: #ff764a;}
-.con3 .listBox li[data-color="d"]{--sub--color: #47b172;}
-.con3 .listBox li[data-color="e"]{--sub--color: #ffb84f;}
+.con3 .listBox li[data-color="a"] {
+  --sub--color: #d1dbfd;
+}
+
+.con3 .listBox li[data-color="b"] {
+  --sub--color: #90c3cd;
+}
+
+.con3 .listBox li[data-color="c"] {
+  --sub--color: #ff764a;
+}
+
+.con3 .listBox li[data-color="d"] {
+  --sub--color: #47b172;
+}
+
+.con3 .listBox li[data-color="e"] {
+  --sub--color: #ffb84f;
+}
 
 /* con4 */
-.con4 .mainTextBox { position: relative; }
+.con4 .mainTextBox {
+  position: relative;
+}
+
 .con4 .mainTextBox span {
   position: absolute;
   right: 0;
@@ -364,9 +555,17 @@ section {margin-bottom:150px;}
   overflow: hidden;
 }
 
-.con4 .mainTextBox .title i { display: block; }
-.con4 .mainTextBox .title.b { text-align: center; }
-.con4 .mainTextBox .title.c { align-self: flex-start; }
+.con4 .mainTextBox .title i {
+  display: block;
+}
+
+.con4 .mainTextBox .title.b {
+  text-align: center;
+}
+
+.con4 .mainTextBox .title.c {
+  align-self: flex-start;
+}
 
 .con4 .mainTextBox .in {
   display: flex;
@@ -393,7 +592,7 @@ section {margin-bottom:150px;}
   position: sticky;
   position: -webkit-sticky;
   top: 100px;
-  filter: brightness(1); 
+  filter: brightness(1);
 }
 
 .con4 .listBox .box h2 {
@@ -402,7 +601,7 @@ section {margin-bottom:150px;}
   letter-spacing: -2px;
   padding-bottom: 20px;
   border-bottom: 1px solid #ddd;
-  grid-column:  1/3;
+  grid-column: 1/3;
   margin-bottom: 100px;
 }
 
@@ -424,9 +623,17 @@ section {margin-bottom:150px;}
   opacity: 0.5;
 }
 
-.con4 .listBox .box.a h3 { color: #ffb84f; }
-.con4 .listBox .box.b h3 { color: #90c3cd; }
-.con4 .listBox .box.c h3 { color: #47b172; }
+.con4 .listBox .box.a h3 {
+  color: #ffb84f;
+}
+
+.con4 .listBox .box.b h3 {
+  color: #90c3cd;
+}
+
+.con4 .listBox .box.c h3 {
+  color: #47b172;
+}
 
 .con4 .subTextBox {
   display: grid;
@@ -439,7 +646,9 @@ section {margin-bottom:150px;}
   grid-column-start: 2;
 }
 
-.con4 .subTextBox .subText p:nth-child(1) { margin-bottom: 20px; }
+.con4 .subTextBox .subText p:nth-child(1) {
+  margin-bottom: 20px;
+}
 
 /* con5 */
 .con5 {
@@ -489,7 +698,9 @@ section {margin-bottom:150px;}
   z-index: 100;
 }
 
-.wrap.on { overflow: hidden; }
+.wrap.on {
+  overflow: hidden;
+}
 
 /* footer */
 footer {
@@ -543,7 +754,7 @@ footer .inner .box .talkBtn a {
   display: block;
   width: 95px;
   height: 95px;
-  border-radius: 100%; 
+  border-radius: 100%;
   box-shadow: 0 0 0 13px #1c1c1c, 0 0 50px rgba(255, 255, 255, 0.3);
 }
 
@@ -578,7 +789,9 @@ footer .inner .box .btnBox .btn {
   opacity: 0.5;
 }
 
-footer .inner .box .btnBox .btn:hover { opacity: 1; }
+footer .inner .box .btnBox .btn:hover {
+  opacity: 1;
+}
 
 footer .copyright {
   flex-direction: row;
@@ -637,39 +850,94 @@ footer .logoWrap span img {
   width: 100%;
 }
 
-.loading.scene1 {display: block;}
-.loading.scene1 .logo span {animation-name: up; animation-duration: 1s;}
-@keyframes up {
-  0% {transform: translateY(30px);}
-  30% {transform: translateY(30px);}
-  100% {transform: translateY(0px);}
+.loading.scene1 {
+  display: block;
 }
 
-.loading.scene2 .logo span:nth-child(1) {opacity: 0; transition: 0.1s;}
-.loading.scene2 .logo span:nth-child(2) {opacity: 0; transition: 0.3s;}
-.loading.scene2 .logo span:nth-child(3) {opacity: 0; transition: 0.5s;}
-.loading.scene2 .logo span:nth-child(4) {opacity: 0; transition: 0.6s;}
-.loading.scene2 .logo span:nth-child(5) {opacity: 0; transition: 0.7s;}
-.loading.scene2 .logo span:nth-child(6) {opacity: 0; transition: 0.8s;}
+.loading.scene1 .logo span {
+  animation-name: up;
+  animation-duration: 1s;
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(30px);
+  }
+
+  30% {
+    transform: translateY(30px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.loading.scene2 .logo span:nth-child(1) {
+  opacity: 0;
+  transition: 0.1s;
+}
+
+.loading.scene2 .logo span:nth-child(2) {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.loading.scene2 .logo span:nth-child(3) {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.loading.scene2 .logo span:nth-child(4) {
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.loading.scene2 .logo span:nth-child(5) {
+  opacity: 0;
+  transition: 0.7s;
+}
+
+.loading.scene2 .logo span:nth-child(6) {
+  opacity: 0;
+  transition: 0.8s;
+}
 
 /*페이지로딩 애니메이션*/
-.rotate.on {animation-name: rotate; animation-duration: 1.2s;}
+.rotate.on {
+  animation-name: rotate;
+  animation-duration: 1.2s;
+}
+
 @keyframes rotate {
   0% {
-    transform-origin: 0 0; 
+    transform-origin: 0 0;
     transform: translate(0px, 100%) rotate(20deg);
     transition: 1s;
   }
+
   100% {
-    transform-origin: 0 0; 
+    transform-origin: 0 0;
     transform: translate(0px, 0px) rotate(0deg);
     transition: 1s;
   }
 }
 
-.opacity.on {animation-name: fadeIn; animation-duration: 2s;}
+.opacity.on {
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
 @keyframes fadeIn {
-  0% {opacity:0;}
-  50% {opacity:0;}
-  100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

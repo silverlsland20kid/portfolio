@@ -3,9 +3,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 export default function Header({ onOpenContact }) {
+  // 현재 경로 확인
   const location = useLocation();
+  // 헤더 ref
   const headerRef = useRef(null);
 
+  // 현재 경로와 비교하는 함수
   const isCurrent = (path) =>
     path === "/"
       ? location.pathname === "/"
@@ -13,10 +16,12 @@ export default function Header({ onOpenContact }) {
 
   // 헤더 애니메이션 GSAP
   useEffect(() => {
+    // GSAP 컨텍스트 설정
     const ctx = gsap.context(() => {
       // 라우트 바뀔 때마다 초기상태 다시 세팅
       gsap.set(headerRef.current, { y: -45, opacity: 0 });
 
+      // 헤더 나타나는 애니메이션
       gsap.to(headerRef.current, {
         y: 0,
         opacity: 1,

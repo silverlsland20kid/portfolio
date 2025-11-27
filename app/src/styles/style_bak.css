@@ -238,7 +238,7 @@ ol {
   flex: 1;
   justify-content: center;
   height: auto;
-  padding: 0;
+  padding-bottom: 7rem;
   display: flex;
   position: static;
 }
@@ -257,10 +257,9 @@ ol {
 
 .project-list__thumb-viewer {
   position: absolute;
-  width: 26rem;
-  height: 16rem;
-  bottom: 25%;
-  left: 7%;
+  width: 20rem !important;
+  height: 14rem !important;
+  z-index: 50;
   border-radius: 10px;
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.08);
   background-size: cover;
@@ -268,6 +267,7 @@ ol {
   display: none;
   align-self: center;
   transition: opacity 0.2s;
+  transform-origin: center center;
 }
 
 .project-list__thumb-viewer.is-active {

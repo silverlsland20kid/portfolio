@@ -3,16 +3,19 @@ import ClockKST from "../components/ClockKST";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// GSAP 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
 export default function WorkDetailPage() {
+  // 콘텐츠 레퍼런스
   const contentRef = useRef(null);
 
+  // 성격 키워드 데이터
   const personalityKeywords = [
     {
       id: "autonomy",
       label: "자율적 몰입",
-      desc: "스스로 과제를 정의하고, 마감만 정해지면 알아서 깊게 파고드는 편입니다. 지시를 기다리기보다 먼저 구조를 잡고 제안하는 스타일입니다.",
+      desc: "스스로 과제를 정의하고, 마감기간이 정해지면 알아서 깊게 파고드는 편입니다. 지시를 기다리기보다 먼저 구조를 잡고 제안하는 스타일입니다.",
     },
     {
       id: "challenge",
@@ -27,7 +30,7 @@ export default function WorkDetailPage() {
     {
       id: "coordination",
       label: "조율형 리더십",
-      desc: "앞에서 끌기보다는 팀 안에서 흐름을 정리하고, 이해관계를 조율하는 역할에 강합니다. 기획·디자인·개발 사이의 언어를 번역하는 걸 좋아합니다.",
+      desc: "앞에서 끌기보다는 팀 안에서 흐름을 정리하고, 이해관계를 조율하는 역할에 강합니다. 기획·디자인·개발 사이의 언어를 번역하는걸 좋아합니다.",
     },
     {
       id: "stability",
@@ -36,38 +39,10 @@ export default function WorkDetailPage() {
     },
   ];
 
+  // 활성화된 키워드 상태
   const [activeKeyword, setActiveKeyword] = useState("autonomy");
 
-  useEffect(() => {
-    const tags = document.querySelectorAll(".about-tag");
-
-    tags.forEach((tag) => {
-      gsap.set(tag, { transformPerspective: 600 });
-
-      tag.addEventListener("mousemove", (e) => {
-        const rect = tag.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        gsap.to(tag, {
-          rotateY: x * 0.08,
-          rotateX: -y * 0.08,
-          duration: 0.25,
-          ease: "power3.out",
-        });
-      });
-
-      tag.addEventListener("mouseleave", () => {
-        gsap.to(tag, {
-          rotateY: 0,
-          rotateX: 0,
-          duration: 0.35,
-          ease: "power3.out",
-        });
-      });
-    });
-  }, []);
-
+  // 페이지 진입 시 GSAP 애니메이션 적용
   useEffect(() => {
     gsap.from(contentRef.current, {
       opacity: 0,
@@ -175,10 +150,10 @@ export default function WorkDetailPage() {
                 <button
                   key={item.id}
                   type="button"
-                  className={
-                    "about-tag" +
-                    (activeKeyword === item.id ? " about-tag--active" : "")
-                  }
+                  className={"about-tag"(
+                    // 활성화된 키워드에 따라 클래스명 추가
+                    activeKeyword === item.id ? " about-tag--active" : ""
+                  )}
                   onMouseEnter={() => setActiveKeyword(item.id)}
                   onFocus={() => setActiveKeyword(item.id)}
                 >
@@ -188,6 +163,7 @@ export default function WorkDetailPage() {
             </div>
 
             <div className="about-tag-desc">
+              {/* 활성화된 키워드의 설명 표시 */}
               {personalityKeywords.find((k) => k.id === activeKeyword)?.desc}
             </div>
           </div>

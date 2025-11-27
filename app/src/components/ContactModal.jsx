@@ -11,10 +11,12 @@ export default function ContactModal({ isOpen, onClose }) {
     return () => {
       document.body.style.overflow = "";
     };
+    // 의존성 배열에 isOpen 추가
   }, [isOpen]);
 
   // ESC로 닫기
   useEffect(() => {
+    // ESC 키 이벤트 핸들러
     const handleEsc = (e) => {
       if (e.key === "Escape") onClose();
     };
@@ -22,6 +24,7 @@ export default function ContactModal({ isOpen, onClose }) {
     return () => document.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
+  // 모달이 열려있지 않으면 null 반환
   if (!isOpen) return null;
 
   return (
