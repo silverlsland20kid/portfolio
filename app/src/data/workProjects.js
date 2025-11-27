@@ -28,7 +28,7 @@ export const workProjects = {
 
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/subway",
-    demo: "https://",
+    demo: "https://subway-liart.vercel.app/",
   },
 
   //나스미디어
@@ -50,7 +50,7 @@ export const workProjects = {
 
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/nasmedia",
-    demo: "https://",
+    demo: "https://nasmedia-alpha.vercel.app/",
   },
 
   //대웅제약
@@ -71,7 +71,7 @@ export const workProjects = {
 
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/daewoong",
-    demo: "https://",
+    demo: "https://daewoong-nine.vercel.app/",
   },
 
   //다소니
@@ -93,7 +93,7 @@ export const workProjects = {
 
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/daewoong",
-    demo: "https://",
+    demo: "https://dasoni-five.vercel.app/",
   },
 
   //KVILLAGE
@@ -198,7 +198,7 @@ export const workProjects = {
 
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/Agencycreativeaudio",
-    demo: "https://",
+    demo: "https://agencycreativeaudio.vercel.app/",
   },
 
   //남도장터
@@ -265,6 +265,6 @@ export const workProjects = {
 
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/Fitz",
-    demo: "https://",
+    demo: "https://fitz-alpha.vercel.app/",
   },
 };
