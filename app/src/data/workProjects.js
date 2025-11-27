@@ -264,7 +264,7 @@ export const workProjects = {
     skills: ["HTML5", "CSS", "JavaScript(ES6+)", "jQuery"],
 
     github:
-      "https://github.com/silverlsland20kid/portfolio/tree/main/projects/Earphone",
+      "https://github.com/silverlsland20kid/portfolio/tree/main/projects/Fitz",
     demo: "https://",
   },
 };
