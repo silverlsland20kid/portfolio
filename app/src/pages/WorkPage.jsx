@@ -191,7 +191,7 @@ export default function WorkPage() {
           <Link
             to="/work/todoapp"
             className="project-card__link work-card-anim"
-            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample11.png", e)}
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample14.png", e)}
             onMouseLeave={handleMouseLeave}
             onMouseMove={handleMouseMove}
           >

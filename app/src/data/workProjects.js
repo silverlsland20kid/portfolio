@@ -72,7 +72,7 @@ export const workProjects = {
 
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/todoapp",
-    demo: "",
+    demo: "https://daewoong-nine.vercel.app",
   },
 
   //대웅제약
