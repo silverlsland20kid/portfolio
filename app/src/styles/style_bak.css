@@ -115,6 +115,17 @@ ol {
   list-style: none;
 }
 
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  width: 100%;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
 .site-header__container {
   z-index: 1;
   display: flex;
@@ -123,8 +134,6 @@ ol {
   align-items: stretch;
   margin-left: 20px;
   margin-right: 20px;
-  position: fixed;
-  inset: 0% 0% auto;
 }
 
 .site-header__logo {
@@ -1050,14 +1059,11 @@ ol {
   opacity: 0.8;
 }
 
-.about-tag:focus {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.08);
-  background: var(--white-smoke);
-  color: var(--black);
-  border-color: var(--white-smoke);
+.about-tag.tapped {
+  background: var(--purp);
+  color: var(--white-smoke);
+  border-color: var(--purp);
 }
-
 
 .about-tag-desc {
   font-size: 1rem;
@@ -1071,6 +1077,35 @@ ol {
   .main-section {
     width: 100%;
     padding: 120px 3rem 3rem;
+  }
+
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .site-header.is-hidden {
+    transform: translateY(-100%);
+  }
+
+  .site-header.is-visible {
+    transform: translateY(0);
+  }
+
+  .site-header.is-top {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .site-header.is-scrolled {
+    background: rgba(250, 249, 246, 0.9);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   }
 
   .site-header__container {
@@ -1132,17 +1167,33 @@ ol {
 
 @media (max-width: 768px) {
 
+  .main-section {
+    padding-bottom: 0;
+  }
+
+  .site-header__logo {
+    padding: 2rem 0.8rem;
+  }
+
+  .site-header__nav {
+    padding-bottom: 2rem;
+    width: 60%;
+  }
+
+  .site-header__nav-item {
+    margin: 0;
+  }
+
   .site-header__container {
     justify-content: space-between;
   }
 
   .project-list {
-    gap: 1.5rem;
+    gap: 6rem;
   }
 
   .project-list__side {
-    gap: 0.75rem;
-    margin-bottom: 2rem;
+    gap: 4rem;
   }
 
   .project-detail-page {
@@ -1164,7 +1215,7 @@ ol {
   }
 
   .project-list__info-row:last-child {
-    display: block;
+    display: none;
   }
 
   .lab-videos {
@@ -1181,7 +1232,7 @@ ol {
 
 @media (max-width: 500px) {
   .main-section {
-    padding: 10rem 3rem 3rem;
+    padding: 9rem 3rem 0;
   }
 
   .contact-modal__content {
@@ -1189,12 +1240,53 @@ ol {
     padding: 1.5rem 0.8rem 1.8rem;
   }
 
+  .site-header__logo {
+    align-items: center;
+    padding: 1.5rem 0.5rem;
+    z-index: 5;
+  }
+
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .site-header.is-hidden {
+    transform: translateY(-100%);
+  }
+
+  .site-header.is-visible {
+    transform: translateY(0);
+  }
+
+  .site-header.is-top {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .site-header.is-scrolled {
+    background: rgba(250, 249, 246, 0.9);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+
+  .site-header__link:nth-child(3) {
+    margin-left: -0.5rem;
+  }
+
   .site-header__container {
     justify-content: space-between;
+    align-items: center;
   }
 
   .site-header__nav {
     width: 55%;
+    padding: 0;
   }
 
   .site-header__nav-item {
@@ -1240,12 +1332,16 @@ ol {
   .project-list--about .project-list__side {
     display: none;
     position: static;
-    /* 혹시 레이아웃 꼬임 방지용 */
+  }
+
+  .work-detail__description {
+    margin-bottom: 0;
   }
 
   .about-main {
     width: 100%;
     margin-left: 0;
+    gap: 3rem;
   }
 
   .about-columns {
@@ -1263,5 +1359,24 @@ ol {
   .lab-videos {
     margin: 0;
     width: 100%;
+  }
+
+  .about-intro p,
+  .about-block li,
+  .about-tag-desc,
+  .work-detail__description {
+    font-size: 0.8rem;
+  }
+
+  .about-tag {
+    font-size: 0.8rem;
+  }
+
+  .about-tags {
+    margin-bottom: 2rem;
+  }
+
+  .about-tag-desc {
+    margin-bottom: 3rem;
   }
 }

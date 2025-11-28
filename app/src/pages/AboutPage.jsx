@@ -150,9 +150,15 @@ export default function WorkDetailPage() {
                 <button
                   key={item.id}
                   type="button"
-                  className={"about-tag"}
+                  className={
+                    "about-tag" + (activeKeyword === item.id ? " tapped" : "")
+                  }
+                  // 데스크톱: 호버/포커스로 설명 변경
                   onMouseEnter={() => setActiveKeyword(item.id)}
                   onFocus={() => setActiveKeyword(item.id)}
+                  // 모바일/공통: 탭 or 클릭 시도 설명 변경
+                  onClick={() => setActiveKeyword(item.id)}
+                  onTouchStart={() => setActiveKeyword(item.id)}
                 >
                   {item.label}
                 </button>

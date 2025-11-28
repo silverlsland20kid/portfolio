@@ -70,7 +70,7 @@ export default function WorkDetailPage() {
       </div>
     );
   return (
-    <div className="project-list project-detail-page">
+    <div className="project-list project-detail-page project-list--about">
       {/* SIDE (Clock + City) */}
       <aside className="project-list__side">
         <div className="project-list__info-row">
