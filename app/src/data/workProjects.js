@@ -54,9 +54,9 @@ export const workProjects = {
   },
 
   //투두앱
-  Nasmedia: {
-    title: "Nasmedia – Clonecoding",
-    subtitle: "Nasmedia hompage Clonecoding",
+  todoapp: {
+    title: "todoapp – Project",
+    subtitle: "todoapp Project",
     description: `
       이 프로젝트는 리액트(useReducer) 기반의 상태 관리와 미니멀한 UI/UX를 중심으로 구현한 Todo 애플리케이션입니다. <br />
       사용자 경험을 우선으로 고려해, 복잡한 기능 없이도 할 일을 빠르게 기록·완료·검색할 수 있도록 설계했습니다.<br />
@@ -71,7 +71,7 @@ export const workProjects = {
     skills: ["HTML5", "CSS", "JavaScript(ES6+)", "React"],
 
     github:
-      "https://github.com/silverlsland20kid/portfolio/tree/main/projects/nasmedia",
+      "https://github.com/silverlsland20kid/portfolio/tree/main/projects/todoapp",
     demo: "",
   },
 
