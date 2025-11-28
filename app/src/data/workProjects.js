@@ -53,6 +53,28 @@ export const workProjects = {
     demo: "https://nasmedia-alpha.vercel.app/",
   },
 
+  //투두앱
+  Nasmedia: {
+    title: "Nasmedia – Clonecoding",
+    subtitle: "Nasmedia hompage Clonecoding",
+    description: `
+      이 프로젝트는 리액트(useReducer) 기반의 상태 관리와 미니멀한 UI/UX를 중심으로 구현한 Todo 애플리케이션입니다. <br />
+      사용자 경험을 우선으로 고려해, 복잡한 기능 없이도 할 일을 빠르게 기록·완료·검색할 수 있도록 설계했습니다.<br />
+
+      전체적인 디자인은 **톤온톤(Tone-on-tone) 구성과 포인트 컬러(#F7CD46)**를 사용해 <br />
+      간결하면서도 시각적으로 안정감을 주도록 구성했으며, <br />
+      주요 인터랙션은 부드러운 애니메이션과 자연스러운 포커스 스타일로 완성했습니다.<br />
+    `,
+    year: "2025",
+    role: "Publishing",
+    duration: "약 1주",
+    skills: ["HTML5", "CSS", "JavaScript(ES6+)", "React"],
+
+    github:
+      "https://github.com/silverlsland20kid/portfolio/tree/main/projects/nasmedia",
+    demo: "",
+  },
+
   //대웅제약
   Daewoong: {
     title: "Daewoong – Clonecoding",

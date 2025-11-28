@@ -121,7 +121,7 @@ export default function WorkPage() {
           delay: i * 0.06,
           scrollTrigger: {
             trigger: el,
-            start: "top 99.9%",
+            start: "top 100%",
             toggleActions: "play none none none",
             once: true,
           },
@@ -148,6 +148,7 @@ export default function WorkPage() {
       {/* 오른쪽 연도 영역 */}
       <div className="project-list__years">
         <div className="project-list__year-item">[2025]</div>
+        <div className="project-list__year-item"></div>
         <div className="project-list__year-item"></div>
         <div className="project-list__year-item"></div>
         <div className="project-list__year-item"></div>
@@ -184,6 +185,19 @@ export default function WorkPage() {
             <div className="project-card__content project-card__content--figma">
               <div className="project-card__title">Nasmedia</div>
               <div className="project-card__subtitle">Clonecoding</div>
+            </div>
+          </Link>
+
+          <Link
+            to="/work/todoapp"
+            className="project-card__link work-card-anim"
+            onMouseEnter={(e) => handleMouseEnter("/thumbs/sample11.png", e)}
+            onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
+          >
+            <div className="project-card__content project-card__content--figma">
+              <div className="project-card__title">Todo-App</div>
+              <div className="project-card__subtitle">Project</div>
             </div>
           </Link>
 
@@ -324,7 +338,7 @@ export default function WorkPage() {
             <div className="project-card__content project-card__content--recchiuti">
               <div className="project-card__title">Fitz (Earphone-brand)</div>
               <div className="project-card__subtitle">
-                Clonecoding
+                Project
                 <br />
               </div>
             </div>
