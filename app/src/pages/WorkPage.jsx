@@ -7,6 +7,57 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // GSAP ScrollTrigger 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
+// 모바일 썸네일 데이터
+const mobileThumbData = [
+  { src: "/thumbs/sample10.png", label: "Subway", link: "/work/Subway" },
+  { src: "/thumbs/sample11.png", label: "Nasmedia", link: "/work/Nasmedia" },
+  { src: "/thumbs/sample14.png", label: "Todo-App", link: "/work/todoapp" },
+  { src: "/thumbs/sample12.png", label: "Daewoong", link: "/work/Daewoong" },
+  {
+    src: "/thumbs/sample13.png",
+    label: "Dasoni therapy",
+    link: "/work/Dasoni",
+  },
+  { src: "/thumbs/sample00.png", label: "K2 / Eider", link: "/work/KVILLAGE" },
+  { src: "/thumbs/sample03.png", label: "Handsome", link: "/work/Handsome" },
+  { src: "/thumbs/sample04.png", label: "Kolonmall", link: "/work/Kolonmall" },
+  {
+    src: "/thumbs/sample07.png",
+    label: "Agency Creative Audio",
+    link: "/work/Agencycreativeaudio",
+  },
+  { src: "/thumbs/sample06.png", label: "Namdo-mall", link: "/work/Namdomall" },
+  {
+    src: "/thumbs/sample05.png",
+    label: "Yeongam-mall",
+    link: "/work/Yeongammall",
+  },
+  { src: "/thumbs/sample09.png", label: "Fitz", link: "/work/Fitz" },
+];
+
+// 모바일 썸네일 스트립 컴포넌트
+function MobileThumbStrip() {
+  return (
+    <div className="mobile-thumb-strip">
+      {/* <div className="mobile-thumb-strip__label">PROJECT PREVIEW</div> */}
+      <div className="mobile-thumb-strip__inner">
+        {mobileThumbData.map((item) => (
+          <Link
+            to={item.link}
+            key={item.label}
+            className="mobile-thumb-strip__item"
+          >
+            <div className="mobile-thumb-strip__img-wrap">
+              <img src={item.src} alt={item.label} />
+            </div>
+            <span className="mobile-thumb-strip__caption">{item.label}</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function WorkPage() {
   const pageRef = useRef(null); // 페이지 레퍼런스
   const thumbViewerRef = useRef(null); // 썸네일 뷰어 레퍼런스
@@ -127,7 +178,39 @@ export default function WorkPage() {
           },
         });
       });
-    }, pageRef);
+
+      // 모바일 썸네일 스트립 전체 컨테이너 등장
+      gsap.from(".mobile-thumb-strip", {
+        opacity: 0,
+        y: 24,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".mobile-thumb-strip",
+          start: "top 95%",
+          toggleActions: "play none none none",
+          once: true,
+        },
+      });
+
+      // 각 썸네일 아이템들 살짝씩 순차 등장
+      gsap.utils.toArray(".mobile-thumb-strip__item").forEach((el, i) => {
+        gsap.from(el, {
+          opacity: 0,
+          y: 12,
+          scale: 0.96,
+          duration: 0.5,
+          delay: i * 0.03,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".mobile-thumb-strip",
+            start: "top 95%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        });
+      });
+    });
 
     // 정리 함수
     return () => ctx.revert();
@@ -345,6 +428,9 @@ export default function WorkPage() {
           </Link>
         </div>
       </section>
+
+      {/* 모바일 전용 썸네일 스트립 */}
+      <MobileThumbStrip />
     </div>
   );
 }
