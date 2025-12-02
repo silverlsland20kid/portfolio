@@ -941,3 +941,525 @@ footer .logoWrap span img {
     opacity: 1;
   }
 }
+
+
+/* =========================================
+   1) 1200px 이하 : 여백, 폰트 크기 살짝 축소
+========================================= */
+@media (max-width: 1200px) {
+  .inner {
+    padding: 0 3.5rem;
+  }
+
+  header .inner {
+    padding: 2.5rem 3.5rem 0;
+  }
+
+  .visual .inner {
+    padding: 2rem 3.5rem 2rem;
+  }
+
+  .visual .inner .mainText {
+    width: 100%;
+    font-size: 6.5rem;
+  }
+
+  .visual .inner .subText {
+    font-size: 1.8rem;
+  }
+
+  .con1 .box {
+    padding: 4.5rem;
+  }
+
+  .con2 .inner {
+    padding: 3.5rem;
+  }
+
+  .con2 .mainTextBox .title,
+  .con4 .mainTextBox .title {
+    font-size: 9.5rem;
+  }
+
+  .con4 .listBox .box {
+    padding: 4rem 6rem 4.5rem;
+    grid-template-columns: 35% auto;
+  }
+
+
+
+  .con4 .listBox .box h3 {
+    font-size: 20rem;
+  }
+
+  .con5 .inner {
+    padding: 4rem;
+  }
+
+  .con5 .mainText h2 {
+    font-size: 8rem;
+  }
+}
+
+/* =========================================
+   2) 1024px 이하 : 레이아웃 단 수 줄이기 (태블릿)
+========================================= */
+@media (max-width: 1024px) {
+
+  /* 기본 패딩 조금 더 줄이기 */
+  .inner {
+    padding: 0 2.5rem;
+  }
+
+  header .inner {
+    padding: 2rem 2.5rem 0;
+  }
+
+  .visual .inner {
+    padding: 2rem 2.5rem 2rem;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .visual .inner .mainText {
+    font-size: 5.4rem;
+  }
+
+  .visual .inner .subText {
+    font-size: 1.6rem;
+    margin-bottom: 3.5rem;
+  }
+
+  /* con1 : 2열 → 1열 */
+  .con1 .box {
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+  }
+
+  .con1 .box .mainText {
+    grid-row-start: auto;
+    font-size: 2.6rem;
+  }
+
+  .con1 .box .subText {
+    grid-column-start: auto;
+    max-width: 100%;
+    font-size: 1.8rem;
+  }
+
+  /* con2 : 영상/텍스트 구조 조정 */
+  .con2 .inner {
+    padding: 3rem 2.5rem;
+  }
+
+  .con2 .mainTextBox span {
+    position: static;
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .con2 .mainTextBox .in {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .con2 .mainTextBox .in .box {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .con2 .mainTextBox .title {
+    font-size: 7.2rem;
+    letter-spacing: -0.3rem;
+    text-align: left;
+  }
+
+  .con2 .mainTextBox .title.b {
+    margin-right: 0;
+  }
+
+  .con2 .subTextBox {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .con2 .subTextBox .subText {
+    max-width: 100%;
+    font-size: 1.8rem;
+  }
+
+  .con2 .subTextBox .iconbox {
+    justify-content: flex-start;
+  }
+
+  /* con3 : 텍스트/리스트 위아래 배치 */
+  .con3 .inner {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .con3 .textBox {
+    width: 100%;
+  }
+
+  .con3 .textBox h4 {
+    position: static;
+    transform: none;
+    font-size: 4.8rem;
+  }
+
+  .con3 .listBox {
+    width: 100%;
+  }
+
+  .con3 .listBox li {
+    width: 48%;
+    margin-bottom: 4rem;
+  }
+
+  /* con4 */
+  .con4 .mainTextBox .title {
+    font-size: 7.2rem;
+  }
+
+  .con4 .mainTextBox .in {
+    flex-direction: column-reverse;
+  }
+
+  .con4 .mainTextBox .in .box {
+    max-width: 100%;
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+
+  .con4 .listBox .box {
+    padding: 3.5rem 3.5rem 4rem;
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+
+  .con4 .listBox .box h2 {
+    margin-bottom: 4rem;
+  }
+
+  .con4 .listBox .box h3 {
+    font-size: 18rem;
+  }
+
+  .con4 .subTextBox {
+    grid-template-columns: 1fr;
+  }
+
+  .con4 .subTextBox .subText {
+    grid-column-start: 1;
+    max-width: 100%;
+    font-size: 1.8rem;
+  }
+
+  /* con5 */
+  .con5 .mainText h2 {
+    font-size: 7rem;
+  }
+
+  .con5 .listBox li h3 {
+    font-size: 3.2rem;
+  }
+
+  /* footer */
+  footer .inner {
+    padding: 5rem 3rem 2.5rem;
+  }
+
+  footer .inner .box .mainTextBox h2 {
+    font-size: 9rem;
+  }
+}
+
+/* =========================================
+   3) 768px 이하 : 모바일 레이아웃 기본 (열 깨기)
+========================================= */
+@media (max-width: 768px) {
+  body {
+    font-size: 1.5rem;
+  }
+
+  header .inner {
+    padding: 1.5rem 2rem 0;
+  }
+
+  header .inner .logo {
+    width: 12rem;
+  }
+
+  .visual .inner {
+    padding: 1.8rem 2rem 2rem;
+    align-items: center;
+    grid-template-rows: none;
+  }
+
+  .visual .inner .mainText {
+    font-size: 4.2rem;
+    width: 100%;
+  }
+
+  .visual .inner .subText {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .visual .logoWrap span {
+    width: 18%;
+  }
+
+  section {
+    margin-bottom: 10rem;
+  }
+
+  .inner {
+    padding: 0 2rem;
+  }
+
+  /* con1 */
+  .con1 .box {
+    padding: 3.5rem 2.5rem;
+    row-gap: 3.5rem;
+  }
+
+  .con1 .box .mainText {
+    font-size: 2.4rem;
+  }
+
+  .con1 .box .subText {
+    font-size: 1.6rem;
+  }
+
+  .con1 .textAni ul {
+    max-width: 100%;
+  }
+
+  .con1 .textAni li {
+    font-size: 4.2rem;
+    transform: translateX(1.5rem);
+  }
+
+  .con1 .textAni:before {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  /* con2 */
+  .con2 .inner {
+    padding: 3rem 2rem;
+  }
+
+  .con2 .subTextBox .subText {
+    font-size: 1.6rem;
+  }
+
+  .con2 .subTextBox .iconbox li {
+    width: 2.4rem;
+    margin: 0 0.8rem;
+  }
+
+  /* con3 */
+  .con3 .listBox li {
+    width: 100%;
+  }
+
+  .con3 .listBox li .img {
+    padding: 25% 0;
+  }
+
+  /* con4 */
+  .con4 .mainTextBox .title {
+    font-size: 5rem;
+  }
+
+  .con4 .mainTextBox .in {
+    flex-direction: column-reverse;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+
+  }
+
+  .con4 .listBox .box {
+    padding: 3rem 2.5rem 3.5rem;
+    top: 6rem;
+  }
+
+  .con4 .listBox .box h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .con4 .listBox .box h3 {
+    font-size: 12rem;
+  }
+
+  .con4 .listBox .box.a h3 {
+    color: #ffb84f;
+    display: none;
+  }
+
+  .con4 .listBox .box.b h3 {
+    color: #90c3cd;
+    display: none;
+  }
+
+  .con4 .listBox .box.c h3 {
+    color: #47b172;
+    display: none;
+  }
+
+  .con4 .subTextBox .subText {
+    font-size: 1.6rem;
+  }
+
+  .con4 .mainTextBox .title.c {
+    align-self: self-end;
+  }
+
+  /* con5 */
+  .con5 .inner {
+    padding: 4rem 2rem;
+  }
+
+  .con5 .mainText h2 {
+    font-size: 5.2rem;
+    letter-spacing: -0.3rem;
+  }
+
+  .con5 .listBox {
+    margin-top: 4rem;
+  }
+
+  .con5 .listBox li {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 0.6rem;
+  }
+
+  .con5 .listBox li h3 {
+    font-size: 2.8rem;
+    grid-column: 1 / 3;
+  }
+
+  .con5 .imgBox {
+    display: none;
+    /* 모바일에서는 hover 썸네일 제거 */
+  }
+
+  /* footer */
+  footer .inner {
+    padding: 4rem 2rem 2rem;
+  }
+
+  footer .inner .box .mainTextBox h2 {
+    font-size: 6rem;
+  }
+
+  footer .inner .box .btnBox {
+    flex-wrap: wrap;
+  }
+
+  footer .inner .box .btnBox .btn {
+    margin: 1rem 1.5rem;
+  }
+
+  footer .logoWrap span {
+    width: 18%;
+  }
+}
+
+/* =========================================
+   4) 480px 이하 : 작은 모바일 최적화
+========================================= */
+@media (max-width: 480px) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  header .inner {
+    padding: 1.2rem 1.6rem 0;
+  }
+
+  header .inner .logo {
+    width: 10rem;
+  }
+
+  header .gnb .menuOpen {
+    top: 0.8rem;
+  }
+
+  header .gnb .menuOpen:before {
+    width: 10rem;
+    height: 0.4rem;
+  }
+
+  header .gnb .menuBox {
+    padding: 8rem 0 2.5rem;
+  }
+
+  header .gnb .menuBox li a {
+    font-size: 2.8rem;
+  }
+
+  .visual .inner {
+    padding: 1.6rem;
+  }
+
+  .visual .inner .mainText {
+    font-size: 3.6rem;
+  }
+
+  .visual .inner .subText {
+    font-size: 1.4rem;
+  }
+
+  .inner {
+    padding: 0 1.6rem;
+  }
+
+  section {
+    margin-bottom: 7rem;
+  }
+
+  .con1 .box {
+    padding: 3rem 2rem;
+  }
+
+  .con1 .textAni li {
+    font-size: 3.2rem;
+  }
+
+  .con2 .mainTextBox .title {
+    font-size: 4rem;
+  }
+
+  .con3 .textBox h4 {
+    font-size: 3.6rem;
+  }
+
+  .con4 .mainTextBox .title {
+    font-size: 4.2rem;
+  }
+
+  .con4 .listBox .box h3 {
+    font-size: 8rem;
+  }
+
+  .con5 .mainText h2 {
+    font-size: 4.2rem;
+  }
+
+  footer .inner .box .mainTextBox h2 {
+    font-size: 4.2rem;
+  }
+
+  footer .inner .box .talkBtn a {
+    width: 8rem;
+    height: 8rem;
+  }
+}

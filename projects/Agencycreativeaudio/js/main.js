@@ -7,7 +7,7 @@ window.onload = function () {
     menuBox.classList.toggle("on");
   });
 
-  gsap.registerPlugin(ScrollTrigger); // 지삽라이브러리 스크롤트리거 허용
+  gsap.registerPlugin(ScrollTrigger); // 스크롤트리거 허용
 
   //01. visual
   gsap
@@ -76,7 +76,7 @@ window.onload = function () {
       );
   });
 
-  // 03. 공통적 .subText p 애니메이션
+  // 03. 공통 .subText p 애니메이션
   gsap.utils.toArray(".subText p").forEach((selector) => {
     gsap
       .timeline({
@@ -96,7 +96,7 @@ window.onload = function () {
       );
   });
 
-  // 04. con1 textAni 텍스트바뀌는 효과를 gsap 애니메이션으로
+  // 04. con1 textAni 텍스트바뀌는 효과
   let textAniList = document.querySelectorAll(".con1 .textAni li");
   let textAni = gsap.timeline({ repeat: -1 });
 
