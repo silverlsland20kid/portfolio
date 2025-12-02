@@ -1284,6 +1284,7 @@ ol {
     border-radius: 999px;
   }
 
+
   .mobile-thumb-strip__item {
     flex: 0 0 auto;
     width: 7rem;
@@ -1291,11 +1292,6 @@ ol {
     flex-direction: column;
     gap: 0.7rem;
     text-decoration: none;
-    transition: transform 0.18s ease;
-  }
-
-  .mobile-thumb-strip__item:active {
-    transform: scale(1.1) !important;
   }
 
   .mobile-thumb-strip__img-wrap {
