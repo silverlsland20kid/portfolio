@@ -134,6 +134,15 @@ export default function WorkDetailPage() {
             </div>
           )}
 
+          {project.contribution && (
+            <div className="work-detail__meta-item work-detail__meta-item--full">
+              <span className="work-detail__meta-label">CONTRIBUTION</span>
+              <span className="work-detail__meta-value">
+                {project.contribution}
+              </span>
+            </div>
+          )}
+
           {project.skills && (
             <div className="work-detail__meta-item work-detail__meta-item--full">
               <span className="work-detail__meta-label">SKILLS</span>
