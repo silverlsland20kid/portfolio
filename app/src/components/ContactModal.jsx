@@ -55,7 +55,7 @@ export default function ContactModal({ isOpen, onClose }) {
               rel="noopener"
             >
               <span className="contact-modal__icon">▪</span>
-              dmstja2110@naver.com
+              Email: dmstja2110@naver.com
             </a>
           </li>
           <li>
@@ -66,10 +66,10 @@ export default function ContactModal({ isOpen, onClose }) {
               rel="noopener"
             >
               <span className="contact-modal__icon">▪</span>
-              https://github.com/silverlsland20kid
+              Git address: https://github.com/silverlsland20kid
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               href="https://blog.naver.com/coolkids2"
               className="contact-modal__link"
@@ -79,7 +79,7 @@ export default function ContactModal({ isOpen, onClose }) {
               <span className="contact-modal__icon">▪</span>
               blog.naver.com/coolkids2
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
