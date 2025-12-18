@@ -1890,20 +1890,88 @@ ul li span.category {
   }
 
   .header .btn-all {
-    right: 1.5rem;
+    display: block;
+    position: absolute;
+    right: 1rem;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 9999;
   }
 
-  /* 전체메뉴(all-inner)는 JS로 opend-all 붙으면 열리니, 높이만 모바일에 맞게 */
+  .header::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 9980;
+  }
+
+  .header.opend-all::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ✅ 옆에서 나오는 패널 */
+  .header .all-inner {
+    animation: none !important;
+    -webkit-animation: none !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    overflow-y: auto;
+    z-index: 9990;
+    transform: translateX(100%);
+    transition: transform .28s ease !important;
+    height: 100vh !important;
+    opacity: 1 !important;
+  }
+
+  .header.opend-all .all-inner {
+    transform: translateX(0%);
+    visibility: visible;
+  }
+
   .header .all-inner::before {
-    height: 6rem;
+    height: 5rem;
+  }
+
+  .header .header-inner {
+    padding: 1.5rem;
+  }
+
+  /* 배경 딤(overlay) */
+  .header::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: 199;
+  }
+
+  .header.opend-all::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* 열려있을 때 스크롤 잠금용(선택) */
+  body.is-menu-open {
+    overflow: hidden;
+    touch-action: none;
   }
 
   .container {
     flex-direction: column;
-    padding-top: 5.5rem;
-    padding-bottom: 3.5rem;
+    padding: 4rem 0;
   }
 
   .container section {
@@ -1929,17 +1997,41 @@ ul li span.category {
 
   .container .rightContent .section1 .main {
     padding: 1.5rem 1.5rem 2rem;
+    position: relative;
+    /* 기존 absolute div와 충돌 방지 */
   }
 
   .container .rightContent .section1 .main .imgBox {
-    height: 14rem;
+    height: auto;
+    /* 고정 높이 제거, 이미지 종횡비 유지 */
+    aspect-ratio: 16 / 9;
+    /* 예시: 16:9 비율 유지, 필요에 따라 조정 */
   }
 
   .container .rightContent .section1 .main .mainText01,
   .container .rightContent .section1 .main .mainPressInfo {
-    top: 14.5rem;
+    top: auto;
+    /* absolute 제거, flex로 위치 조정 */
+    position: static;
     margin-bottom: 1.5rem;
     font-size: 1.125rem;
+  }
+
+  .container .rightContent .section1 .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container .rightContent .section1 .main .imgBox {
+    order: 1;
+  }
+
+  .container .rightContent .section1 .main .mainText01 {
+    order: 2;
+  }
+
+  .container .rightContent .section1 .main .mainPressInfo {
+    order: 3;
   }
 
   .container .rightContent .section1 .side .top {
@@ -1954,7 +2046,10 @@ ul li span.category {
 
   .container .rightContent .section1 .side .top div.imgBox {
     width: 100%;
-    height: 11.25rem;
+    height: auto;
+    /* 고정 높이 제거 */
+    aspect-ratio: 16 / 9;
+    /* 종횡비 유지 */
   }
 
   .container .rightContent .section1 .side .bottom {
@@ -1965,10 +2060,51 @@ ul li span.category {
   .container .rightContent .section1 .side .bottom>div {
     width: 100%;
     height: auto;
+    /* 고정 높이 제거 */
+  }
+
+  .container .rightContent .section1 .side .bottom .stock {
+    height: auto;
+    /* 고정 높이 제거 */
+  }
+
+  .container .rightContent .section1 .side .bottom .stock h3 {
+    background: url(../images/arrowBlack.svg) no-repeat top 27px right 150px;
+  }
+
+  .container .rightContent .section1 .side .bottom>div h3 {
+    background: none;
+  }
+
+  .container .rightContent .section1 .side .bottom .stock .stockInfo {
+    padding: 24px;
+  }
+
+  .container .rightContent .section1 .side .bottom .stock .stockInfo .stockPrice strong {
+    font-size: 1.5rem;
+  }
+
+  .container .rightContent .section1 .side .bottom .value {
+    height: auto;
+    /* 고정 높이 제거 */
+  }
+
+  .container .rightContent .section1 .side .bottom .news {
+    height: auto;
+    /* 고정 높이 제거 */
+  }
+
+  .container .rightContent .section1 .side .bottom .sns {
+    height: auto;
+    /* 고정 높이 제거 */
   }
 
   .container .rightContent .section2 {
     padding-top: 5rem;
+  }
+
+  .container .rightContent .section2 .secSwiper {
+    gap: 0;
   }
 
   .secSwiper {
@@ -1984,6 +2120,10 @@ ul li span.category {
     padding: 1.25rem 0.75rem;
   }
 
+  .container .rightContent .section2 ul li p {
+    font-size: 16px;
+  }
+
   .container .rightContent .section2 .secSwiper .swiper-wrapper {
     width: 100%;
     border-radius: 0.75rem;
@@ -1992,6 +2132,11 @@ ul li span.category {
   .container .rightContent .section2 .info>div {
     flex-direction: column;
     gap: 1.25rem;
+    width: 100%;
+  }
+
+  .container .rightContent .section2 .info a {
+    width: 100%;
   }
 
   .container .rightContent .section3 {
@@ -1999,16 +2144,25 @@ ul li span.category {
   }
 
   .container .rightContent .section3 .section3Content ul {
-    top: auto;
+    top: 0;
     margin: 1.5rem 0;
-    width: 100%;
+    width: 50%;
     overflow-x: auto;
     white-space: nowrap;
+    flex-wrap: wrap;
+  }
+
+  .container .rightContent .section3 .section3Content div {
+    margin-top: -2.5rem;
   }
 
   .container .rightContent .section4 {
     padding-top: 5rem;
     gap: 2.5rem;
+  }
+
+  .container .rightContent .section4 .title>img {
+    width: 100%;
   }
 
   .container .rightContent .section4 .section4Content {

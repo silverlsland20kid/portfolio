@@ -489,6 +489,24 @@
       header.classList.toggle('opend-all');
     });
 
+    // 딤(overlay) 클릭하면 닫기: header::before는 클릭 타겟이 없으니,
+    // header 자체 클릭 이벤트에서 "all-inner 밖" 클릭을 감지하는 방식으로 처리
+    header.addEventListener('click', (e) => {
+      if (!header.classList.contains('opend-all')) return;
+
+      const panel = header.querySelector('.all-inner');
+      const isClickInsidePanel = panel && panel.contains(e.target);
+      const isClickHamburger = btnAll.contains(e.target);
+
+      // 패널 밖 + 햄버거 버튼도 아니면 닫기
+      if (!isClickInsidePanel && !isClickHamburger) closeMenu();
+    });
+
+    // ESC로 닫기
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
     $(window).on("scroll", function () {
       const scrollTop = $(this).scrollTop();
 
@@ -564,6 +582,7 @@
         item.classList.add("active");
       });
     });
+
   </script>
 </body>
 
