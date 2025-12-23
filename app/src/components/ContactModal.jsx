@@ -66,7 +66,7 @@ export default function ContactModal({ isOpen, onClose }) {
               rel="noopener"
             >
               <span className="contact-modal__icon">▪</span>
-              Git address: https://github.com/silverlsland20kid
+              Github: https://github.com/silverlsland20kid
             </a>
           </li>
           {/* <li>

@@ -7,15 +7,60 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function LabPage() {
   const videos = [
-    { type: "mo", src: "/assets/video02_mo.mp4" },
-    { type: "mo", src: "/assets/video07_mo.mp4" },
-    { type: "pc", src: "/assets/video06.mp4" },
-    { type: "mo", src: "/assets/video05_mo.mp4" },
-    { type: "mo", src: "/assets/video08_mo.mp4" },
-    { type: "pc", src: "/assets/video01.mp4" },
-    { type: "pc", src: "/assets/video09.mp4" },
-    { type: "mo", src: "/assets/video09_mo.mp4" },
-    { type: "mo", src: "/assets/video10_mo.mp4" },
+    {
+      type: "mo",
+      src: "/assets/video02_mo.mp4",
+      link: "https://www.k-village.co.kr/exhibitionDetail?spexhNo=1774&page=1",
+      external: true,
+    },
+    {
+      type: "mo",
+      src: "/assets/video07_mo.mp4",
+      link: "https://www.hfashionmall.com/article/STORY/9711/view",
+      external: true,
+    },
+    {
+      type: "pc",
+      src: "/assets/video06.mp4",
+      link: "https://www.hfashionmall.com/article/STYLE/9208/view",
+      external: true,
+    },
+    {
+      type: "mo",
+      src: "/assets/video11_mo.mp4",
+      link: "https://www.hfashionmall.com/article/STYLE/10191/view",
+      external: true,
+    },
+    {
+      type: "mo",
+      src: "/assets/video08_mo.mp4",
+      link: "https://www.hfashionmall.com/article/STORY/9907/view",
+      external: true,
+    },
+    {
+      type: "pc",
+      src: "/assets/video01.mp4",
+      link: "https://www.k-village.co.kr/exhibitionDetail?spexhNo=1884&page=1",
+      external: true,
+    },
+    {
+      type: "pc",
+      src: "/assets/video09.mp4",
+      link: "https://www.hfashionmall.com/article/STORY/9822/view",
+      external: true,
+    },
+    {
+      type: "mo",
+      src: "/assets/video09_mo.mp4",
+      link: "https://www.hfashionmall.com/article/STORY/9822/view",
+      external: true,
+    },
+    {
+      type: "mo",
+      src: "/assets/video10_mo.mp4",
+      link: "https://www.kolonsport.com/Special/246759",
+      external: true,
+    },
   ];
 
   // 콘텐츠 레퍼런스
@@ -88,15 +133,22 @@ export default function LabPage() {
           {videos.map((v, i) => (
             <article key={v.src + i} className={`video-card item--${v.type}`}>
               <div className={`video-card__frame video-card__frame--${v.type}`}>
-                <video
-                  className="video-card__media"
-                  src={v.src}
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  preload="auto"
-                />
+                <a
+                  href={v.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="video-item"
+                >
+                  <video
+                    className="video-card__media"
+                    src={v.src}
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    preload="auto"
+                  />
+                </a>
               </div>
             </article>
           ))}

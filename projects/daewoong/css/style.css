@@ -305,6 +305,7 @@ video {
   width: 29px;
   height: 22px;
   top: 37%;
+  display: none;
 }
 
 .header .btn-all .bar {

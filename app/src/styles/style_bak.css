@@ -711,6 +711,14 @@ ol {
   border-radius: 8px;
 }
 
+.video-item {
+  display: block;
+}
+
+.video-item {
+  cursor: pointer;
+}
+
 .back-to-top {
   margin: 1rem;
 }
