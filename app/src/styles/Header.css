@@ -1,0 +1,148 @@
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  transform: translateY(0);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
+}
+
+.site-header.is-visible,
+.site-header.is-top {
+  transform: translateY(0);
+}
+
+.site-header.is-scrolled.is-visible {
+  backdrop-filter: blur(6px);
+}
+
+
+.site-header__container {
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.site-header__logo {
+  display: flex;
+  align-items: flex-end;
+  padding-top: 3vh;
+  flex: 0 0 var(--content-left);
+  width: var(--content-left) + var(--nav-gap);
+  margin-right: 2rem;
+}
+
+.site-header__logo-link {
+  opacity: 1;
+  pointer-events: auto;
+  color: var(--black);
+  letter-spacing: -.02em;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 18px;
+  text-decoration: none;
+  display: flex;
+  background-color: transparent;
+  outline: 3px var(--black);
+  mix-blend-mode: color-dodge;
+}
+
+.site-header__link--current {
+  font-weight: bold;
+  color: var(--black);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.55);
+}
+
+.site-header__nav {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.site-header__nav-item {
+  display: flex;
+  margin-left: 4rem;
+  margin-right: 1.5rem;
+  object-fit: fill;
+  flex-flow: column-reverse;
+  flex: 1;
+  justify-content: space-between;
+  align-self: stretch;
+  align-items: stretch;
+  padding-left: 0;
+}
+
+.site-header__nav-item:nth-child(4) {
+  text-align: left;
+  flex-direction: column;
+  flex: 0 auto;
+  justify-content: space-between;
+  align-self: stretch;
+  padding-left: 33vw;
+  display: flex;
+}
+
+.site-header__nav-item:nth-child(4) .site-header__link {
+  border: none;
+  background: none;
+  border-left: .75px solid var(--black);
+  cursor: pointer;
+}
+
+.site-header__link:hover,
+.site-header__nav-item:hover .site-header__link {
+  color: var(--gray);
+  ;
+  transition: color 0.2s;
+}
+
+.site-header__link {
+  text-transform: uppercase;
+  font-family: "Libertinus Serif", serif;
+  font-size: 12px;
+  line-height: 10px;
+  color: var(--black);
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, .95),
+    0 0 2px rgba(255, 255, 255, .7);
+  text-decoration: none;
+  display: flex;
+  letter-spacing: -.1em;
+  border-left: .75px solid var(--black);
+  flex-flow: column;
+  flex: 1;
+  order: 0;
+  justify-content: flex-end;
+  align-self: stretch;
+  align-items: stretch;
+  margin-top: 0;
+  padding-top: 0;
+  padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --content-left: 1.5rem;
+  }
+
+  .site-header__logo {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .featured-projects,
+  .commercial-works,
+  .lab-archive {
+    margin-left: 0;
+    padding: 0 var(--content-left);
+    width: 100%;
+  }
+}

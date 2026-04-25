@@ -1,11 +1,105 @@
 import { Link } from "react-router-dom";
 import ProjectSide from "../components/ProjectSide";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "../styles/WorkPage.css";
 
 // GSAP ScrollTrigger 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
+
+// Main Projects
+const mainProjects = [
+  {
+    title: "AGENCY CREATIVE AUDIO",
+    subtitle: "Clonecoding",
+    desc: "감각적인 오디오 브랜드 사이트를 기반으로 인터랙션과 레이아웃 구현을 연습한 프로젝트입니다.",
+    image: "/thumbs/sample07.png",
+    link: "/work/Agencycreativeaudio",
+  },
+  {
+    title: "Fitz",
+    subtitle: "Earphone Brand",
+    desc: "이어폰 브랜드 콘셉트의 개인 프로젝트로, 제품 중심 UI와 브랜드 무드를 구현했습니다.",
+    image: "/thumbs/sample09.png",
+    link: "/work/Fitz",
+  },
+  {
+    title: "Nasmedia",
+    subtitle: "Clonecoding",
+    desc: "기업형 웹사이트 구조와 콘텐츠 배치를 클론코딩한 프로젝트입니다.",
+    image: "/thumbs/sample11.png",
+    link: "/work/Nasmedia",
+  },
+  {
+    title: "Daewoong",
+    subtitle: "Clonecoding",
+    desc: "제약/기업 사이트의 정돈된 정보 구조와 반응형 레이아웃을 구현했습니다.",
+    image: "/thumbs/sample12.png",
+    link: "/work/Daewoong",
+  },
+];
+
+// Commercial Works
+const commercialWorks = [
+  {
+    year: "2025",
+    items: [
+      {
+        title: "K2 / Eider",
+        subtitle: "exhibition publishing",
+        link: "/work/KVILLAGE",
+      },
+      {
+        title: "Handsome",
+        subtitle: "magazine publishing",
+        link: "/work/Handsome",
+      },
+      {
+        title: "Kolonmall",
+        subtitle: "exhibition publishing",
+        link: "/work/Kolonmall",
+      },
+    ],
+  },
+  {
+    year: "2024",
+    items: [
+      {
+        title: "Namdo-mall",
+        subtitle: "publishing, maintenance",
+        link: "/work/Namdomall",
+      },
+      {
+        title: "Yeongam-mall",
+        subtitle: "publishing, maintenance",
+        link: "/work/Yeongammall",
+      },
+    ],
+  },
+];
+
+// Lab Archive
+const labProjects = [
+  {
+    title: "Subway",
+    subtitle: "Clonecoding",
+    image: "/thumbs/sample10.png",
+    link: "/work/Subway",
+  },
+  {
+    title: "Todo-App",
+    subtitle: "React Project",
+    image: "/thumbs/sample14.png",
+    link: "/work/todoapp",
+  },
+  {
+    title: "Dasoni therapy",
+    subtitle: "Clonecoding",
+    image: "/thumbs/sample13.png",
+    link: "/work/Dasoni",
+  },
+];
 
 // 모바일 썸네일 데이터
 const mobileThumbData = [
@@ -59,107 +153,9 @@ function MobileThumbStrip() {
 }
 
 export default function WorkPage() {
-  const pageRef = useRef(null); // 페이지 레퍼런스
-  const thumbViewerRef = useRef(null); // 썸네일 뷰어 레퍼런스
-
-  // 마우스 엔터 시 썸네일 뷰어 처리
-  const handleMouseEnter = (thumbUrl, e) => {
-    const viewer = thumbViewerRef.current; // 뷰어 레퍼런스 가져오기
-    if (!viewer || !thumbUrl) return; // 뷰어나 썸네일 URL이 없으면 종료
-
-    // 1) 배경 이미지 교체
-    viewer.style.backgroundImage = `url('${thumbUrl}')`;
-
-    // 2) is-active 클래스 추가
-    viewer.classList.add("is-active");
-
-    // 3) 이전 트윈 정리
-    gsap.killTweensOf(viewer);
-
-    // 4) GSAP로 등장 애니메이션
-    gsap.fromTo(
-      viewer,
-      { scale: 0.8, autoAlpha: 0, y: 8 },
-      {
-        scale: 1.1,
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.25,
-        ease: "power2.out",
-      }
-    );
-
-    // 카드도 살짝 떠오르게
-    if (e?.currentTarget) {
-      gsap.to(e.currentTarget, {
-        y: -6,
-        scale: 1.1,
-        duration: 0.25,
-        ease: "power2.out",
-      });
-    }
-  };
-
-  // 마우스 리브 시 썸네일 뷰어 처리
-  const handleMouseLeave = (e) => {
-    const viewer = thumbViewerRef.current;
-
-    // 뷰어가 없으면 종료
-    if (viewer) {
-      // 이전 트윈 정리
-      gsap.killTweensOf(viewer);
-
-      // GSAP로 사라지는 애니메이션
-      gsap.to(viewer, {
-        scale: 0.8,
-        autoAlpha: 0,
-        y: 4,
-        duration: 0.25,
-        ease: "power2.inOut",
-        onComplete: () => {
-          viewer.style.backgroundImage = "";
-          // is-active도 같이 제거
-          viewer.classList.remove("is-active");
-        },
-      });
-    }
-
-    // 카드 원위치
-    if (e?.currentTarget) {
-      gsap.to(e.currentTarget, {
-        y: 0,
-        scale: 1,
-        duration: 0.25,
-        ease: "power2.out",
-      });
-    }
-  };
-
-  // 마우스 무브 시 썸네일 뷰어 위치 업데이트
-  const handleMouseMove = (e) => {
-    const viewer = thumbViewerRef.current;
-    // 뷰어가 없으면 종료
-    if (!viewer) return;
-
-    const offset = 50; // 마우스에서 살짝 떨어져 보이게 하는 오프셋
-    const { clientX, clientY } = e; // 마우스 좌표 가져오기
-
-    // position: fixed 기준
-    viewer.style.left = clientX + offset + "px";
-    viewer.style.top = clientY + offset + "px";
-  };
-
   // 홈페이지 인트로애니메이션 추가 GSAP
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 페이지 자체 페이드만 유지
-      gsap.from(pageRef.current, {
-        opacity: 0,
-        y: 8,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-
       gsap.set(".work-card-anim", { opacity: 0, y: 14 }); // 초기상태 고정
 
       // 카드들 하나씩 등장 애니메이션
@@ -222,14 +218,10 @@ export default function WorkPage() {
       <ProjectSide />
 
       {/* 가운데 썸네일 뷰어 */}
-      <div
-        className="project-list__thumb-viewer"
-        id="cardThumbViewer"
-        ref={thumbViewerRef}
-      ></div>
+      <div className="project-list__thumb-viewer" id="cardThumbViewer"></div>
 
       {/* 오른쪽 연도 영역 */}
-      <div className="project-list__years">
+      {/* <div className="project-list__years">
         <div className="project-list__year-item">[2025]</div>
         <div className="project-list__year-item"></div>
         <div className="project-list__year-item"></div>
@@ -240,10 +232,10 @@ export default function WorkPage() {
         <div className="project-list__year-item"></div>
         <div className="project-list__year-item">[2024]</div>
         <div className="project-list__year-item">[2023]</div>
-      </div>
+      </div> */}
 
       {/* 프로젝트 카드 리스트 */}
-      <section className="project-list__cards" ref={pageRef}>
+      {/* <section className="project-list__cards" ref={pageRef}>
         <div className="project-list__card-wrap">
           <Link
             to="/work/Subway"
@@ -426,6 +418,74 @@ export default function WorkPage() {
               </div>
             </div>
           </Link>
+        </div>
+      </section> */}
+
+      <section className="featured-projects">
+        <h2>Main Projects</h2>
+
+        <div className="featured-projects__grid">
+          {mainProjects.map((project) => (
+            <Link
+              to={project.link}
+              className="featured-card work-card-anim"
+              key={project.title}
+            >
+              <div className="featured-card__image">
+                <img src={project.image} alt={project.title} />
+              </div>
+
+              <div className="featured-card__text">
+                <span>{project.subtitle}</span>
+                <h3>{project.title}</h3>
+                <p>{project.desc}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="commercial-works">
+        <h2>Commercial Works</h2>
+
+        {commercialWorks.map((group) => (
+          <div
+            className="commercial-works__group work-card-anim"
+            key={group.year}
+          >
+            <strong>[{group.year}]</strong>
+
+            <ul>
+              {group.items.map((item) => (
+                <li key={item.title}>
+                  <Link to={item.link}>
+                    <span>{item.title}</span>
+                    <em>{item.subtitle}</em>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+      <section className="lab-archive">
+        <h2>Lab Archive</h2>
+
+        <div className="lab-archive__list">
+          {labProjects.map((project) => (
+            <Link
+              to={project.link}
+              className="lab-card work-card-anim"
+              key={project.title}
+            >
+              <img src={project.image} alt={project.title} />
+              <div>
+                <strong>{project.title}</strong>
+                <span>{project.subtitle}</span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

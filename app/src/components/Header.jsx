@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import "../styles/Header.css";
 
 export default function Header({ onOpenContact }) {
   const location = useLocation();
@@ -40,7 +41,6 @@ export default function Header({ onOpenContact }) {
   // 스크롤 방향에 따라 헤더 숨기기 or 보이기
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerWidth > 1024) return; // 데스크톱이면 아예 기능 X
       const currentY = window.scrollY;
       setIsTop(currentY < 10);
 

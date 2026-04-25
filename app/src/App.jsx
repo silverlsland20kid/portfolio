@@ -9,7 +9,7 @@ import LabPage from "./pages/LabPage";
 import AboutPage from "./pages/AboutPage";
 import WorkDetailPage from "./pages/WorkDetailPage";
 
-import "./styles/style_bak.css";
+import "./styles/App.css";
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);

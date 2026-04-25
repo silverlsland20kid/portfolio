@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import "../styles/Intro.css";
 
 export default function IntroOverlay({ onDone }) {
   const overlayRef = useRef(null);
@@ -14,7 +15,7 @@ export default function IntroOverlay({ onDone }) {
     tl.fromTo(
       overlayRef.current,
       { autoAlpha: 1 },
-      { autoAlpha: 1, duration: 0.2 }
+      { autoAlpha: 1, duration: 0.2 },
     )
       .from(textRef.current, { y: 24, autoAlpha: 0, duration: 0.9 })
       .to(textRef.current, { y: -12, autoAlpha: 0, duration: 0.5, delay: 0.3 })

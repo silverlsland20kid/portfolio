@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import "../styles/Modal.css";
 
 export default function ContactModal({ isOpen, onClose }) {
   // body 스크롤 막기

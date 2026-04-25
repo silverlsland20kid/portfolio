@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import ClockKST from "../components/ClockKST";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "../styles/AboutPage.css";
 
 // GSAP 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);

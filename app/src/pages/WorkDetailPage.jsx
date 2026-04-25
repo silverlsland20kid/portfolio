@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { workProjects } from "../data/workProjects";
 import ClockKST from "../components/ClockKST";
+import "../styles/WorkDetailPage.css";
 
 // GSAP 플러그인 등록
 export default function WorkDetailPage() {

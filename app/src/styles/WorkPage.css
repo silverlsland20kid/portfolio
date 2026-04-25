@@ -1,0 +1,383 @@
+.project-list {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 0 6rem;
+}
+
+.project-list__side {
+  position: fixed;
+  top: 25vh;
+  left: 20px;
+  width: 180px;
+}
+
+.project-list__thumb-viewer {
+  position: fixed;
+  width: 22rem;
+  height: 15rem;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  z-index: 50;
+  display: none;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .12);
+}
+
+.project-list__thumb-viewer.is-active {
+  display: block;
+}
+
+.project-list__info-row {
+  z-index: 2;
+  flex-direction: row;
+  margin: 0 0 20px;
+  display: flex;
+}
+
+.project-list__info-row:nth-child(1) {
+  margin-bottom: 22rem;
+}
+
+.project-list__circle-wrap {
+  display: flex;
+  gap: 12px;
+}
+
+.project-list__circle {
+  background-color: var(--black);
+  border-radius: 100px;
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+}
+
+.project-list__clock {
+  color: var(--black);
+  text-align: left;
+  mix-blend-mode: exclusion;
+  font-family: 'Nouvelle Noir', Arial, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+.project-list__city-link {
+  opacity: 1;
+  color: var(--black);
+  letter-spacing: -.02em;
+  mix-blend-mode: color-dodge;
+  font-family: 'Nouvelle Noir', Arial, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  text-decoration: none;
+  display: flex;
+  padding-bottom: 20px;
+}
+
+#timeContainer {
+  display: block;
+}
+
+
+.mobile-thumb-strip {
+  display: none;
+}
+
+/* 오른쪽 콘텐츠 전체 */
+.featured-projects,
+.commercial-works,
+.lab-archive {
+  width: min(1040px, calc(100vw - var(--content-left) - var(--nav-gap) - 4rem));
+  margin-left: calc(var(--content-left) + var(--nav-gap));
+}
+
+/* 공통 제목 */
+.featured-projects h2,
+.commercial-works h2,
+.lab-archive h2 {
+  font-size: 0.8rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: .6;
+  font-family: "Libertinus Serif", serif;
+}
+
+/* =========================
+MAIN PROJECTS
+========================= */
+
+.featured-projects {
+  padding-top: 10rem;
+  padding-left: 1rem;
+}
+
+.featured-projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 2.5rem;
+  column-gap: 4rem;
+}
+
+.featured-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-card__image {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.featured-card__image img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.featured-card:hover .featured-card__image img {
+  transform: scale(1.04);
+}
+
+.featured-card:hover img {
+  transform: scale(1.04);
+}
+
+.featured-card__text {
+  transition: transform 0.35s ease;
+}
+
+.featured-card:hover .featured-card__text {
+  transform: translateY(-4px);
+}
+
+.featured-card__text span {
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .55;
+}
+
+.featured-card__text h3 {
+  font-size: 1.7rem;
+  line-height: 1.1;
+  margin: .4rem 0 .7rem;
+  letter-spacing: -.03em;
+}
+
+.featured-card__text p {
+  font-size: .92rem;
+  line-height: 1.6;
+  opacity: .72;
+}
+
+/* =========================
+COMMERCIAL WORKS
+========================= */
+
+.commercial-works {
+  margin-top: 8rem;
+}
+
+.commercial-works__group {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 2rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid rgba(0, 0, 0, .08);
+}
+
+.commercial-works__group strong {
+  font-size: .8rem;
+  opacity: .5;
+}
+
+.commercial-works ul {
+  padding: 0;
+  margin: 0;
+}
+
+.commercial-works li {
+  margin-bottom: 1rem;
+}
+
+.commercial-works a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.commercial-works span {
+  font-size: 1rem;
+}
+
+.commercial-works em {
+  font-style: normal;
+  font-size: .8rem;
+  opacity: .5;
+}
+
+.commercial-works a {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.commercial-works a:hover {
+  opacity: .55;
+  transform: translateX(8px);
+}
+
+/* =========================
+LAB ARCHIVE
+========================= */
+
+.lab-archive {
+  margin-top: 8rem;
+}
+
+.lab-archive__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.lab-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.lab-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: .8rem;
+}
+
+.lab-card strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: .2rem;
+}
+
+.lab-card span {
+  font-size: .75rem;
+  opacity: .55;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+
+  .project-list__side {
+    display: none;
+  }
+
+  .project-list {
+    padding-bottom: 5rem;
+  }
+
+  .featured-projects,
+  .commercial-works,
+  .lab-archive {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 2rem;
+  }
+
+  .featured-projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-archive__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .mobile-thumb-strip {
+    display: block;
+    width: 100%;
+  }
+
+  .mobile-thumb-strip__inner {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    align-items: center;
+  }
+
+  .mobile-thumb-strip__inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-thumb-strip__inner::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 999px;
+  }
+
+
+  .mobile-thumb-strip__item {
+    flex: 0 0 auto;
+    width: 7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    text-decoration: none;
+  }
+
+  .mobile-thumb-strip__img-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    background: #e9e3d8;
+  }
+
+  .mobile-thumb-strip__img-wrap img {
+    display: block;
+    width: 100%;
+    height: 5rem;
+    object-fit: cover;
+  }
+
+  .mobile-thumb-strip__caption {
+    font-family: "Libertinus Serif", serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 1;
+    text-align: center;
+    color: var(--black);
+  }
+
+  .featured-projects,
+  .commercial-works,
+  .lab-archive {
+    padding: 0 1.5rem;
+  }
+
+  .featured-card__image img {
+    height: 240px;
+  }
+
+  .commercial-works__group {
+    grid-template-columns: 1fr;
+    gap: .8rem;
+  }
+
+  .commercial-works a {
+    flex-direction: column;
+    gap: .2rem;
+  }
+
+  .lab-archive__list {
+    grid-template-columns: 1fr;
+  }
+}

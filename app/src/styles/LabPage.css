@@ -1,0 +1,92 @@
+.project-list-lab {
+  display: block;
+}
+
+.lab-videos {
+  margin-left: 40rem;
+  overflow: visible;
+}
+
+.lab-videos__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.lab-videos__grid .video-card {
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+}
+
+.lab-videos__grid .video-card:hover {
+  opacity: 1;
+  transform: scale(1.02);
+  transition: all 0.5s;
+}
+
+.item--mo {
+  grid-column: span 6;
+}
+
+.item--pc {
+  grid-column: 1 / -1;
+}
+
+.video-card {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0;
+  box-shadow: none;
+}
+
+.video-card__frame {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.video-card__frame--pc {
+  aspect-ratio: 25 / 14;
+}
+
+.video-card__frame--mo {
+  aspect-ratio: 47 / 60;
+}
+
+.video-card__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.video-item {
+  display: block;
+}
+
+.video-item {
+  cursor: pointer;
+}
+
+.back-to-top {
+  margin: 1rem;
+}
+
+.back-to-top a {
+  font-family: "Libertinus Serif", serif;
+  font-size: 0.9rem;
+  color: var(--black);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.back-to-top a:hover {
+  color: var(--purp);
+  transition: all 0.5s;
+}
