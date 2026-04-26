@@ -1,3 +1,50 @@
+.project-list--about {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 8rem;
+}
+
+.project-list--about .project-list__side {
+  position: fixed;
+  left: 2rem;
+  top: 25vh;
+  width: 180px;
+  z-index: 10;
+}
+
+.project-list--about .project-list__info-row {
+  display: flex;
+  margin: 0 0 20px;
+}
+
+.project-list--about .project-list__circle-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.project-list--about .project-list__circle {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background-color: var(--black);
+}
+
+.project-list--about .project-list__clock,
+.project-list--about .project-list__city-link {
+  color: var(--black);
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  text-decoration: none;
+}
+
+.project-list--about .project-list__info-row:nth-child(1) {
+  margin-bottom: 15rem;
+}
+
 .about-section {
   width: 100%;
   display: flex;
@@ -15,16 +62,18 @@
 }
 
 .about-main {
-  width: 47%;
+  width: min(1024px, calc(100vw - var(--content-left) - var(--nav-gap) - 4rem));
+  margin-left: calc(var(--content-left) + var(--nav-gap));
+  padding-top: 25vh;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-left: 10rem;
+  gap: 2.5rem;
+  padding-left: 1rem;
 }
 
 .about-intro,
 .about-columns {
-  padding-left: 3rem;
+  padding-left: 0;
 }
 
 .about-intro p {
@@ -53,6 +102,10 @@
   font-family: "Oswald", Arial, sans-serif;
 }
 
+.about-block:nth-last-child(1) {
+  margin-top: -1rem;
+}
+
 .about-block h2 {
   font-size: 1.2rem;
   font-weight: 500;
@@ -78,7 +131,6 @@
 }
 
 .about-block li {
-  margin-bottom: 1.5rem;
   line-height: 1.8rem;
   font-size: 1rem;
   letter-spacing: 0.01em;
@@ -101,20 +153,6 @@
   opacity: 0.8;
 }
 
-.about-aptitude-img {
-  margin-top: 1em;
-  width: 14vw;
-  max-width: 33vw;
-  border-radius: 8px;
-  border: 1.2px solid var(--gray);
-  ;
-  box-shadow: 0 2px 16px rgba(192, 192, 192, 0.08);
-}
-
-.project-list__skills,
-.project-list__attitude {
-  margin-left: 10px;
-}
 
 .project-list__label {
   font-size: 1.07rem;
@@ -176,4 +214,46 @@
   font-size: 1rem;
   line-height: 1.55;
   color: var(--black);
+}
+
+.about-skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.about-skill-list li {
+  margin-bottom: 0;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--black);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+  .project-list--about {
+    padding: 9rem 2rem 5rem;
+  }
+
+  .project-list--about .project-list__side {
+    display: none;
+  }
+
+  .about-main {
+    width: 100%;
+    margin-left: 0;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-list--about {
+    padding: 8rem 1.5rem 4rem;
+  }
+
+  .about-columns {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 }

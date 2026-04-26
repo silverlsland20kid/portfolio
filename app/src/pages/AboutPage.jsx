@@ -45,21 +45,26 @@ export default function WorkDetailPage() {
 
   // 페이지 진입 시 GSAP 애니메이션 적용
   useEffect(() => {
-    gsap.from(contentRef.current, {
-      opacity: 0,
-      y: 15,
-      duration: 0.8,
-      ease: "power2.out",
-    });
+    const ctx = gsap.context(() => {
+      gsap.from(".about-intro, .about-block", {
+        opacity: 0,
+        y: 18,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.12,
+      });
 
-    gsap.from(".about-tag", {
-      opacity: 0,
-      y: 6,
-      duration: 0.6,
-      ease: "power2.out",
-      stagger: 0.05,
-      delay: 0.2,
-    });
+      gsap.from(".about-tag", {
+        opacity: 0,
+        y: 8,
+        duration: 0.5,
+        ease: "power2.out",
+        stagger: 0.04,
+        delay: 0.3,
+      });
+    }, contentRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -98,20 +103,13 @@ export default function WorkDetailPage() {
       <section className="about-main" ref={contentRef}>
         <div className="about-intro">
           <p>
-            신입과 경력의 경계에서 균형을 잡는 중고 신입 퍼블리셔&nbsp;
-            <strong>이은섬</strong>&nbsp;입니다. <br /> 한 번의 실무 경험으로
-            현장을 겪어봤고, 꼼꼼함은 기본 옵션입니다. 그렇다고 호기심과 패기를
-            내려놓진 않았습니다.
+            신입과 경력의 경계에서 균형을 잡는 중고 신입 퍼블리셔 이은섬입니다.
             <br />
-            <strong>배운 건 바로 써보고, 모르면 바로 묻는 타입</strong>
-            입니다. 새로운 기술이나 문법을 접하면 작은 컴포넌트부터 적용해 보고,
-            이해되지 않는 부분은 혼자 끙끙대기보다 팀과 공유하며 해결하는 방식을
-            선호합니다. INFJ답게 조용하지만 단단한 편이며, 혼자 깊이 파고들되
-            프로젝트 전체의 맥락과 팀의 목표를 먼저 생각합니다.
-            <strong>“대충”</strong>&nbsp;은 저와 가장 거리가 먼 단어입니다.
+            실무 경험을 바탕으로 구조와 디테일을 함께 보며, 빠르게 배우고 팀과
+            소통하며 문제를 해결합니다.
+            <br /> 마감 직전까지 완성도를 점검하고, 이후 유지보수까지 고려한
+            코드를 만드는 것을 중요하게 생각합니다.
             <br />
-            마감 직전까지도 눈에 보이지 않는 부분을 한 번 더 점검하고, 이후
-            유지보수까지 고려해 코드와 구조를 정리하려고 합니다.
           </p>
         </div>
 
@@ -170,6 +168,20 @@ export default function WorkDetailPage() {
               {/* 활성화된 키워드의 설명 표시 */}
               {personalityKeywords.find((k) => k.id === activeKeyword)?.desc}
             </div>
+          </div>
+        </div>
+
+        <div className="about-columns about-columns--sub">
+          <div className="about-block">
+            <h2>Skills</h2>
+            <ul className="about-skill-list">
+              <li>HTML / CSS / SCSS</li>
+              <li>JavaScript / jQuery</li>
+              <li>React / Vite</li>
+              <li>GSAP / Swiper</li>
+              <li>Figma / Photoshop</li>
+              <li>Responsive Web</li>
+            </ul>
           </div>
         </div>
       </section>

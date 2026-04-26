@@ -26,8 +26,7 @@
   flex-direction: row;
   justify-content: stretch;
   align-items: stretch;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 1rem;
 }
 
 .site-header__logo {
@@ -36,7 +35,8 @@
   padding-top: 3vh;
   flex: 0 0 var(--content-left);
   width: var(--content-left) + var(--nav-gap);
-  margin-right: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .site-header__logo-link {

@@ -156,7 +156,6 @@
 
 .project-detail-page {
   display: flex;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -178,7 +177,16 @@
 
 .project-detail-wrap {
   flex: 1;
-  max-width: 760px;
+}
+
+.about-main {
+  width: min(1024px, calc(100vw - var(--content-left) - var(--nav-gap) - 4rem));
+  margin-left: calc(var(--content-left) + var(--nav-gap));
+  padding-top: 25vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-left: 1rem;
 }
 
 .work-detail__subtitle {

@@ -114,7 +114,7 @@ const mobileThumbData = [
   },
   { src: "/thumbs/sample00.png", label: "K2 / Eider", link: "/work/KVILLAGE" },
   { src: "/thumbs/sample03.png", label: "Handsome", link: "/work/Handsome" },
-  { src: "/thumbs/sample04.png", label: "Kolonmall", link: "/work/Kolonmall" },
+  { src: "/thumbs/sample04.png", label: "Kolonmall", link: "/work/kolonmall" },
   {
     src: "/thumbs/sample07.png",
     label: "Agency Creative Audio",

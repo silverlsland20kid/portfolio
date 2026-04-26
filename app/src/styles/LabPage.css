@@ -1,28 +1,31 @@
 .project-list-lab {
-  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 8rem;
+}
+
+.project-list-lab .project-list__side {
+  position: fixed;
+  left: 20px;
+  top: 25vh;
+  width: 180px;
+  z-index: 10;
 }
 
 .lab-videos {
-  margin-left: 40rem;
+  width: min(1040px, calc(100vw - var(--content-left) - var(--nav-gap) - 4rem));
+  margin-left: calc(var(--content-left) + var(--nav-gap));
   overflow: visible;
+  padding-top: 13.5rem;
+  padding-left: 1rem;
 }
 
 .lab-videos__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 1.5rem;
+  gap: 3.5rem;
   align-items: start;
-}
-
-.lab-videos__grid .video-card {
-  opacity: 0.5;
-  transition: opacity 0.25s ease;
-}
-
-.lab-videos__grid .video-card:hover {
-  opacity: 1;
-  transform: scale(1.02);
-  transition: all 0.5s;
 }
 
 .item--mo {
@@ -72,8 +75,33 @@
 }
 
 .back-to-top {
-  margin: 1rem;
+  padding-top: 4rem;
 }
+
+.project-list-lab .project-list__info-row {
+  display: flex;
+  margin: 0 0 20px;
+}
+
+.project-list-lab .project-list__circle-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.project-list-lab .project-list__circle {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background-color: var(--black);
+}
+
+.project-list-lab .project-list__circle-wrap:nth-child(1) {
+  margin-bottom: 15rem;
+}
+
 
 .back-to-top a {
   font-family: "Libertinus Serif", serif;
@@ -81,7 +109,6 @@
   color: var(--black);
   text-decoration: none;
   cursor: pointer;
-  padding: 6px 12px;
   border-radius: 4px;
   font-weight: bold;
 }
@@ -89,4 +116,34 @@
 .back-to-top a:hover {
   color: var(--purp);
   transition: all 0.5s;
+}
+
+@media (max-width: 1024px) {
+  .project-list-lab {
+    padding: 9rem 2rem 5rem;
+  }
+
+  .project-list-lab .project-list__side {
+    display: none;
+  }
+
+  .lab-videos {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-list-lab {
+    padding: 8rem 1.5rem 4rem;
+  }
+
+  .lab-videos__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item--mo,
+  .item--pc {
+    grid-column: 1 / -1;
+  }
 }
