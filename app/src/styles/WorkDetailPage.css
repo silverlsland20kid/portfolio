@@ -296,3 +296,106 @@
   background: transparent;
   border-style: dashed;
 }
+
+@media (max-width: 1024px) {
+  .project-list--about {
+    padding: 9rem 2rem 5rem;
+  }
+
+  .project-list--about .project-list__side {
+    display: none;
+  }
+
+  .about-main {
+    width: 100%;
+    margin-left: 0;
+    padding-top: 0;
+    padding-left: 0;
+    gap: 3rem;
+  }
+
+  .about-columns {
+    gap: 3rem;
+  }
+
+  .about-block:nth-last-child(1) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-list--about {
+    padding: 8rem 1.5rem 4rem;
+  }
+
+  .about-main {
+    gap: 1.5rem;
+  }
+
+  .about-intro p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .about-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-block h2 {
+    font-size: 1rem;
+  }
+
+  .about-block li {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .about-block .about-block__txt {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.2rem;
+    font-size: 0.78rem;
+  }
+
+  .about-tags {
+    margin-bottom: 1.4rem;
+  }
+
+  .about-tag {
+    font-size: 0.78rem;
+    padding: 0.32rem 0.7rem;
+  }
+
+  .about-tag-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .about-skill-list li {
+    font-size: 0.76rem;
+    padding: 0.32rem 0.65rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-list--about {
+    padding: 7.5rem 1.25rem 3.5rem;
+  }
+
+  .about-intro p:before,
+  .about-block h2:before {
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+  }
+
+  .about-intro p {
+    font-size: 0.84rem;
+  }
+
+  .about-block li {
+    font-size: 0.84rem;
+    margin-bottom: 1rem;
+  }
+}

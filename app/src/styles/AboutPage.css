@@ -230,30 +230,3 @@
   font-size: 0.82rem;
   line-height: 1.2;
 }
-
-@media (max-width: 1024px) {
-  .project-list--about {
-    padding: 9rem 2rem 5rem;
-  }
-
-  .project-list--about .project-list__side {
-    display: none;
-  }
-
-  .about-main {
-    width: 100%;
-    margin-left: 0;
-    padding-top: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .project-list--about {
-    padding: 8rem 1.5rem 4rem;
-  }
-
-  .about-columns {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}

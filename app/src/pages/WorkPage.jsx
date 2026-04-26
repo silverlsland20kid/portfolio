@@ -130,27 +130,27 @@ const mobileThumbData = [
 ];
 
 // 모바일 썸네일 스트립 컴포넌트
-function MobileThumbStrip() {
-  return (
-    <div className="mobile-thumb-strip">
-      {/* <div className="mobile-thumb-strip__label">PROJECT PREVIEW</div> */}
-      <div className="mobile-thumb-strip__inner">
-        {mobileThumbData.map((item) => (
-          <Link
-            to={item.link}
-            key={item.label}
-            className="mobile-thumb-strip__item"
-          >
-            <div className="mobile-thumb-strip__img-wrap">
-              <img src={item.src} alt={item.label} />
-            </div>
-            <span className="mobile-thumb-strip__caption">{item.label}</span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
+// function MobileThumbStrip() {
+//   return (
+//     <div className="mobile-thumb-strip">
+//       {/* <div className="mobile-thumb-strip__label">PROJECT PREVIEW</div> */}
+//       <div className="mobile-thumb-strip__inner">
+//         {mobileThumbData.map((item) => (
+//           <Link
+//             to={item.link}
+//             key={item.label}
+//             className="mobile-thumb-strip__item"
+//           >
+//             <div className="mobile-thumb-strip__img-wrap">
+//               <img src={item.src} alt={item.label} />
+//             </div>
+//             <span className="mobile-thumb-strip__caption">{item.label}</span>
+//           </Link>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 
 export default function WorkPage() {
   // 홈페이지 인트로애니메이션 추가 GSAP
@@ -490,7 +490,7 @@ export default function WorkPage() {
       </section>
 
       {/* 모바일 전용 썸네일 스트립 */}
-      <MobileThumbStrip />
+      {/* <MobileThumbStrip /> */}
     </div>
   );
 }
