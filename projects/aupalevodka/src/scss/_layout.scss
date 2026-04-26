@@ -1,0 +1,13 @@
+@use './variables' as *;
+
+.wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: $ivory;
+}
+
+main {
+  position: relative;
+  width: 100%;
+}
