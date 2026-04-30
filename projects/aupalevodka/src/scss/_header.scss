@@ -4,31 +4,109 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 100;
+  z-index: 50;
   width: 100%;
-  padding: 2rem 2.4rem;
+  padding: 2.4rem 2.8rem;
   color: $white;
-  mix-blend-mode: difference;
+  transition: 0.4s ease;
 
   &__inner {
+    position: relative;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: flex-start;
   }
 
-  &__logo {
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+  &.is-hide {
+        transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
   }
 
   &__nav {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 4rem;
+    width: 42%;
 
     a {
-      font-size: 1.1rem;
+      font-family: $font-sans;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      color: $white;
+      position: relative;
     }
+
+    a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px; 
+  height: 1.1px;
+  width: 100%;
+  background: #fff;
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+a:hover::after,
+a.is-active::after {
+  opacity: 1;
+}
+
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+
+  &__brand {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: $font-logo;
+    font-size: 3rem;
+    line-height: 0.82;
+    letter-spacing: 0.05em;
+    row-gap: 0.4rem;
+    color: $white;
+
+  }
+}
+
+.floating-nav {
+  position: fixed;
+  left: 50%;
+  top: 1.6rem;
+  z-index: 100;
+  width: min(90vw, 68rem);
+  height: 6.4rem;
+  padding: 0 2.4rem;
+  border-radius: 1.2rem;
+  background: rgba(220, 232, 224, 0.76);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transform: translate(-50%, -130%);
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
+
+  &.is-active {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
   }
 }

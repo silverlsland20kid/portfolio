@@ -1,11 +1,16 @@
 @use './variables' as *;
 
+.wrap {
+  will-change: transform;
+}
+
 .hero {
   position: relative;
   height: 100vh;
   min-height: 72rem;
   color: $white;
   overflow: hidden;
+  background: #000;
 
   &__bg {
     position: absolute;
@@ -18,67 +23,140 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: rgba(0, 0, 0, 0.28);
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0.12) 35%,
+          rgba(0, 0, 0, 0.55) 100%
+        );
       pointer-events: none;
     }
   }
 
   &__video {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transform: scale(1.08);
+    transform: scale(1.02);
   }
 
   &__content {
     position: relative;
     z-index: 3;
     height: 100%;
-    padding: 12rem 2.4rem 4rem;
   }
 
   &__title {
     position: absolute;
-    left: 2.4rem;
-    top: 18vh;
-    width: min(92vw, 96rem);
+    left: 0;
+    top: 27vh;
+    width: 100%;
     font-family: $font-serif;
-    font-size: clamp(5.6rem, 10vw, 15rem);
     font-weight: 400;
+    font-size: clamp(9rem, 10.4vw, 19rem);
     line-height: 0.82;
-    letter-spacing: -0.08em;
-
-    span {
-      display: block;
-    }
+    letter-spacing: -0.055em;
+    color: $white;
+    pointer-events: none;
+    
 
     em {
       font-style: italic;
     }
   }
 
+  &__title-line {
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    will-change: transform, opacity;
+
+    &--01 {
+      margin-left: 2.8rem;
+    }
+
+    &--02 {
+      margin-left: 28vw;
+      margin-top: 1.5rem;
+    }
+
+    &--03 {
+      margin-left: 65vw;
+      margin-top: 1.5rem;
+    }
+  }
+
   &__thumb {
     position: absolute;
-    left: 2.4rem;
-    bottom: 5rem;
-    width: 16rem;
-    height: 10rem;
+    left: 2.8rem;
+    bottom: 2.8rem;
+    width: 30rem;
+    height: 17rem;
     overflow: hidden;
+    border-radius: 0.8rem;
+    background: #111;
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  &__thumb-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   &__desc {
     position: absolute;
-    right: 2.4rem;
-    bottom: 5rem;
-    width: 24rem;
-    font-size: 1.1rem;
-    line-height: 1.35;
+    right: 7rem;
+    bottom: 3.2rem;
+    width: 32rem;
+    font-family: $font-sans;
+    color: $white;
+    text-transform: uppercase;
+
+    p {
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.24;
+      letter-spacing: 0.06em;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1.8rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+  }
+}
+
+.thumb {
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    font-family: $font-sans;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $white;
+    pointer-events: none;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 }

@@ -9,18 +9,44 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <div class="floating-nav">
+    <a href="#">Where to buy?</a>
+
+    <span class="floating-nav__symbol"></span>
+
+    <button type="button" class="floating-nav__menu">
+      <span>Menu</span>
+      <i></i>
+    </button>
+  </div>
   <div class="wrap">
     <header class="header">
       <div class="header__inner">
-        <a href="#" class="header__logo">AUPALE</a>
+        <nav class="header__nav header__nav--left">
+          <a href="#">Philosophy</a>
+          <a href="#">The Bottle</a>
+          <a href="#">Vodka</a>
+          <a href="#">Seltzers</a>
+        </nav>
 
-        <nav class="header__nav">
-          <a href="#">Story</a>
-          <a href="#">Products</a>
-          <a href="#">Contact</a>
+        <a href="#" class="header__brand">
+          <span>AUPALE</span>
+          <span>VODKA</span>
+          <i></i>
+        </a>
+
+        <nav class="header__nav header__nav--right">
+          <a href="#">Mocktails</a>
+          <a href="#">Creators</a>
+          <a href="#">Where to buy?</a>
+          <a href="#">English</a>
         </nav>
       </div>
     </header>
@@ -35,19 +61,73 @@
 
         <div class="hero__content">
           <h1 class="hero__title">
-            <span>Born from</span>
-            <span><em>The Untouched</em></span>
-            <span>Wilderness.</span>
+            <span class="hero__title-line hero__title-line--01">Born From</span>
+            <span class="hero__title-line hero__title-line--02">
+              The <em>Untouched</em>
+            </span>
+            <span class="hero__title-line hero__title-line--03">Wilderness.</span>
           </h1>
 
           <div class="hero__thumb">
-            <img src="/src/assets/images/thumb-01.jpg" alt="" />
+            <video class="hero__thumb-video" autoplay muted loop playsinline>
+              <source src="/video/hero_bg.mp4" type="video/mp4" />
+            </video>
+
+            <div class="thumb__overlay">
+              <span>Watch the film</span>
+
+              <div class="thumb__bottom">
+                <span>(play)</span>
+                <span>2min 26s</span>
+              </div>
+            </div>
           </div>
 
-          <p class="hero__desc">
-            A clean and minimal brand experience inspired by nature,
-            silence and refined craftsmanship.
-          </p>
+          <div class="hero__desc">
+            <p>
+              From the silence of Canada’s northern valleys, a clarity emerges.
+              Aupale is born from places where nature still decides the rules.
+            </p>
+            <a href="#">Discover our story</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro section">
+        <div class="intro__sticky">
+          <div class="intro__bg-pattern"></div>
+
+          <div class="intro__scene intro__scene--01">
+            <img class="intro__card intro__card--left" src="/images/intro-left.jpg" alt="" />
+
+            <h2 class="intro__title">
+              <span>We go back to</span>
+              <span><em>basics, only real</em></span>
+              <span>ingredients.</span>
+            </h2>
+
+            <img class="intro__card intro__card--right" src="/images/intro-right.jpg" alt="" />
+
+            <div class="intro__copy">
+              <strong>No additive. No artifice.</strong>
+              <p>
+                In a world of shortcuts, we choose restraint. No additives.
+                No artifice. Fewer, better elements handled with care.
+              </p>
+            </div>
+          </div>
+
+          <div class="intro__scene intro__scene--02">
+            <img class="intro__float intro__float--left" src="/images/intro-float-left.jpg" alt="" />
+
+            <h3 class="intro__second-title">
+              <span>Nature gives us</span>
+              <span><em>everything</em></span>
+              <span>we need.</span>
+            </h3>
+
+            <img class="intro__float intro__float--right" src="/images/intro-float-right.jpg" alt="" />
+          </div>
         </div>
       </section>
     </main>

@@ -1,0 +1,156 @@
+@use './variables' as *;
+
+.intro {
+  position: relative;
+  height: 280vh;
+  background: $ivory;
+  color: $black;
+
+  &__sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 22% 35%, rgba(206, 225, 216, 0.9), transparent 34%),
+      radial-gradient(circle at 45% 68%, rgba(215, 230, 222, 0.65), transparent 28%),
+      $ivory;
+  }
+
+  &__bg-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.28;
+    background-image:
+      repeating-radial-gradient(
+        circle at 26% 38%,
+        rgba(255, 255, 255, 0.65) 0 1px,
+        transparent 1px 18px
+      );
+    pointer-events: none;
+  }
+
+  &__scene {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__scene--01 {
+    z-index: 2;
+  }
+
+  &__scene--02 {
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    top: 34%;
+    transform: translate(-50%, -50%);
+    width: min(90vw, 86rem);
+    font-family: $font-serif;
+    font-size: clamp(6rem, 7.4vw, 13rem);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.055em;
+    text-align: center;
+
+    span {
+      display: block;
+    }
+
+    em {
+      font-style: italic;
+    }
+  }
+
+  &__card {
+    position: absolute;
+    width: 24rem;
+    height: 28rem;
+    object-fit: cover;
+    border-radius: 1.4rem;
+    will-change: transform;
+  }
+
+  &__card--left {
+    left: 18%;
+    top: 43%;
+    transform: translateY(-50%) rotate(-2deg);
+  }
+
+  &__card--right {
+    right: 18%;
+    top: 40%;
+    transform: translateY(-50%) rotate(4deg);
+  }
+
+  &__copy {
+    position: absolute;
+    left: 50%;
+    bottom: 8%;
+    transform: translateX(-50%);
+    width: min(90vw, 48rem);
+    font-family: $font-sans;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    strong {
+      display: block;
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+  }
+
+  &__second-title {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    width: min(90vw, 82rem);
+    font-family: $font-serif;
+    font-size: clamp(6rem, 7.2vw, 12rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+    text-align: center;
+
+    span {
+      display: block;
+    }
+
+    em {
+      font-style: italic;
+    }
+  }
+
+  &__float {
+    position: absolute;
+    width: 22rem;
+    height: 26rem;
+    object-fit: cover;
+    border-radius: 1.4rem;
+    will-change: transform, opacity;
+  }
+
+  &__float--left {
+    left: 20%;
+    top: 38%;
+  }
+
+  &__float--right {
+    right: 20%;
+    top: 43%;
+  }
+}
