@@ -1,0 +1,171 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  max-height: 640px;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.page {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 36px rgba(15, 23, 42, 0.14);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 100;
+  width: 100%;
+  max-width: 480px;
+  height: 56px;
+  padding: 0 18px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--white);
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  background: rgba(248, 250, 252, 0.88);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
+}
+
+.header.is-scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+}
+
+.hero {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  color: var(--white);
+  background: var(--color-dark);
+}
+
+.license-section {
+  padding: 46px 22px 58px;
+  color: var(--white);
+  background: var(--color-light);
+}
+
+.road-section {
+  padding: 0 22px 46px;
+  background: var(--color-light);
+}
+
+.info-section {
+  padding: 0 22px 60px;
+  background: var(--color-light);
+}
+
+.bottom-cta {
+  min-height: 220px;
+  padding: 44px 22px 76px;
+  text-align: center;
+  background: var(--color-dark);
+  color: var(--white);
+}
+
+.footer {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 22px 96px;
+  background: var(--white);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.footer strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+body.is-menu-open {
+  overflow: hidden !important;
+}
+
+@media (max-width: 360px) {
+  .hero {
+    height: 390px;
+  }
+
+  .license-section,
+  .road-section,
+  .info-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    background: var(--color-light);
+  }
+
+  .page {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    overflow: hidden;
+  }
+
+  .header {
+    left: 0;
+    transform: none;
+    max-width: none;
+    height: 72px;
+    padding: 0 max(40px, calc((100vw - 1180px) / 2));
+  }
+
+  .hero {
+    height: 720px;
+    max-height: none;
+    min-height: 620px;
+  }
+
+  .license-section,
+  .road-section,
+  .info-section {
+    padding-left: max(40px, calc((100vw - 1180px) / 2));
+    padding-right: max(40px, calc((100vw - 1180px) / 2));
+  }
+
+  .license-section {
+    padding-top: 96px;
+    padding-bottom: 110px;
+  }
+
+  .road-section {
+    padding-bottom: 96px;
+  }
+
+  .info-section {
+    padding-bottom: 110px;
+  }
+
+  .bottom-cta {
+    min-height: 280px;
+    padding: 80px 40px;
+  }
+
+  .footer {
+    max-width: 1180px;
+    padding: 36px 0 56px;
+  }
+}
