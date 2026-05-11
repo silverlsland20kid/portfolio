@@ -58,6 +58,11 @@
   background: var(--color-light);
 }
 
+.trial-section {
+  padding: 42px 22px 0;
+  background: var(--color-light);
+}
+
 .road-section {
   padding: 0 22px 46px;
   background: var(--color-light);
@@ -149,6 +154,10 @@ body.is-menu-open {
   .license-section {
     padding-top: 96px;
     padding-bottom: 110px;
+  }
+
+  .trial-section {
+    padding: 76px max(40px, calc((100vw - 1180px) / 2)) 0;
   }
 
   .road-section {

@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     duration: 0.6,
     stagger: 0.08,
     ease: "power2.out",
+    clearProps: "transform,opacity",
     scrollTrigger: {
       trigger: ".quick-grid",
       start: "top 85%",

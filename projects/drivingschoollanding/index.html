@@ -50,13 +50,10 @@
       </button>
 
       <ul class="mobile-menu__list">
-        <li><a href="#">연수 소개</a></li>
-        <li><a href="#">연수 과정</a></li>
-        <li><a href="#">초보운전 연수</a></li>
-        <li><a href="#">장롱면허 연수</a></li>
-        <li><a href="#">방문/자차 연수</a></li>
-        <li><a href="#">연수 비용 안내</a></li>
-        <li><a href="#">온라인 신청</a></li>
+        <li><a href="#course">연수 과정</a></li>
+        <li><a href="#price">연수 비용</a></li>
+        <li><a href="#trial">⭐ 무료 체험 신청</a></li>
+        <li><a href="#area">연수 가능 지역</a></li>
       </ul>
 
       <div class="mobile-menu__info">
@@ -78,10 +75,10 @@
       <div class="hero__track">
         <article class="hero__slide" style="--hero-bg:url('../images/hero_01.jpg')">
           <div class="hero__content">
-            <span class="hero__eyebrow">운전이 아직 낯설고 불안하다면</span>
+            <span class="hero__eyebrow">2시간 무료 연수로 먼저 경험해보세요</span>
             <h1 class="hero__title">
-              다시 운전할 수 있도록
-              <em>옆에서 차근차근 도와드릴게요.</em>
+              받아보고 결정하는
+              <em>맞춤형 운전연수</em>
             </h1>
             <p class="hero__desc">
               초보운전부터 장롱면허까지<br>
@@ -120,6 +117,32 @@
       </div>
 
       <div class="hero__dots" aria-label="슬라이드 페이지 선택"></div>
+    </section>
+
+    <section class="trial-section" aria-labelledby="trial-title">
+      <div class="trial-card reveal">
+        <span class="trial-card__label">처음이라 고민된다면</span>
+
+        <h2 id="trial-title">
+          2시간 무료 연수 후<br>
+          계속 진행할지 선택하세요
+        </h2>
+
+        <p>
+          실제 강사와 수업 방식을 먼저 경험해보고,<br>
+          나에게 맞는지 확인한 뒤 연수를 결정할 수 있습니다.
+        </p>
+
+        <ul class="trial-card__list">
+          <li>강사 스타일 확인</li>
+          <li>운전 불안감 점검</li>
+          <li>연수 지속 여부 선택</li>
+        </ul>
+
+        <a href="tel:0418350709" class="trial-card__btn">
+          무료 연수 상담하기
+        </a>
+      </div>
     </section>
 
     <section class="license-section" aria-labelledby="license-title">
@@ -229,27 +252,22 @@
       <p class="quick-desc">내게 필요한 운전연수를 바로 확인해보세요.</p>
 
       <nav class="quick-grid" aria-label="빠른 메뉴">
-        <a href="#" class="quick-item">
+        <a href="#course" class="quick-item">
           <span class="quick-icon" aria-hidden="true">⏰</span>
-          <span>연수 과정 안내</span>
+          <span>연수 과정</span>
         </a>
-        <a href="#" class="quick-item">
+
+        <a href="#price" class="quick-item">
           <span class="quick-icon" aria-hidden="true">💳</span>
-          <span>연수 비용 확인</span>
+          <span>연수 비용</span>
         </a>
-        <a href="#" class="quick-item">
-          <span class="quick-icon" aria-hidden="true">🧾</span>
-          <span>방문연수 신청</span>
+
+        <a href="#trial" class="quick-item quick-item--primary">
+          <span class="quick-icon" aria-hidden="true">⭐</span>
+          <span>무료 체험 신청</span>
         </a>
-        <a href="#" class="quick-item">
-          <span class="quick-icon" aria-hidden="true">💬</span>
-          <span>자차연수 안내</span>
-        </a>
-        <a href="#" class="quick-item">
-          <span class="quick-icon" aria-hidden="true">🖱️</span>
-          <span>상담 예약</span>
-        </a>
-        <a href="#" class="quick-item">
+
+        <a href="#area" class="quick-item">
           <span class="quick-icon" aria-hidden="true">📍</span>
           <span>연수 가능 지역</span>
         </a>
