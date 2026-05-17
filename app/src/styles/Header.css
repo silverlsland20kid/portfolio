@@ -1,148 +1,83 @@
 .site-header {
   position: fixed;
-  inset: 0 0 auto 0;
-  z-index: 100;
-  transform: translateY(0);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.site-header.is-hidden {
-  transform: translateY(-100%);
-}
-
-.site-header.is-visible,
-.site-header.is-top {
-  transform: translateY(0);
-}
-
-.site-header.is-scrolled.is-visible {
-  backdrop-filter: blur(6px);
-}
-
-
-.site-header__container {
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  padding: 0 36px;
   display: flex;
-  flex-direction: row;
-  justify-content: stretch;
-  align-items: stretch;
-  margin-left: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9000;
+  background: rgba(10, 10, 10, 0.58);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
 }
 
 .site-header__logo {
-  display: flex;
-  align-items: flex-end;
-  padding-top: 3vh;
-  flex: 0 0 var(--content-left);
-  width: var(--content-left) + var(--nav-gap);
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.site-header__logo-link {
-  opacity: 1;
-  pointer-events: auto;
-  color: var(--black);
-  letter-spacing: -.02em;
-  font-family: "Oswald", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 18px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
   text-decoration: none;
-  display: flex;
-  background-color: transparent;
-  outline: 3px var(--black);
-  mix-blend-mode: color-dodge;
-}
-
-.site-header__link--current {
-  font-weight: bold;
-  color: var(--black);
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.55);
 }
 
 .site-header__nav {
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  align-items: center;
+  gap: 28px;
 }
 
-.site-header__nav-item {
-  display: flex;
-  margin-left: 4rem;
-  margin-right: 1.5rem;
-  object-fit: fill;
-  flex-flow: column-reverse;
-  flex: 1;
-  justify-content: space-between;
-  align-self: stretch;
-  align-items: stretch;
-  padding-left: 0;
-}
-
-.site-header__nav-item:nth-child(4) {
-  text-align: left;
-  flex-direction: column;
-  flex: 0 auto;
-  justify-content: space-between;
-  align-self: stretch;
-  padding-left: 33vw;
-  display: flex;
-}
-
-.site-header__nav-item:nth-child(4) .site-header__link {
-  border: none;
-  background: none;
-  border-left: .75px solid var(--black);
-  cursor: pointer;
-}
-
-.site-header__link:hover,
-.site-header__nav-item:hover .site-header__link {
-  color: var(--gray);
-  ;
-  transition: color 0.2s;
-}
-
-.site-header__link {
-  text-transform: uppercase;
-  font-family: "Libertinus Serif", serif;
+.site-header__nav a {
+  position: relative;
+  color: var(--text-secondary);
   font-size: 12px;
-  line-height: 10px;
-  color: var(--black);
-  text-shadow:
-    0 0 1px rgba(255, 255, 255, .95),
-    0 0 2px rgba(255, 255, 255, .7);
+  font-weight: 800;
+  text-transform: uppercase;
   text-decoration: none;
-  display: flex;
-  letter-spacing: -.1em;
-  border-left: .75px solid var(--black);
-  flex-flow: column;
-  flex: 1;
-  order: 0;
-  justify-content: flex-end;
-  align-self: stretch;
-  align-items: stretch;
-  margin-top: 0;
-  padding-top: 0;
-  padding-left: 10px;
+  letter-spacing: 0.04em;
+  transition: color 0.25s ease;
+}
+
+.site-header__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.site-header__nav a:hover,
+.site-header__nav a.active {
+  color: var(--accent);
+}
+
+.site-header__nav a:hover::after,
+.site-header__nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 @media (max-width: 768px) {
-  :root {
-    --content-left: 1.5rem;
+  .site-header {
+    height: 64px;
+    padding: 0 20px;
   }
 
   .site-header__logo {
-    flex: 0 0 auto;
-    width: auto;
+    font-size: 12px;
   }
 
-  .featured-projects,
-  .commercial-works,
-  .lab-archive {
-    margin-left: 0;
-    padding: 0 var(--content-left);
-    width: 100%;
+  .site-header__nav {
+    gap: 16px;
+  }
+
+  .site-header__nav a {
+    font-size: 11px;
   }
 }

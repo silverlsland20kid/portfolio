@@ -15,6 +15,7 @@ function initSlider() {
     const dot = document.createElement("button");
     dot.type = "button";
     dot.className = "hero__dot";
+    dot.setAttribute("aria-label", `${index + 1}번째 슬라이드 보기`);
 
     dot.addEventListener("click", () => {
       showSlide(index, track, slides, dotsWrap);
@@ -24,6 +25,11 @@ function initSlider() {
     dotsWrap.appendChild(dot);
   });
 
+  hero.addEventListener("mouseenter", () => clearInterval(autoTimer));
+  hero.addEventListener("mouseleave", () =>
+    startAutoSlide(track, slides, dotsWrap),
+  );
+
   showSlide(0, track, slides, dotsWrap);
   startAutoSlide(track, slides, dotsWrap);
 }
@@ -32,15 +38,18 @@ function showSlide(index, track, slides, dotsWrap) {
   const dots = dotsWrap.querySelectorAll(".hero__dot");
 
   currentIndex = index;
-
   track.style.transform = `translate3d(${-currentIndex * 100}%, 0, 0)`;
 
   slides.forEach((slide, i) => {
-    slide.classList.toggle("is-active", i === currentIndex);
+    const isActive = i === currentIndex;
+    slide.classList.toggle("is-active", isActive);
+    slide.setAttribute("aria-hidden", String(!isActive));
   });
 
   dots.forEach((dot, i) => {
-    dot.classList.toggle("is-active", i === currentIndex);
+    const isActive = i === currentIndex;
+    dot.classList.toggle("is-active", isActive);
+    dot.setAttribute("aria-current", isActive ? "true" : "false");
   });
 }
 

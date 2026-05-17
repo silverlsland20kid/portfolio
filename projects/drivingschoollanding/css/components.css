@@ -702,20 +702,106 @@
 /* Floating */
 .floating {
   position: fixed;
-  left: 50%;
-  bottom: 24px;
-  z-index: 120;
-  width: min(100%, 480px);
-  transform: translateX(-50%);
-  pointer-events: none;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
 }
 
 .floating__inner {
-  padding: 0 18px;
   display: flex;
+  flex-direction: column;
+  gap: 14px;
   align-items: flex-end;
-  justify-content: space-between;
-  pointer-events: none;
+}
+
+.floating-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 160px;
+  height: 58px;
+  padding: 0 24px;
+  border-radius: 22px;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.floating-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+}
+
+.floating-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.floating-btn--apply {
+  background: #f7f8ff;
+  color: #2e3a5c;
+}
+
+.floating-btn--kakao {
+  background: #ffd900;
+  color: #2e3a5c;
+}
+
+.floating-btn--kakao .floating-btn__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #111;
+  color: #ffd900;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.floating-btn--tel {
+  background: #e7f4ff;
+  color: #2e3a5c;
+}
+
+.floating-btn--tel:nth-child(1) {
+  letter-spacing: 0.01rem;
+}
+
+.floating-btn--tel:nth-child(3) {
+  letter-spacing: 0.1rem;
+}
+
+@media (max-width: 768px) {
+  .floating {
+    right: 14px;
+    bottom: 95px;
+    top: auto;
+    transform: none;
+  }
+
+  .floating__inner {
+    gap: 10px;
+  }
+
+  .floating-btn {
+    min-width: 126px;
+    height: 46px;
+    padding: 0 16px;
+    border-radius: 18px;
+    font-size: 17px;
+  }
+
+  .floating-btn--kakao .floating-btn__icon {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
 }
 
 .chat-btn,
@@ -1314,6 +1400,7 @@ body.is-menu-open {
     left: 4rem;
     bottom: 3rem;
     transform: none;
+    top: auto;
   }
 
   .quick-title {
@@ -1370,7 +1457,7 @@ body.is-menu-open {
 
   .top-btn {
     right: 3rem;
-    bottom: 9rem;
+    bottom: 16rem;
   }
 
   .mobile-menu {
