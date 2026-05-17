@@ -169,7 +169,6 @@ a {
 
 section {
   padding: 140px 36px;
-  border-bottom: 1px solid var(--border);
 }
 
 .section-label {
@@ -636,6 +635,89 @@ section {
   letter-spacing: -0.04em;
 }
 
+.contact__grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-preview-board {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  max-width: 700px;
+}
+
+.contact-preview-card {
+  display: block;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.contact-preview-card--pc .contact-preview-card__media {
+  aspect-ratio: 4 / 3;
+}
+
+.contact-preview-card--mo .contact-preview-card__media {
+  aspect-ratio: 3 / 4;
+}
+
+.contact-preview-card__media {
+  overflow: hidden;
+  border-radius: 26px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.contact-preview-card__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.86);
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+.contact-preview-card:hover video {
+  transform: scale(1.06);
+  filter: brightness(1);
+}
+
+.contact-preview-card--0 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.contact-preview-card--1 {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.contact-preview-card--2 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  align-self: start;
+  margin-top: -14rem;
+}
+
+.contact-preview-card--3 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  align-self: end;
+  transform: translateY(48px);
+}
+
+.contact-preview__archive {
+  grid-column: 1 / -1;
+  justify-self: end;
+  display: inline-flex;
+  margin-top: 8px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
 
 @media (max-width: 768px) {
 
@@ -704,5 +786,25 @@ section {
 
   .work-detail__info>div:last-child {
     border-bottom: 0;
+  }
+
+  .contact-preview-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .contact-preview-card--0,
+  .contact-preview-card--1,
+  .contact-preview-card--2,
+  .contact-preview-card--3 {
+    grid-column: auto;
+    grid-row: auto;
+    transform: none;
+  }
+
+  .contact-preview__archive {
+    justify-self: start;
   }
 }

@@ -8,6 +8,7 @@ import WorkPage from "./pages/WorkPage";
 import WorkDetail from "./pages/WorkDetail";
 import "./styles/App.css";
 import Header from "./components/Header";
+import LabPage from "./pages/LabPage";
 
 export default function App() {
   useEffect(() => {
@@ -149,12 +150,62 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/work/:slug" element={<WorkDetail />} />
+        <Route path="/lab" element={<LabPage />} />
       </Routes>
     </>
   );
 }
 
 function Home() {
+  const previewVideos = [
+    {
+      type: "mo",
+      src: "/assets/video02_mo.mp4",
+      link: "https://www.k-village.co.kr/exhibitionDetail?spexhNo=1774&page=1",
+    },
+    {
+      type: "mo",
+      src: "/assets/video07_mo.mp4",
+      link: "https://www.hfashionmall.com/article/STORY/9711/view",
+    },
+    {
+      type: "mo",
+      src: "/assets/video11_mo.mp4",
+      link: "https://www.hfashionmall.com/article/STYLE/10191/view",
+    },
+    {
+      type: "mo",
+      src: "/assets/video08_mo.mp4",
+      link: "https://www.hfashionmall.com/article/STORY/9907/view",
+    },
+    {
+      type: "pc",
+      src: "/assets/video06.mp4",
+      link: "https://www.hfashionmall.com/article/STYLE/9208/view",
+    },
+    {
+      type: "pc",
+      src: "/assets/video01.mp4",
+      link: "https://www.k-village.co.kr/exhibitionDetail?spexhNo=1884&page=1",
+    },
+    {
+      type: "pc",
+      src: "/assets/video09.mp4",
+      link: "https://www.hfashionmall.com/article/STORY/9822/view",
+    },
+  ];
+
+  const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+
+  const randomPcVideos = shuffle(
+    previewVideos.filter((video) => video.type === "pc"),
+  ).slice(0, 2);
+  const randomMoVideos = shuffle(
+    previewVideos.filter((video) => video.type === "mo"),
+  ).slice(0, 2);
+
+  const randomVideos = [...randomPcVideos, ...randomMoVideos];
+
   return (
     <>
       <div className="progress"></div>
@@ -319,17 +370,41 @@ function Home() {
         <section className="contact" id="contact">
           <p className="section-label">04 Contact</p>
 
-          <h2 className="contact__title">
-            LET'S <span>TALK.</span>
-          </h2>
+          <div className="contact__grid">
+            <div>
+              <h2 className="contact__title">
+                LET'S <span>TALK.</span>
+              </h2>
 
-          <p className="contact__copy">
-            목적이 분명한 구조와 사용자가 이해하기 쉬운 흐름을 함께 고민합니다.
-          </p>
+              <p className="contact__copy">
+                목적이 분명한 구조와 사용자가 이해하기 쉬운 흐름을 함께
+                고민합니다.
+              </p>
 
-          <a href="mailto:dms*******@naver.com" className="contact__btn">
-            이메일로 연락하기
-          </a>
+              <a href="mailto:dms*******@naver.com" className="contact__btn">
+                이메일로 연락하기
+              </a>
+            </div>
+            <div className="contact-preview-board">
+              {randomVideos.map((video, index) => (
+                <a
+                  href={video.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`contact-preview-card contact-preview-card--${video.type} contact-preview-card--${index}`}
+                  key={video.src}
+                >
+                  <div className="contact-preview-card__media">
+                    <video src={video.src} autoPlay muted playsInline loop />
+                  </div>
+                </a>
+              ))}
+
+              <Link to="/lab" className="contact-preview__archive">
+                VIEW FULL ARCHIVE ↗
+              </Link>
+            </div>
+          </div>
         </section>
       </main>
     </>

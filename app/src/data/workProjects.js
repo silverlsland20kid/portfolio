@@ -155,6 +155,18 @@ export const workProjects = {
       "UI 구조 분석 · 시맨틱 마크업 · 인터랙션 구현 퍼블리싱 실무참여 100%",
     github: null,
     demo: null,
+    videos: [
+      {
+        type: "mo",
+        src: "/assets/video02_mo.mp4",
+        link: "https://www.k-village.co.kr/exhibitionDetail?spexhNo=1774&page=1",
+      },
+      {
+        type: "pc",
+        src: "/assets/video01.mp4",
+        link: "https://www.k-village.co.kr/exhibitionDetail?spexhNo=1884&page=1",
+      },
+    ],
   },
 
   //Handsome
@@ -185,6 +197,33 @@ export const workProjects = {
       "UI 구조 분석 · 시맨틱 마크업 · 인터랙션 구현 퍼블리싱 실무참여 100%",
     github: null,
     demo: null,
+    videos: [
+      {
+        type: "mo",
+        src: "/assets/video07_mo.mp4",
+        link: "https://www.hfashionmall.com/article/STORY/9711/view",
+      },
+      {
+        type: "pc",
+        src: "/assets/video06.mp4",
+        link: "https://www.hfashionmall.com/article/STYLE/9208/view",
+      },
+      {
+        type: "mo",
+        src: "/assets/video11_mo.mp4",
+        link: "https://www.hfashionmall.com/article/STYLE/10191/view",
+      },
+      {
+        type: "mo",
+        src: "/assets/video08_mo.mp4",
+        link: "https://www.hfashionmall.com/article/STORY/9907/view",
+      },
+      {
+        type: "pc",
+        src: "/assets/video09.mp4",
+        link: "https://www.hfashionmall.com/article/STORY/9822/view",
+      },
+    ],
   },
 
   //kolonmall
@@ -215,6 +254,13 @@ export const workProjects = {
       "UI 구조 분석 · 시맨틱 마크업 · 인터랙션 구현 퍼블리싱 실무참여 100%",
     github: null,
     demo: null,
+    videos: [
+      {
+        type: "mo",
+        src: "/assets/video10_mo.mp4",
+        link: "https://www.kolonsport.com/Special/246759",
+      },
+    ],
   },
 
   //Agencycreativeaudio

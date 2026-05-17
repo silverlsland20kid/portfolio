@@ -3,6 +3,8 @@
   width: 100%;
   min-height: 100vh;
   padding-bottom: 8rem;
+  display: flex;
+  justify-content: center;
 }
 
 .project-list-lab .project-list__side {
@@ -13,12 +15,18 @@
   z-index: 10;
 }
 
+.project-list-lab,
+.project-list-lab * {
+  font-family: "Pretendard", sans-serif !important;
+}
+
 .lab-videos {
-  width: min(1040px, calc(100vw - var(--content-left) - var(--nav-gap) - 4rem));
-  margin-left: calc(var(--content-left) + var(--nav-gap));
+  width: 1200px;
   overflow: visible;
   padding-top: 13.5rem;
-  padding-left: 1rem;
+  padding-left: 15rem;
+  padding-bottom: 0;
+  color: var(--text-primary);
 }
 
 .lab-videos__grid {
