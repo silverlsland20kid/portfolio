@@ -13,7 +13,10 @@ export default function Header() {
   ];
 
   useEffect(() => {
-    if (location.pathname !== "/") return;
+     if (location.pathname !== "/") {
+    setActiveSection("");
+    return;
+  }
 
     const sections = navItems
       .map((item) => document.getElementById(item.id))
