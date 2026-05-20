@@ -210,7 +210,7 @@ function Home() {
     <>
       <div className="progress"></div>
 
-      <header className="hero">
+      <header className="hero" id="home">
         <div className="hero__top">
           <p className="hero__job">Web Publisher</p>
           <p>2026</p>

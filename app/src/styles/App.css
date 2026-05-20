@@ -638,6 +638,7 @@ section {
 .contact__grid {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .contact-preview-board {
@@ -653,6 +654,11 @@ section {
   display: block;
   color: var(--text-primary);
   text-decoration: none;
+  position: static;
+  width: 100%;
+  aspect-ratio: 1 / 0.72;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 .contact-preview-card--pc .contact-preview-card__media {
@@ -665,7 +671,7 @@ section {
 
 .contact-preview-card__media {
   overflow: hidden;
-  border-radius: 26px;
+  border-radius: 0.8rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
 }
@@ -735,6 +741,10 @@ section {
     padding: 24px;
   }
 
+  .hero__line {
+    font-size: clamp(100px, 13vw, 140px);
+  }
+
   .hero__top,
   .hero__bottom {
     font-size: 12px;
@@ -746,7 +756,7 @@ section {
   }
 
   section {
-    padding: 100px 24px;
+    padding: 100px 24px 20px 24px;
   }
 
   .about__grid,
@@ -788,11 +798,16 @@ section {
     border-bottom: 0;
   }
 
+  .contact__title {
+    padding-top: 3rem;
+  }
+
   .contact-preview-board {
-    grid-template-columns: repeat(2, 1fr);
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
     gap: 14px;
     max-width: 100%;
-    margin-left: 0;
   }
 
   .contact-preview-card--0,
@@ -806,5 +821,11 @@ section {
 
   .contact-preview__archive {
     justify-self: start;
+    margin-top: 25px;
   }
+
+  .contact-preview-card--2 {
+    margin: 0;
+  }
+
 }
