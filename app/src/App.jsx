@@ -12,9 +12,11 @@ import LabPage from "./pages/LabPage";
 
 export default function App() {
 
+  // 페이지 이동 시 항상 맨 위로 이동시키는 컴포넌트
   function ScrollToTop() {
   const { pathname } = useLocation();
 
+  // 페이지 이동 시 스크롤 초기화
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -22,7 +24,10 @@ export default function App() {
   return null;
 }
 
+  // 마우스 커서 커스텀
   useEffect(() => {
+    // dot = 실제 마우스 위치
+    // ring = 부드럽게 따라오는 원형 커서
     const dot = document.querySelector(".cursor-dot");
     const ring = document.querySelector(".cursor-ring");
 
@@ -31,10 +36,12 @@ export default function App() {
     let ringX = 0;
     let ringY = 0;
 
+    // 마우스 위치 추적
     const handleMouseMove = (event) => {
       mouseX = event.clientX;
       mouseY = event.clientY;
 
+      // dot은 바로 이동
       gsap.set(dot, {
         x: mouseX,
         y: mouseY,
@@ -43,6 +50,8 @@ export default function App() {
 
     window.addEventListener("mousemove", handleMouseMove);
 
+    // ring은 천천히 따라오게 설정
+    // 값이 작을수록 더 부드럽고 느리게 움직임
     function cursorLoop() {
       ringX += (mouseX - ringX) * 0.08;
       ringY += (mouseY - ringY) * 0.08;
@@ -57,6 +66,7 @@ export default function App() {
 
     cursorLoop();
 
+    // 클릭 가능한 요소에 hover 시 커서 스타일 변경되도록 설정
     document
       .querySelectorAll("a, .works__row, .contact__btn")
       .forEach((element) => {
@@ -68,8 +78,10 @@ export default function App() {
         );
       });
 
+    // GSAP ScrollTrigger 등록
     gsap.registerPlugin(ScrollTrigger);
 
+    // 메인 타이틀 등장 애니메이션 (clip-path로 가려진 글자를 열어주는 방식)
     gsap.to(".hero__line", {
       clipPath: "inset(0 0 0% 0)",
       duration: 1.2,
@@ -134,6 +146,7 @@ export default function App() {
       },
     });
 
+    // 스크롤 양에 따라 width 증가
     gsap.to(".progress", {
       width: "100%",
       ease: "none",
@@ -145,6 +158,7 @@ export default function App() {
       },
     });
 
+    // cleanup 페이지 이동 시 기존 ScrollTrigger 제거
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
@@ -154,7 +168,6 @@ export default function App() {
     <>
 
       <ScrollToTop />
-      
       <div className="cursor-dot"></div>
       <div className="cursor-ring"></div>
 
@@ -171,6 +184,7 @@ export default function App() {
 }
 
 function Home() {
+  // Contact 섹션에 사용할 영상 목록
   const previewVideos = [
     {
       type: "mo",
@@ -209,15 +223,21 @@ function Home() {
     },
   ];
 
+
+  // 배열 랜덤 섞기 함수 [...arr] → 원본 배열 보호용 복사
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
+  // PC 영상 랜덤 2개
   const randomPcVideos = shuffle(
     previewVideos.filter((video) => video.type === "pc"),
   ).slice(0, 2);
+
+  // mo 영상 랜덤 2개
   const randomMoVideos = shuffle(
     previewVideos.filter((video) => video.type === "mo"),
   ).slice(0, 2);
 
+  // 최종 출력 영상 배열 pc 2개 + mobile 2개
   const randomVideos = [...randomPcVideos, ...randomMoVideos];
 
   return (
