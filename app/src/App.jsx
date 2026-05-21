@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -11,6 +11,17 @@ import Header from "./components/Header";
 import LabPage from "./pages/LabPage";
 
 export default function App() {
+
+  function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
   useEffect(() => {
     const dot = document.querySelector(".cursor-dot");
     const ring = document.querySelector(".cursor-ring");
@@ -141,6 +152,9 @@ export default function App() {
 
   return (
     <>
+
+      <ScrollToTop />
+      
       <div className="cursor-dot"></div>
       <div className="cursor-ring"></div>
 

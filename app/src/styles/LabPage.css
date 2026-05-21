@@ -20,6 +20,17 @@
   font-family: "Pretendard", sans-serif !important;
 }
 
+.project-list__label {
+      font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+
+.project-list__skills-list,
+.project-list__attitude-list {
+      line-height: 1.4rem;
+}
+
 .lab-videos {
   width: 1200px;
   overflow: visible;
@@ -139,6 +150,7 @@
     width: 100%;
     margin-left: 0;
     padding-top: 1rem;
+    padding-left: 0;
   }
 }
 
