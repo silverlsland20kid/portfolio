@@ -30,6 +30,7 @@ export const workProjects = {
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/subway",
     demo: "https://subway-liart.vercel.app/",
+    image: "/thumbs/sample10.png",
   },
 
   //나스미디어
@@ -55,6 +56,7 @@ export const workProjects = {
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/nasmedia",
     demo: "https://nasmedia-alpha.vercel.app/",
+    image: "/thumbs/sample11.png",
   },
 
   //투두앱
@@ -80,6 +82,7 @@ export const workProjects = {
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/todoapp",
     demo: "https://todoapp-plum-chi.vercel.app/",
+    image: "/thumbs/sample14.png",
   },
 
   //대웅제약
@@ -102,6 +105,7 @@ export const workProjects = {
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/daewoong",
     demo: "https://daewoong-nine.vercel.app/",
+    image: "/thumbs/sample12.png",
   },
 
   //다소니
@@ -125,6 +129,7 @@ export const workProjects = {
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/dasoni",
     demo: "https://dasoni-five.vercel.app/",
+    image: "/thumbs/sample13.png",
   },
 
   //KVILLAGE
@@ -138,7 +143,7 @@ export const workProjects = {
       상품 슬라이드, 앵커 네비게이션, 스크롤 인터랙션 등을 크로스브라우징 기준에 맞춰 작업했습니다.<br />
       <br />
       회사 프로젝트 특성상 실제 소스 코드는 비공개이며, 퍼블리싱 담당 영역과 기여도를 중심으로 설명하고 있습니다.<br />
-      공개 가능한 화면만 캡처하여 <span class="link-to-lab">포트폴리오에 정리</span>했습니다.
+      공개 가능한 화면만 캡처하여 <a href="/lab" class="link-to-lab">포트폴리오에 정리</a>했습니다.
     `,
     year: "2025",
     role: "Publishing",
@@ -180,7 +185,7 @@ export const workProjects = {
       상품 슬라이드, 앵커 네비게이션, 스크롤 인터랙션 등을 크로스브라우징 기준에 맞춰 작업했습니다.<br />
       <br />
       회사 프로젝트 특성상 실제 소스 코드는 비공개이며, 퍼블리싱 담당 영역과 기여도를 중심으로 설명하고 있습니다.<br />
-      공개 가능한 화면만 캡처하여 <span class="link-to-lab">포트폴리오에 정리</span>했습니다.
+      공개 가능한 화면만 캡처하여 <a href="/lab" class="link-to-lab">포트폴리오에 정리</a>했습니다.
     `,
     year: "2025",
     role: "Publishing",
@@ -237,7 +242,7 @@ export const workProjects = {
       상품 슬라이드, 앵커 네비게이션, 스크롤 인터랙션 등을 크로스브라우징 기준에 맞춰 작업했습니다.<br />
       <br />
       회사 프로젝트 특성상 실제 소스 코드는 비공개이며, 퍼블리싱 담당 영역과 기여도를 중심으로 설명하고 있습니다.<br />
-      공개 가능한 화면만 캡처하여 <span class="link-to-lab">포트폴리오에 정리</span>했습니다.<br />
+      공개 가능한 화면만 캡처하여 <a href="/lab" class="link-to-lab">포트폴리오에 정리</a>했습니다.<br />
     `,
     year: "2025",
     role: "Publishing",
@@ -283,6 +288,7 @@ export const workProjects = {
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/Agencycreativeaudio",
     demo: "https://agencycreativeaudio.vercel.app/",
+    image: "/thumbs/sample107.png",
   },
 
   //남도장터
@@ -307,6 +313,7 @@ export const workProjects = {
     contribution: "UI 구조 분석 · 시맨틱 마크업 · 반응형 처리 80%",
     github: null,
     demo: "https://www.jnmall.kr/",
+    image: "/thumbs/sample06.png",
   },
 
   //영암몰
@@ -331,6 +338,7 @@ export const workProjects = {
     contribution: "UI 구조 분석 · 시맨틱 마크업 · 반응형 처리 90%",
     github: null,
     demo: "https://yeongammall.co.kr/",
+    image: "/thumbs/sample05.png",
   },
 
   //Earphone
@@ -353,5 +361,6 @@ export const workProjects = {
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/Fitz",
     demo: "https://fitz-alpha.vercel.app/",
+    image: "/thumbs/sample09.png",
   },
 };

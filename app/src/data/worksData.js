@@ -60,7 +60,7 @@ export const worksData = [
     desc: "K2, Eider, Handsome, Kolonmall 등 브랜드 콘텐츠 퍼블리싱 작업입니다.",
     skills: ["HTML", "CSS", "JavaScript", "Swiper"],
     period: "2024.11 — 2025.08",
-    role: "브랜드 기획전 / 매거진 / 이벤트 상세페이지 퍼블리싱",
+    role: "랜딩 페이지 · 이벤트 페이지 퍼블리싱 및 운영, 반응형 구조 개선",
     points: [
       "브랜드별 톤앤매너에 맞춘 상세 페이지 구현",
       "기획전, 매거진, 이벤트 콘텐츠 퍼블리싱",
@@ -92,7 +92,7 @@ export const worksData = [
     num: "03",
     title: "쇼핑몰 유지보수",
     category: "Work",
-    desc: "쇼핑몰 UI 유지보수, 솔루션 퍼블리싱, 버그 확인 및 수정 업무를 진행했습니다.",
+    desc: "쇼핑몰 템플릿 마크업, UI 커스터마이징, 유지보수 작업, 버그 수정",
     skills: ["HTML", "CSS", "jQuery", "Cross Browsing"],
     period: "2023.04 — 2024.03",
     role: "퍼블리싱 / 유지보수 / 고객 응대",

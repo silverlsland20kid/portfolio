@@ -3,15 +3,23 @@ import { worksData } from "../data/worksData";
 import { workProjects } from "../data/workProjects";
 import "../styles/WorkDetail.css";
 
+
+// WorkDetail 메인 컴포넌트
 export default function WorkDetail() {
+  // URL 에서 slug 값을 가져옴
   const { slug } = useParams();
 
+  // worksData 안에서 slug 와 일치하는 카테고리 찾기
+  // 카테고리 상세 페이지용
   const category = worksData.find((item) => item.slug === slug);
 
+  // workProjects 객체의 key 중 slug 와 같은 프로젝트 찾기
+  // 대소문자 구분 없이 비교하기 위해 toLowerCase 사용
   const projectKey = Object.keys(workProjects).find(
     (key) => key.toLowerCase() === slug.toLowerCase(),
   );
 
+  // projectKey 가 존재하면 실제 프로젝트 데이터 가져오기
   const project = projectKey ? workProjects[projectKey] : null;
 
   // 실제 프로젝트 상세
@@ -24,7 +32,7 @@ export default function WorkDetail() {
     return <CategoryDetail work={category} />;
   }
 
-  // not found
+  // not found => 아무 데이터도 없을 경우
   return (
     <main className="sub-page">
       <section className="work-detail">
@@ -38,6 +46,7 @@ export default function WorkDetail() {
   );
 }
 
+// 실제 프로젝트 상세 컴포넌트
 function ProjectCase({ project }) {
   return (
     <main className="sub-page">
@@ -47,11 +56,20 @@ function ProjectCase({ project }) {
         </Link>
 
         <div className="project-detail__hero">
-          <p className="section-label">{project.year}</p>
+          <div className="project-detail__hero-content">
+            <p className="section-label">{project.year}</p>
 
-          <h1 className="project-detail__title">{project.title}</h1>
+            <h1 className="project-detail__title">{project.title}</h1>
 
-          <p className="project-detail__subtitle">{project.subtitle}</p>
+            <p className="project-detail__subtitle">{project.subtitle}</p>
+          </div>
+
+          {/* 썸네일 이미지 넣기 */}
+          {project.image && (
+            <div className="project-detail__hero-thumb">
+              <img src={project.image} alt={project.title} />
+            </div>
+          )}
         </div>
 
         <div className="project-detail__actions">
@@ -82,6 +100,7 @@ function ProjectCase({ project }) {
           <div>
             <span>Contribution</span>
 
+            {/* contribution 값이 없으면 기본 문구 출력 */}
             <strong>{project.contribution || "퍼블리싱 작업 참여"}</strong>
           </div>
         </div>

@@ -14,15 +14,15 @@ export default function App() {
 
   // 페이지 이동 시 항상 맨 위로 이동시키는 컴포넌트
   function ScrollToTop() {
-  const { pathname } = useLocation();
+    const { pathname } = useLocation();
 
-  // 페이지 이동 시 스크롤 초기화
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // 페이지 이동 시 스크롤 초기화
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
 
-  return null;
-}
+    return null;
+  }
 
   // 마우스 커서 커스텀
   useEffect(() => {
@@ -97,6 +97,15 @@ export default function App() {
       ease: "power3.out",
     });
 
+    gsap.to(".hero__scroll", {
+      y: 10,
+      opacity: 0.45,
+      duration: 1,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
+
     gsap.utils.toArray(".display").forEach((heading) => {
       gsap.from(heading, {
         y: 60,
@@ -118,7 +127,8 @@ export default function App() {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".strengths",
-        start: "top 85%",
+        start: "top 60%",
+        once: true,
       },
     });
 
@@ -130,7 +140,8 @@ export default function App() {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".works",
-        start: "top 85%",
+        start: "top 60%",
+        once: true,
       },
     });
 
@@ -142,7 +153,7 @@ export default function App() {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".timeline",
-        start: "top 85%",
+        start: "top 60%",
       },
     });
 
@@ -261,7 +272,7 @@ function Home() {
             프로젝트마다 다른 요구와 목적을 읽고, 브랜드의 메시지를 화면 위에
             정확하게 구현하는 웹 퍼블리셔 이은섬입니다.
           </p>
-          <p>Scroll ↓</p>
+          <p className="hero__scroll">Scroll ↓</p>
         </div>
       </header>
 

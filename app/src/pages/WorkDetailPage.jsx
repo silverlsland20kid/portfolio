@@ -5,7 +5,6 @@ import { workProjects } from "../data/workProjects";
 import ClockKST from "../components/ClockKST";
 import "../styles/WorkDetailPage.css";
 
-// GSAP 플러그인 등록
 export default function WorkDetailPage() {
   // URL 파라미터에서 slug 추출 후 해당 프로젝트 데이터 로드
   const { slug } = useParams();
