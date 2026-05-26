@@ -204,21 +204,21 @@ section {
   font-weight: 900;
   line-height: 1.1;
   color: var(--accent);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
 }
 
 .about__text p {
   font-size: 16px;
   line-height: 1.9;
   color: var(--text-secondary);
-  margin-bottom: 24px;
 }
 
 .strengths {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-top: 44px;
+align-items: stretch;
 }
 
 .strength-card {
@@ -227,10 +227,16 @@ section {
   border: 1px solid var(--border);
   border-radius: 12px;
   min-height: 170px;
+  height: 100%;
+  box-sizing: border-box;
   transition:
     transform 0.45s ease,
     border-color 0.45s ease,
     background 0.45s ease;
+}
+
+.strength-card__inner {
+  height: 100%;
 }
 
 .strength-card:hover {
@@ -241,7 +247,6 @@ section {
 
 .strength-card strong {
   display: block;
-  margin-bottom: 16px;
   font-size: 20px;
   color: var(--text-primary);
 }
@@ -250,6 +255,24 @@ section {
   color: var(--text-secondary);
   line-height: 1.7;
   font-size: 15px;
+}
+
+.strength-card__top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.strength-card__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4c7dff;
+
+  box-shadow:
+    0 0 10px rgba(76, 125, 255, 0.7),
+    0 0 24px rgba(76, 125, 255, 0.3);
 }
 
 .works__row {
@@ -340,7 +363,6 @@ section {
   grid-template-columns: 220px 1fr;
   gap: 40px;
   padding: 36px 0;
-  border-bottom: 1px solid var(--border);
 }
 
 .timeline__date {

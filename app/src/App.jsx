@@ -119,7 +119,7 @@ export default function App() {
       });
     });
 
-    gsap.from(".strength-card", {
+    gsap.from(".strength-card__inner", {
       y: 30,
       opacity: 0,
       duration: 0.8,
@@ -269,7 +269,7 @@ function Home() {
 
         <div className="hero__bottom">
           <p className="hero__bio">
-            프로젝트마다 다른 요구와 목적을 읽고, 브랜드의 메시지를 화면 위에
+            프로젝트마다 다른 요구와 목적을 읽고,<br /> 브랜드의 메시지를 화면 위에
             정확하게 구현하는 웹 퍼블리셔 이은섬입니다.
           </p>
           <p className="hero__scroll">Scroll ↓</p>
@@ -313,35 +313,58 @@ function Home() {
 
               <div className="strengths">
                 <article className="strength-card">
-                  <strong>Structure First</strong>
+                  <div className="strength-card__inner">
+                  <div className="strength-card__top">
+                    <span className="strength-card__dot"></span>
+                  </div>
+                  <strong>UI Structure</strong>
                   <p>
-                    화면의 분위기보다 먼저, 사용자가 자연스럽게 흐름을 따라갈 수
-                    있는 구조를 고민합니다.
+                    콘텐츠의 우선순위를 정리하고, 사용자가 자연스럽게 읽을 수 있는
+                    섹션 흐름을 설계합니다.
                   </p>
+                  </div>
                 </article>
 
                 <article className="strength-card">
-                  <strong>Detail Matters</strong>
+                  <div className="strength-card__inner">
+                  <div className="strength-card__top">
+                    
+                    <span className="strength-card__dot"></span>
+                  </div>
+
+                  <strong>Responsive Layout</strong>
                   <p>
-                    작은 간격, 움직임, 전환 방식까지 전체 경험의 톤을 결정한다고
-                    생각합니다.
+                    PC와 모바일 환경에서 비율, 간격, 정렬이 어색하지 않도록
+                    반응형 구조를 세밀하게 조정합니다.
                   </p>
+                  </div>
                 </article>
 
                 <article className="strength-card">
-                  <strong>Flexible Build</strong>
+                  <div className="strength-card__inner">
+                  <div className="strength-card__top">
+                    <span className="strength-card__dot"></span>
+                  </div>
+
+                  <strong>Interaction</strong>
                   <p>
-                    디자인 의도를 유지하면서도 반응형과 유지보수를 고려한 구조를
-                    설계합니다.
+                    GSAP, Swiper, React를 활용해 콘텐츠의 분위기를 살리는
+                    부드러운 인터랙션을 구현합니다.
                   </p>
+                  </div>
                 </article>
 
                 <article className="strength-card">
-                  <strong>Keep Exploring</strong>
+                  <div className="strength-card__inner">
+                  <div className="strength-card__top">
+                    <span className="strength-card__dot"></span>
+                  </div>
+                  <strong>Publishing Quality</strong>
                   <p>
-                    클론코딩과 개인 프로젝트를 통해 새로운 인터랙션과 레이아웃
-                    방식을 꾸준히 실험합니다.
+                    디자인 의도를 유지하면서도 재사용과 유지보수를 고려한
+                    HTML, CSS 구조를 작성합니다.
                   </p>
+                  </div>
                 </article>
               </div>
             </div>
