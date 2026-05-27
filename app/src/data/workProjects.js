@@ -288,7 +288,7 @@ export const workProjects = {
     github:
       "https://github.com/silverlsland20kid/portfolio/tree/main/projects/Agencycreativeaudio",
     demo: "https://agencycreativeaudio.vercel.app/",
-    image: "/thumbs/sample107.png",
+    image: "/thumbs/sample07.png",
   },
 
   //남도장터

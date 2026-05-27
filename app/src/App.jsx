@@ -81,31 +81,6 @@ export default function App() {
     // GSAP ScrollTrigger 등록
     gsap.registerPlugin(ScrollTrigger);
 
-    // 메인 타이틀 등장 애니메이션 (clip-path로 가려진 글자를 열어주는 방식)
-    gsap.to(".hero__line", {
-      clipPath: "inset(0 0 0% 0)",
-      duration: 1.2,
-      stagger: 0.18,
-      ease: "power4.out",
-    });
-
-    gsap.to(".hero__job", {
-      y: 0,
-      opacity: 1,
-      delay: 0.5,
-      duration: 0.8,
-      ease: "power3.out",
-    });
-
-    gsap.to(".hero__scroll", {
-      y: 10,
-      opacity: 0.45,
-      duration: 1,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-    });
-
     gsap.utils.toArray(".display").forEach((heading) => {
       gsap.from(heading, {
         y: 60,
@@ -195,6 +170,45 @@ export default function App() {
 }
 
 function Home() {
+
+  useEffect(() => {
+    gsap.set(".hero__line", {
+      clipPath: "inset(0 0 100% 0)",
+    });
+
+    gsap.to(".hero__line", {
+      clipPath: "inset(0 0 0% 0)",
+      duration: 1.2,
+      stagger: 0.18,
+      ease: "power4.out",
+    });
+
+    gsap.to(".hero__job", {
+      y: 0,
+      opacity: 1,
+      delay: 0.5,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+
+    gsap.to(".hero__scroll", {
+      y: 10,
+      opacity: 0.45,
+      duration: 1,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
+
+    return () => {
+      gsap.killTweensOf(".hero__line");
+      gsap.killTweensOf(".hero__job");
+      gsap.killTweensOf(".hero__scroll");
+    };
+  }, []);
+
+
+
   // Contact 섹션에 사용할 영상 목록
   const previewVideos = [
     {
@@ -314,56 +328,56 @@ function Home() {
               <div className="strengths">
                 <article className="strength-card">
                   <div className="strength-card__inner">
-                  <div className="strength-card__top">
-                    <span className="strength-card__dot"></span>
-                  </div>
-                  <strong>UI Structure</strong>
-                  <p>
-                    콘텐츠의 우선순위를 정리하고, 사용자가 자연스럽게 읽을 수 있는
-                    섹션 흐름을 설계합니다.
-                  </p>
-                  </div>
-                </article>
-
-                <article className="strength-card">
-                  <div className="strength-card__inner">
-                  <div className="strength-card__top">
-                    
-                    <span className="strength-card__dot"></span>
-                  </div>
-
-                  <strong>Responsive Layout</strong>
-                  <p>
-                    PC와 모바일 환경에서 비율, 간격, 정렬이 어색하지 않도록
-                    반응형 구조를 세밀하게 조정합니다.
-                  </p>
+                    <div className="strength-card__top">
+                      <span className="strength-card__dot"></span>
+                    </div>
+                    <strong>UI Structure</strong>
+                    <p>
+                      콘텐츠의 우선순위를 정리하고, 사용자가 자연스럽게 읽을 수 있는
+                      섹션 흐름을 설계합니다.
+                    </p>
                   </div>
                 </article>
 
                 <article className="strength-card">
                   <div className="strength-card__inner">
-                  <div className="strength-card__top">
-                    <span className="strength-card__dot"></span>
-                  </div>
+                    <div className="strength-card__top">
 
-                  <strong>Interaction</strong>
-                  <p>
-                    GSAP, Swiper, React를 활용해 콘텐츠의 분위기를 살리는
-                    부드러운 인터랙션을 구현합니다.
-                  </p>
+                      <span className="strength-card__dot"></span>
+                    </div>
+
+                    <strong>Responsive Layout</strong>
+                    <p>
+                      PC와 모바일 환경에서 비율, 간격, 정렬이 어색하지 않도록
+                      반응형 구조를 세밀하게 조정합니다.
+                    </p>
                   </div>
                 </article>
 
                 <article className="strength-card">
                   <div className="strength-card__inner">
-                  <div className="strength-card__top">
-                    <span className="strength-card__dot"></span>
+                    <div className="strength-card__top">
+                      <span className="strength-card__dot"></span>
+                    </div>
+
+                    <strong>Interaction</strong>
+                    <p>
+                      GSAP, Swiper, React를 활용해 콘텐츠의 분위기를 살리는
+                      부드러운 인터랙션을 구현합니다.
+                    </p>
                   </div>
-                  <strong>Publishing Quality</strong>
-                  <p>
-                    디자인 의도를 유지하면서도 재사용과 유지보수를 고려한
-                    HTML, CSS 구조를 작성합니다.
-                  </p>
+                </article>
+
+                <article className="strength-card">
+                  <div className="strength-card__inner">
+                    <div className="strength-card__top">
+                      <span className="strength-card__dot"></span>
+                    </div>
+                    <strong>Publishing Quality</strong>
+                    <p>
+                      디자인 의도를 유지하면서도 재사용과 유지보수를 고려한
+                      HTML, CSS 구조를 작성합니다.
+                    </p>
                   </div>
                 </article>
               </div>
@@ -383,12 +397,16 @@ function Home() {
             >
               <p className="works__num">{work.num}</p>
 
-              <div>
+              <div className="works__content">
                 <h3 className="works__title">{work.title}</h3>
                 <p className="works__category">{work.category}</p>
+
+                <div className="works__meta">
+                  <span>{work.role}</span>
+                  <span>{work.skills.join(" / ")}</span>
+                </div>
               </div>
 
-              <p className="works__desc">{work.desc}</p>
             </Link>
           ))}
 

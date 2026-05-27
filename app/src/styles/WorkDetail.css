@@ -30,7 +30,6 @@
 }
 
 .work-detail__lead {
-  max-width: 720px;
   margin-top: 36px;
   color: var(--text-secondary);
   font-size: 18px;
