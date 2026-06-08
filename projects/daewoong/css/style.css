@@ -1695,6 +1695,27 @@ ul li span.category {
 /* --------------------
    반응형 (Header, Container 등)
 --------------------- */
+
+@media (max-width: 1500px) {
+  .header .gnb-nav .dep-1 > a {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .container .rightContent {
+        padding-left: 1rem;
+  }
+
+  .container .leftMenu ul {
+    left: 0;
+  }
+}  
+
+
+@media (max-width: 1440px) {
+  .header .gnb-nav .dep-1 > a {
+    padding: 1.5rem 1.5rem;
+  }
+}  
 @media (max-width: 1200px) {
   .wrap {
     max-width: 100%;
@@ -2083,6 +2104,10 @@ ul li span.category {
 
   .container .rightContent .section1 .side .bottom .stock .stockInfo .stockPrice strong {
     font-size: 1.5rem;
+  }
+
+  .container .rightContent .section1 .side .bottom .stock .stockInfo .stockDetails {
+    display: none;
   }
 
   .container .rightContent .section1 .side .bottom .value {
