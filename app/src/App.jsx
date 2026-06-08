@@ -293,12 +293,13 @@ function Home() {
       <div className="marquee">
         <div className="marquee__inner">
           <span>
-            HTML5 ✦ CSS3 ✦ JavaScript ✦ jQuery ✦ React ✦ GSAP ✦ Swiper ✦ Figma ✦
-            Responsive Web ✦
+            Frontend Publisher | UI Interaction | Responsive Web | Accessibility | Motion & Animation
           </span>
           <span>
-            HTML5 ✦ CSS3 ✦ JavaScript ✦ jQuery ✦ React ✦ GSAP ✦ Swiper ✦ Figma ✦
-            Responsive Web ✦
+            Frontend Publisher | UI Interaction | Responsive Web | Accessibility | Motion & Animation
+          </span>
+          <span>
+            Frontend Publisher | UI Interaction | Responsive Web | Accessibility | Motion & Animation
           </span>
         </div>
       </div>
