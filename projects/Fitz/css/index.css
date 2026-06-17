@@ -7,7 +7,6 @@
 html,
 body {
   width: 100%;
-  overflow-x: hidden;
 }
 
 body {
@@ -32,7 +31,6 @@ video {
 
 .wrap {
   width: 100%;
-  overflow-x: hidden;
 }
 
 /* nav */
@@ -111,10 +109,8 @@ video {
 }
 
   .wrap_boxx .vi_text {
-    width: 40%;
-    height: 20%;
     position: absolute;
-    bottom: 18%;
+    bottom: 2rem;
     right: 10%;
     text-align: right;
     color: rgb(236, 236, 236);
@@ -144,11 +140,11 @@ video {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+  padding-top: 1rem;
 }
 
 .vi_text button {
-  width: 140px;
-  height: 43px;
+     padding: 0.7rem 2rem;
   border-radius: 30px;
   font-family: 'Haettenschweiler', sans-serif;
   font-size: 15px;
@@ -190,11 +186,10 @@ video {
 
 .con1 .item-box {
   margin:4rem auto;
-  gap: 28px;
-  width: 55rem;
+  gap: 4rem;
   height: 19rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .item-box-1 {
@@ -338,12 +333,14 @@ video {
   grid-template-columns: 0.9fr 1.1fr;
   gap: 70px;
   align-items: start;
+  min-height: 180vh;
 }
 
 .con4-1-text {
   position: sticky;
   top: 120px;
   text-align: center;
+  align-items: start;
 }
 
 .con4-1-text h1 {
@@ -359,8 +356,7 @@ video {
 }
 
 .con4-1-text .readthemhere {
-  width: 200px;
-  height: 55px;
+      padding: 1rem 2rem;
   border-radius: 30px;
   background: #000;
   color: #fff;
@@ -378,6 +374,7 @@ video {
 .con4-1-review {
   display: flex;
   gap: 32px;
+  min-height: 180vh;
 }
 
 .con4-1-review .review-left,
@@ -470,10 +467,6 @@ footer .go_top {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .item-box-1 {
-    height: 360px;
-  }
-
   .con4 {
     min-height: 190vh;
   }
@@ -508,14 +501,22 @@ footer .go_top {
 
   #nav ul {
     gap: 18px;
-    font-size: 14px;
+    font-size: 17px;
+    margin-right: auto;
+    margin-left: 3rem;
+  }
+
+  .vi_deo {
+            height: auto;
+        min-height: 0;
+        padding-top: 60px;
   }
 
   .wrap_boxx .vi_text {
-    width: 40%;
-    height: 20%;
+            width: auto;
+        height: auto;
     position: absolute;
-    bottom: 22%;
+    bottom: 1rem;
     right: 8%;
     text-align: right;
     color: rgb(236, 236, 236);
@@ -529,13 +530,12 @@ footer .go_top {
   .vi_text {
     right: 50%;
     bottom: 8%;
-    transform: translateX(50%);
     width: 90%;
     text-align: center;
   }
 
   .vi_text h1 {
-    font-size: 32px;
+    font-size: 1.5rem;
   }
 
   .vi_text p {
@@ -543,24 +543,36 @@ footer .go_top {
   }
 
   .buttons {
-    display: none;
+    padding-top: 0.5rem;
+  }
+  .vi_text button {
+        padding: 0.5rem 1rem;
+        width:auto;
+        height:auto;
   }
 
   .con1 {
-    padding: 60px 20px;
+    padding: 0 1rem;
   }
 
   .con1 h2 {
-    font-size: 30px;
+            font-size: 2rem;
+        margin-bottom: 0;
+        padding: 2rem 0;
   }
 
   .con1 .item-box {
-    grid-template-columns: 1fr;
-    gap: 22px;
+            gap: 22px;
+        margin: 1rem auto;
+        height:14rem;
   }
 
-  .item-box-1 {
-    height: 360px;
+  .item-box-1 h4 {
+    font-size:0.8rem
+  }
+
+  .con1 .more {
+    margin: 1rem 0rem 1.5rem;
   }
 
   .con2 {
@@ -572,7 +584,7 @@ footer .go_top {
   }
 
   .con3 {
-    height: 520px;
+    height: auto;
   }
 
   .con3-text {
@@ -580,11 +592,12 @@ footer .go_top {
   }
 
   .con3-text h1 {
-    font-size: 42px;
+    font-size: 1.5rem;
+    margin-bottom: 0;
   }
 
   .con3-text p {
-    font-size: 18px;
+    font-size: 0.8rem;
     letter-spacing: 0.08em;
   }
 
@@ -595,6 +608,7 @@ footer .go_top {
 
   .con4-1 {
     grid-template-columns: 1fr;
+    min-height: 0;
   }
 
   .con4-1-text {
@@ -602,9 +616,13 @@ footer .go_top {
   }
 
   .con4-1-text h1 {
-    font-size: 42px;
-    margin-bottom: 30px;
+    display: none;
   }
+
+  .con4 h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
 
   .con4-1-text p {
     font-size: 18px;
@@ -612,7 +630,10 @@ footer .go_top {
   }
 
   .con4-1-review {
-    flex-direction: column;
+    margin: 0 auto;  
+    gap: 1.5rem;
+    min-height: 0;
+    padding: 0 1rem;
   }
 
   .con4-1-review .review-left,
@@ -631,379 +652,7 @@ footer .go_top {
 
   footer .foo h4,
   footer .foo li {
-    text-align: center;
-  }
-}
-
-/* ===== responsive fix ===== */
-
-img,
-video {
-  max-width: 100%;
-  display: block;
-}
-
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  color: #222;
-}
-
-.wrap {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* nav */
-#nav {
-  box-sizing: border-box;
-  padding: 0 40px;
-}
-
-#nav .logo {
-  width: 38px;
-  height: auto;
-}
-
-#nav .sun {
-  width: 28px;
-  height: auto;
-}
-
-/* hero */
-.wrap_boxx {
-  height: auto !important;
-}
-
-.vi_deo {
-  position: relative;
-  background: #000;
-  overflow: hidden;
-}
-
-.buds_video {
-  width: 100%;
-  height: 100% !important;
-  object-fit: cover;
-}
-
-.vi_text {
-  position: absolute;
-  right: 8%;
-  bottom: 14%;
-  width: min(520px, 80%);
-  color: #fff;
-  text-align: right;
-}
-
-.vi_text h1 {
-  font-size: clamp(42px, 6vw, 96px);
-  line-height: 0.95;
-}
-
-.vi_text p {
-  font-size: clamp(18px, 2vw, 28px);
-}
-
-/* new items */
-.con1 {
-  height: auto !important;
-  padding: 80px 5vw;
-}
-
-.con1 .item-box {
-  position: static !important;
-  transform: none !important;
-  width: min(1180px, 100%) !important;
-  height: auto !important;
-  margin: 40px auto;
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.item-box-1 {
-  width: auto !important;
-  height: 420px !important;
-  border-radius: 28px;
-  overflow: hidden;
-}
-
-.item-box-1 img {
-  left: 50% !important;
-}
-
-/* service */
-.con2 {
-  height: auto !important;
-  padding: 90px 5vw;
-}
-
-.con2 .con2-box {
-  position: static !important;
-  transform: none !important;
-  width: min(1000px, 100%) !important;
-  height: auto !important;
-  margin: 0 auto;
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-/* visual */
-.con3 {
-  height: 720px !important;
-  overflow: hidden;
-}
-
-.con3 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.con3-text {
-  width: 90%;
-}
-
-.con3-text h1 {
-  font-size: clamp(42px, 7vw, 100px);
-}
-
-.con3-text p {
-  font-size: clamp(18px, 3vw, 44px);
-  letter-spacing: 0.12em;
-}
-
-/* reviews */
-.con4 {
-  height: auto !important;
-  padding: 90px 5vw;
-}
-
-.con4-1 {
-  position: static !important;
-  transform: none !important;
-  width: min(1200px, 100%) !important;
-  margin: 0 auto;
-  display: grid !important;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 60px;
-}
-
-.con4-1-text {
-  width: auto !important;
-  margin: 0 !important;
-}
-
-.con4-1-text h1 {
-  font-size: clamp(38px, 5vw, 80px);
-}
-
-.con4-1-text p {
-  font-size: clamp(16px, 2vw, 26px);
-  line-height: 1.6;
-}
-
-.con4-1-review {
-  width: auto !important;
-  margin: 0 !important;
-  gap: 24px;
-}
-
-.con4-1-review img {
-  width: 100%;
-  margin-bottom: 24px;
-}
-
-/* footer */
-footer {
-  height: auto !important;
-  margin-top: 0 !important;
-  padding: 60px 5vw 40px;
-}
-
-footer .foo-box {
-  position: static !important;
-  transform: none !important;
-  width: min(1100px, 100%) !important;
-  margin: 0 auto;
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-}
-
-footer .foo {
-  width: auto !important;
-}
-
-footer .sns,
-footer .end {
-  position: static !important;
-  transform: none !important;
-  text-align: center;
-  margin-top: 32px;
-}
-
-footer .sns img {
-  margin: 0 auto;
-}
-
-footer .go_top {
-  position: fixed !important;
-  width: 44px !important;
-  right: 24px !important;
-  bottom: 24px !important;
-  top: auto !important;
-}
-
-/* tablet */
-@media (max-width: 1024px) {
-  #nav {
-    padding: 0 24px;
-  }
-
-  #nav ul {
-    width: auto !important;
-    gap: 32px;
-    margin-left: 0 !important;
-  }
-
-  .con1 .item-box,
-  .con2 .con2-box {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .item-box-1 {
-    height: 360px !important;
-  }
-
-  .con4-1 {
-    grid-template-columns: 1fr;
-  }
-
-  .con4-1-text {
-    position: static !important;
-    text-align: center;
-  }
-}
-
-/* mobile */
-@media (max-width: 767px) {
-  #nav {
-    height: 64px;
-    padding: 0 18px;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  #nav ul {
-    gap: 18px;
-    font-size: 14px;
-    padding: 0;
-  }
-
-  #nav .logo {
-    width: 30px;
-  }
-
-  #nav .sun {
-    width: 24px;
-  }
-
-
-  .vi_text {
-    text-align: center;
-  }
-
-  .vi_text h1 {
-    font-size: 2rem;
-  }
-
-  .buttons {
-    display: none;
-    gap: 10px;
-  }
-
-  .vi_text button {
-    width: 120px;
-    height: 42px;
-  }
-
-  .buds_video {
-        padding-top: 64px;
-        height: auto;
-  }
-
-  .con1 {
-    padding: 60px 20px;
-  }
-
-  .con1 .item-box {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .item-box-1 {
-    height: 360px !important;
-    border-radius: 24px;
-  }
-
-  .con2 {
-    padding: 60px 20px;
-  }
-
-  .con2 .con2-box {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
-  .con2-box .con2-box-1 {
-    width: 100% !important;
-  }
-
-  .con2-box-1 p {
-    font-size: 14px !important;
-  }
-
-  .con3 {
-    height: 520px !important;
-  }
-
-  .con3-text {
-    bottom: 18%;
-  }
-
-  .con3-text h1 {
-    font-size: 42px;
-    letter-spacing: 0.04em;
-  }
-
-  .con3-text p {
-    font-size: 18px;
-    letter-spacing: 0.08em;
-  }
-
-  .con4 {
-    padding: 60px 20px;
-  }
-
-  .con4-1-review {
-    flex-direction: column;
-  }
-
-  .con4-1-review .review-left,
-  .con4-1-review .review-right {
-    width: 100% !important;
-    padding-top: 0 !important;
-  }
-
-  footer .foo-box {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  footer .foo > h4,
-  footer .foo li {
-    text-align: center;
+    text-align: left;
+    font-size: 0.8rem;
   }
 }
