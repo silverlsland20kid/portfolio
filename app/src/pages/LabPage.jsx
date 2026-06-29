@@ -62,6 +62,18 @@ export default function LabPage() {
       link: "https://www.kolonsport.com/Special/246759",
       external: true,
     },
+    {
+      type: "pc",
+      src: "/assets/video12.mp4",
+      link: "https://www.hfashionmall.com/article/STORY/9822/view",
+      external: true,
+    },
+    {
+      type: "mo",
+      src: "/assets/video13_mo.mp4",
+      link: "https://www.hfashionmall.com/article/STORY/9822/view",
+      external: true,
+    },
   ];
 
   // 콘텐츠 레퍼런스
