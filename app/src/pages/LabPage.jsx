@@ -65,13 +65,19 @@ export default function LabPage() {
     {
       type: "pc",
       src: "/assets/video12.mp4",
-      link: "https://www.hfashionmall.com/article/STORY/9822/view",
+      link: "https://www.k-village.co.kr/magazineDetail?magazineNo=789",
       external: true,
     },
     {
       type: "mo",
       src: "/assets/video13_mo.mp4",
-      link: "https://www.hfashionmall.com/article/STORY/9822/view",
+      link: "https://www.k-village.co.kr/magazineDetail?magazineNo=804",
+      external: true,
+    },
+    {
+      type: "mo",
+      src: "/assets/video14_mo.mp4",
+      link: "https://m.k-village.co.kr/magazineDetail?magazineNo=826",
       external: true,
     },
   ];
@@ -107,9 +113,9 @@ export default function LabPage() {
               <div className="project-list__label">Experiments</div>
               <ul className="project-list__skills-list">
                 <li>HTML5 / CSS3 </li>
-                <li>JavaScript (ES6+), jQuery, React, TypeScript</li>
-                <li>Figma & photoshop</li>
-                <li>swiper, gsap, bxslider</li>
+                <li>JavaScript, jQuery, React, TypeScript</li>
+                <li>Figma, Photoshop</li>
+                <li>Swiper, GSAP, bxSlider</li>
               </ul>
             </div>
           </div>
@@ -122,13 +128,10 @@ export default function LabPage() {
             <div className="project-list__attitude" id="attitudeSection">
               <ul className="project-list__attitude-list">
                 <li>
-                  디테일과 구조를 모두 챙기는 퍼블리싱, 신기술/새로운 시도에
-                  <br />
-                  거부감이 생기지 않도록 스스로를 가스라이팅
+                  디테일과 구조를 함께 고려하며 새로운 기술과 시도를 꾸준히 적용
                 </li>
                 <li>
-                  문제 발생 시 빠른 리서치 및 대응 -- 피드백 반영 & 꾸준한
-                  개선병 있음
+                  문제 발생 시 빠르게 원인을 찾고 피드백을 반영해 완성도를 높임
                 </li>
               </ul>
             </div>

@@ -11,7 +11,6 @@ import Header from "./components/Header";
 import LabPage from "./pages/LabPage";
 
 export default function App() {
-
   // 페이지 이동 시 항상 맨 위로 이동시키는 컴포넌트
   function ScrollToTop() {
     const { pathname } = useLocation();
@@ -26,116 +25,265 @@ export default function App() {
 
   // 마우스 커서 커스텀
   useEffect(() => {
-    // dot = 실제 마우스 위치
-    // ring = 부드럽게 따라오는 원형 커서
+    // Cursor Elements
     const dot = document.querySelector(".cursor-dot");
     const ring = document.querySelector(".cursor-ring");
 
+    // Cursor Position
     let mouseX = 0;
     let mouseY = 0;
     let ringX = 0;
     let ringY = 0;
 
-    // 마우스 위치 추적
+    // Animation Frame
+    let animationFrameId;
+
+    // Cursor Move
     const handleMouseMove = (event) => {
       mouseX = event.clientX;
       mouseY = event.clientY;
 
-      // dot은 바로 이동
-      gsap.set(dot, {
-        x: mouseX,
-        y: mouseY,
-      });
+      // Dot Move
+      if (dot) {
+        gsap.set(dot, {
+          x: mouseX,
+          y: mouseY,
+        });
+      }
     };
 
+    // Cursor Event
     window.addEventListener("mousemove", handleMouseMove);
 
-    // ring은 천천히 따라오게 설정
-    // 값이 작을수록 더 부드럽고 느리게 움직임
-    function cursorLoop() {
+    // Ring Move
+    const cursorLoop = () => {
       ringX += (mouseX - ringX) * 0.08;
       ringY += (mouseY - ringY) * 0.08;
 
-      gsap.set(ring, {
-        x: ringX,
-        y: ringY,
-      });
+      // Ring Position
+      if (ring) {
+        gsap.set(ring, {
+          x: ringX,
+          y: ringY,
+        });
+      }
 
-      requestAnimationFrame(cursorLoop);
-    }
+      // Loop
+      animationFrameId = requestAnimationFrame(cursorLoop);
+    };
 
+    // Ring Start
     cursorLoop();
 
-    // 클릭 가능한 요소에 hover 시 커서 스타일 변경되도록 설정
-    document
-      .querySelectorAll("a, .works__row, .contact__btn")
-      .forEach((element) => {
-        element.addEventListener("mouseenter", () =>
-          ring.classList.add("is-hover"),
-        );
-        element.addEventListener("mouseleave", () =>
-          ring.classList.remove("is-hover"),
-        );
-      });
+    // Hover Elements
+    const hoverElements = document.querySelectorAll(
+      "a, .works__row, .contact__btn",
+    );
 
-    // GSAP ScrollTrigger 등록
+    // Cursor Hover Enter
+    const handleHoverEnter = () => {
+      ring?.classList.add("is-hover");
+    };
+
+    // Cursor Hover Leave
+    const handleHoverLeave = () => {
+      ring?.classList.remove("is-hover");
+    };
+
+    // Cursor Hover Event
+    hoverElements.forEach((element) => {
+      element.addEventListener("mouseenter", handleHoverEnter);
+      element.addEventListener("mouseleave", handleHoverLeave);
+    });
+
+    // ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
+    // Section Titles
     gsap.utils.toArray(".display").forEach((heading) => {
       gsap.from(heading, {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
+        yPercent: 110,
+        duration: 0.9,
+        ease: "power4.out",
+
+        // Title Trigger
         scrollTrigger: {
           trigger: heading,
-          start: "top 85%",
+          start: "top 88%",
+          once: true,
         },
       });
     });
 
-    gsap.from(".strength-card__inner", {
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: "power3.out",
+    // About Timeline
+    const aboutTimeline = gsap.timeline({
       scrollTrigger: {
-        trigger: ".strengths",
-        start: "top 60%",
+        trigger: ".about__grid",
+        start: "top 78%",
         once: true,
       },
     });
 
-    gsap.from(".works__row", {
-      x: -20,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.07,
-      ease: "power3.out",
+    // About Quote
+    aboutTimeline
+      .from(".about__quote", {
+        x: -30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      })
+
+      // About Text
+      .from(
+        ".about__text > p",
+        {
+          y: 24,
+          opacity: 0,
+          duration: 0.7,
+          ease: "power3.out",
+        },
+        "-=0.45",
+      )
+
+      // About Cards
+      .from(
+        ".strength-card",
+        {
+          y: 28,
+          opacity: 0,
+          duration: 0.65,
+          stagger: 0.09,
+          ease: "power3.out",
+        },
+        "-=0.3",
+      );
+
+    // Works Rows
+    gsap.utils.toArray(".works__row").forEach((row) => {
+      // Works Elements
+      const num = row.querySelector(".works__num");
+      const title = row.querySelector(".works__title");
+      const category = row.querySelector(".works__category");
+      const meta = row.querySelector(".works__meta");
+
+      // Works Timeline
+      const worksTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: row,
+          start: "top 88%",
+          once: true,
+        },
+      });
+
+      // Works Number
+      worksTimeline
+        .from(num, {
+          x: 0,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power3.out",
+        })
+
+        // Works Title
+        .from(
+          title,
+          {
+            x: 0,
+            y: 22,
+            opacity: 0,
+            duration: 0.65,
+            ease: "power3.out",
+          },
+          "-=0.3",
+        )
+
+        // Works Category And Meta
+        .from(
+          [category, meta],
+          {
+            y: 12,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.08,
+            ease: "power3.out",
+          },
+          "-=0.3",
+        );
+    });
+
+    // Experience Rows
+    gsap.utils.toArray(".timeline__row").forEach((row) => {
+      // Experience Elements
+      const date = row.querySelector(".timeline__date");
+      const content = row.querySelector(".timeline__content");
+
+      // Experience Timeline
+      const experienceTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: row,
+          start: "top 86%",
+          once: true,
+        },
+      });
+
+      // Experience Date
+      experienceTimeline
+        .from(date, {
+          y: 14,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power3.out",
+        })
+
+        // Experience Content
+        .from(
+          content,
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.65,
+            ease: "power3.out",
+          },
+          "-=0.3",
+        );
+    });
+
+    // Contact Timeline
+    const contactTimeline = gsap.timeline({
       scrollTrigger: {
-        trigger: ".works",
-        start: "top 60%",
+        trigger: ".contact",
+        start: "top 65%",
         once: true,
       },
     });
 
-    gsap.from(".timeline__row", {
-      y: 20,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".timeline",
-        start: "top 60%",
-      },
-    });
+    // Contact Text
+    contactTimeline
+      .from(".contact__grid > div:first-child", {
+        x: -36,
+        opacity: 0,
+        duration: 0.85,
+        ease: "power3.out",
+      })
 
-    // 스크롤 양에 따라 width 증가
+      // Contact Videos
+      .from(
+        ".contact-preview-board",
+        {
+          x: 36,
+          opacity: 0,
+          duration: 0.85,
+          ease: "power3.out",
+        },
+        "-=0.6",
+      );
+
+    // Scroll Progress
     gsap.to(".progress", {
       width: "100%",
       ease: "none",
+
+      // Progress Trigger
       scrollTrigger: {
         trigger: document.body,
         start: "top top",
@@ -144,15 +292,29 @@ export default function App() {
       },
     });
 
-    // cleanup 페이지 이동 시 기존 ScrollTrigger 제거
+    // Cleanup
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // Cursor Event Remove
+      window.removeEventListener("mousemove", handleMouseMove);
+
+      // Cursor Loop Remove
+      cancelAnimationFrame(animationFrameId);
+
+      // Hover Event Remove
+      hoverElements.forEach((element) => {
+        element.removeEventListener("mouseenter", handleHoverEnter);
+        element.removeEventListener("mouseleave", handleHoverLeave);
+      });
+
+      // ScrollTrigger Remove
+      ScrollTrigger.getAll().forEach((trigger) => {
+        trigger.kill();
+      });
     };
   }, []);
 
   return (
     <>
-
       <ScrollToTop />
       <div className="cursor-dot"></div>
       <div className="cursor-ring"></div>
@@ -170,44 +332,134 @@ export default function App() {
 }
 
 function Home() {
-
   useEffect(() => {
+    // Hero Elements
+    const hero = document.querySelector(".hero");
+    const heroGlow = document.querySelector(".hero__glow");
+
+    // Hero Timeline
+    const introTimeline = gsap.timeline({
+      defaults: {
+        ease: "power4.out",
+      },
+    });
+
+    // Hero Name Start
     gsap.set(".hero__line", {
       clipPath: "inset(0 0 100% 0)",
+      y: 40,
+      opacity: 0,
     });
 
-    gsap.to(".hero__line", {
-      clipPath: "inset(0 0 0% 0)",
-      duration: 1.2,
-      stagger: 0.18,
-      ease: "power4.out",
-    });
+    // Hero Text Start
+    gsap.set(
+      [
+        ".hero__job",
+        ".hero__tagline",
+        ".hero__year",
+        ".hero__bottom-content",
+        ".hero__scroll",
+      ],
+      {
+        y: 18,
+        opacity: 0,
+      },
+    );
 
-    gsap.to(".hero__job", {
-      y: 0,
-      opacity: 1,
-      delay: 0.5,
-      duration: 0.8,
-      ease: "power3.out",
-    });
+    // Hero Name Animation
+    introTimeline
+      .to(".hero__line", {
+        clipPath: "inset(0 0 0% 0)",
+        y: 0,
+        opacity: 1,
+        duration: 1.15,
+        stagger: 0.16,
+      })
 
-    gsap.to(".hero__scroll", {
-      y: 10,
-      opacity: 0.45,
-      duration: 1,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-    });
+      // Hero Top Animation
+      .to(
+        [".hero__job", ".hero__tagline", ".hero__year"],
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.08,
+          ease: "power3.out",
+        },
+        "-=0.65",
+      )
 
+      // Hero Bottom Animation
+      .to(
+        [".hero__bottom-content", ".hero__scroll"],
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.1,
+          ease: "power3.out",
+        },
+        "-=0.45",
+      );
+
+    // Glow Move
+    const handleHeroMouseMove = (event) => {
+      if (!hero || !heroGlow) return;
+
+      // Hero Position
+      const rect = hero.getBoundingClientRect();
+
+      // Mouse Position
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+
+      // Glow Animation
+      gsap.to(heroGlow, {
+        x: mouseX,
+        y: mouseY,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        overwrite: "auto",
+      });
+    };
+
+    // Glow Leave
+    const handleHeroMouseLeave = () => {
+      if (!heroGlow) return;
+
+      gsap.to(heroGlow, {
+        opacity: 0.35,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    };
+
+    // Glow Events
+    hero?.addEventListener("mousemove", handleHeroMouseMove);
+    hero?.addEventListener("mouseleave", handleHeroMouseLeave);
+
+    // Cleanup
     return () => {
-      gsap.killTweensOf(".hero__line");
-      gsap.killTweensOf(".hero__job");
-      gsap.killTweensOf(".hero__scroll");
+      // Timeline Remove
+      introTimeline.kill();
+
+      // Glow Events Remove
+      hero?.removeEventListener("mousemove", handleHeroMouseMove);
+      hero?.removeEventListener("mouseleave", handleHeroMouseLeave);
+
+      // Hero Tween Remove
+      gsap.killTweensOf([
+        ".hero__line",
+        ".hero__job",
+        ".hero__tagline",
+        ".hero__year",
+        ".hero__bottom-content",
+        ".hero__scroll",
+        ".hero__glow",
+      ]);
     };
   }, []);
-
-
 
   // Contact 섹션에 사용할 영상 목록
   const previewVideos = [
@@ -248,7 +500,6 @@ function Home() {
     },
   ];
 
-
   // 배열 랜덤 섞기 함수 [...arr] → 원본 배열 보호용 복사
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
@@ -270,9 +521,19 @@ function Home() {
       <div className="progress"></div>
 
       <header className="hero" id="home">
+        {/* 마우스에 반응하는 배경 조명 */}
+        <div className="hero__glow" aria-hidden="true"></div>
+
         <div className="hero__top">
-          <p className="hero__job">Web Publisher</p>
-          <p>2026</p>
+          <div className="hero__intro">
+            <p className="hero__job">Interactive Web Publisher</p>
+
+            <p className="hero__tagline">
+              Building clear interfaces with motion and structure.
+            </p>
+          </div>
+
+          <p className="hero__year">2026</p>
         </div>
 
         <h1 className="hero__name">
@@ -282,24 +543,35 @@ function Home() {
         </h1>
 
         <div className="hero__bottom">
-          <p className="hero__bio">
-            프로젝트마다 다른 요구와 목적을 읽고,<br /> 브랜드의 메시지를 화면 위에
-            정확하게 구현하는 웹 퍼블리셔 이은섬입니다.
+          <div className="hero__bottom-content">
+            <p className="hero__bio">
+              프로젝트마다 다른 요구와 목적을 읽고
+              <br />
+              브랜드의 메시지를 화면 위에 정확하게 구현하는
+              <br className="hero__bio-break" />웹 퍼블리셔 이은섬입니다.
+            </p>
+          </div>
+
+          <p className="hero__scroll">
+            <span>Scroll</span>
+            <span className="hero__scroll-arrow">↓</span>
           </p>
-          <p className="hero__scroll">Scroll ↓</p>
         </div>
       </header>
 
       <div className="marquee">
         <div className="marquee__inner">
           <span>
-            Frontend Publisher | UI Interaction | Responsive Web | Accessibility | Motion & Animation
+            Frontend Publisher | UI Interaction | Responsive Web | Accessibility
+            | Motion & Animation
           </span>
           <span>
-            Frontend Publisher | UI Interaction | Responsive Web | Accessibility | Motion & Animation
+            Frontend Publisher | UI Interaction | Responsive Web | Accessibility
+            | Motion & Animation
           </span>
           <span>
-            Frontend Publisher | UI Interaction | Responsive Web | Accessibility | Motion & Animation
+            Frontend Publisher | UI Interaction | Responsive Web | Accessibility
+            | Motion & Animation
           </span>
         </div>
       </div>
@@ -307,11 +579,14 @@ function Home() {
       <main>
         <section className="about" id="about">
           <p className="section-label">01 About</p>
-          <h2 className="display">
-            ABOUT
-            <br />
-            ME
-          </h2>
+          {/* Section Title */}
+          <div className="display-mask">
+            <h2 className="display">
+              ABOUT
+              <br />
+              ME
+            </h2>
+          </div>
 
           <div className="about__grid">
             <blockquote className="about__quote">
@@ -334,8 +609,8 @@ function Home() {
                     </div>
                     <strong>UI Structure</strong>
                     <p>
-                      콘텐츠의 우선순위를 정리하고, 사용자가 자연스럽게 읽을 수 있는
-                      섹션 흐름을 설계합니다.
+                      콘텐츠의 우선순위를 정리하고, 사용자가 자연스럽게 읽을 수
+                      있는 섹션 흐름을 설계합니다.
                     </p>
                   </div>
                 </article>
@@ -343,7 +618,6 @@ function Home() {
                 <article className="strength-card">
                   <div className="strength-card__inner">
                     <div className="strength-card__top">
-
                       <span className="strength-card__dot"></span>
                     </div>
 
@@ -388,7 +662,10 @@ function Home() {
 
         <section className="works">
           <p className="section-label">02 Works</p>
-          <h2 className="display">WORKS</h2>
+          {/* Section Title */}
+          <div className="display-mask">
+            <h2 className="display">WORKS</h2>
+          </div>
 
           {worksData.slice(0, 3).map((work) => (
             <Link
@@ -407,24 +684,31 @@ function Home() {
                   <span>{work.skills.join(" / ")}</span>
                 </div>
               </div>
-
             </Link>
           ))}
 
           <Link to="/work" className="works__more">
-            전체 작업 보기 →
+            <span>전체 작업 보기</span>
+            <span className="works__more-arrow" aria-hidden="true">
+              →
+            </span>
           </Link>
         </section>
 
         <section className="experience">
           <p className="section-label">03 Experience</p>
-          <h2 className="display">EXPERIENCE</h2>
+          <div className="display-mask">
+            {/* Section Title */}
+            <h2 className="display">EXPERIENCE</h2>
+          </div>
 
           <div className="timeline">
             <div className="timeline__row">
+              {/* Experience Date */}
               <p className="timeline__date">2024.11 — 2025.08</p>
 
-              <div>
+              {/* Experience Content */}
+              <div className="timeline__content">
                 <h3 className="timeline__title">㈜미스터로맨스디지털랩</h3>
 
                 <p className="timeline__role">퍼블리셔 · 주임/팀원</p>
@@ -437,9 +721,11 @@ function Home() {
             </div>
 
             <div className="timeline__row">
+              {/* Experience Date */}
               <p className="timeline__date">2023.04 — 2024.03</p>
 
-              <div>
+              {/* Experience Content */}
+              <div className="timeline__content">
                 <h3 className="timeline__title">㈜오마이사이트</h3>
 
                 <p className="timeline__role">쇼핑몰개발팀 · 퍼블리셔</p>
@@ -469,7 +755,10 @@ function Home() {
               </p>
 
               <a href="mailto:dms*******@naver.com" className="contact__btn">
-                이메일로 연락하기
+                <span>이메일로 연락하기</span>
+                <span className="contact__btn-arrow" aria-hidden="true">
+                  ↗
+                </span>
               </a>
             </div>
             <div className="contact-preview-board">
