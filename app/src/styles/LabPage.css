@@ -149,12 +149,12 @@
   .lab-videos {
     width: 100%;
     margin-left: 0;
-    padding-top: 1rem;
-    padding-left: 0;
+    padding: 1rem 0 0 0;
   }
 }
 
 @media (max-width: 768px) {
+
   .project-list-lab {
     padding: 8rem 1.5rem 4rem;
   }
@@ -167,4 +167,6 @@
   .item--pc {
     grid-column: 1 / -1;
   }
+
+
 }

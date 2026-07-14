@@ -98,18 +98,34 @@
   .site-header {
     height: 64px;
     padding: 0 20px;
+    box-sizing: border-box;
+    align-items: center;
   }
 
   .site-header__logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
     font-size: 12px;
+    line-height: 1;
   }
 
   .site-header__nav {
+    display: flex;
+    align-items: center;
     gap: 16px;
+    height: 100%;
+    padding: 0;
   }
 
   .site-header__nav a,
   .site-header__link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
     font-size: 11px;
+    line-height: 1;
   }
 }

@@ -16,10 +16,12 @@ export default function App() {
     const { pathname } = useLocation();
 
     // 페이지 이동 시 스크롤 초기화
+    // 의존성 배열에 pathname을 추가하여 URL이 변경될 때만 실행
     useEffect(() => {
       window.scrollTo(0, 0);
     }, [pathname]);
 
+    // 해당 컴포넌트는 화면에 HTML을 출력하지 않고 기능만 수행하므로 null을 반환
     return null;
   }
 
@@ -43,7 +45,7 @@ export default function App() {
       mouseX = event.clientX;
       mouseY = event.clientY;
 
-      // Dot Move
+      // Dot Move (애니메이션 시간을 주지 않고 요소의 속성을 즉시 변경)
       if (dot) {
         gsap.set(dot, {
           x: mouseX,
@@ -68,24 +70,24 @@ export default function App() {
         });
       }
 
-      // Loop
+      // 브라우저 화면이 갱신되는 시점마다 cursorLoop를 다시 실행
       animationFrameId = requestAnimationFrame(cursorLoop);
     };
 
     // Ring Start
     cursorLoop();
 
-    // Hover Elements
+    // hover 시킬 요소들을 모두 선택
     const hoverElements = document.querySelectorAll(
       "a, .works__row, .contact__btn",
     );
 
-    // Cursor Hover Enter
+    // 마우스가 올라가면 다음 클래스가 추가되어 ring의 스타일이 변경됨
     const handleHoverEnter = () => {
       ring?.classList.add("is-hover");
     };
 
-    // Cursor Hover Leave
+    // 마우스가 벗어나면 제거 (?. => optional chaining임. ring 요소가 없더라도 오류가 발생하지 않도록 보호)
     const handleHoverLeave = () => {
       ring?.classList.remove("is-hover");
     };
@@ -99,7 +101,7 @@ export default function App() {
     // ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    // Section Titles
+    // 섹션 제목 애니메이션 시작
     gsap.utils.toArray(".display").forEach((heading) => {
       gsap.from(heading, {
         yPercent: 110,
@@ -115,7 +117,7 @@ export default function App() {
       });
     });
 
-    // About Timeline
+    // About Timeline (About 섹션 내부 요소를 따로 실행하지 않고 하나의 타임라인으로 연결하여 실행)
     const aboutTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".about__grid",
@@ -133,7 +135,7 @@ export default function App() {
         ease: "power3.out",
       })
 
-      // About Text
+      // About Text (앞 애니메이션이 완전히 끝나기 0.45초 전에 다음 애니메이션을 시작)
       .from(
         ".about__text > p",
         {
@@ -145,7 +147,7 @@ export default function App() {
         "-=0.45",
       )
 
-      // About Cards
+      // About Cards (stagger => 여러 개의 .strength-card를 0.09초 간격으로 순차 실행)
       .from(
         ".strength-card",
         {
@@ -158,7 +160,7 @@ export default function App() {
         "-=0.3",
       );
 
-    // Works Rows
+    // Works Rows (각 행마다 별도의 타임라인을 생성하여 스크롤 시 애니메이션 실행)
     gsap.utils.toArray(".works__row").forEach((row) => {
       // Works Elements
       const num = row.querySelector(".works__num");
@@ -197,7 +199,7 @@ export default function App() {
           "-=0.3",
         )
 
-        // Works Category And Meta
+        // Works Category And Meta (배열의 첫 번째 요소인 category가 먼저 나타나고, meta가 0.08초 뒤에 나타남)
         .from(
           [category, meta],
           {
@@ -213,7 +215,7 @@ export default function App() {
 
     // Experience Rows
     gsap.utils.toArray(".timeline__row").forEach((row) => {
-      // Experience Elements
+      // Experience Elements (날짜와 내용을 분리해 실행)
       const date = row.querySelector(".timeline__date");
       const content = row.querySelector(".timeline__content");
 
@@ -257,7 +259,7 @@ export default function App() {
       },
     });
 
-    // Contact Text
+    // Contact Text (텍스트는 왼쪽에서 나타나도록 설정)
     contactTimeline
       .from(".contact__grid > div:first-child", {
         x: -36,
@@ -266,7 +268,7 @@ export default function App() {
         ease: "power3.out",
       })
 
-      // Contact Videos
+      // Contact Videos (비디오는 오른쪽에서 나타나도록 설정)
       .from(
         ".contact-preview-board",
         {
@@ -292,15 +294,15 @@ export default function App() {
       },
     });
 
-    // Cleanup
+    // Cleanup 함수 (useEffect 안에서 반환하는 함수는 컴포넌트가 사라질 때 실행됨)
     return () => {
-      // Cursor Event Remove
+      // Cursor Event Remove (마우스 이동 이벤트 제거)
       window.removeEventListener("mousemove", handleMouseMove);
 
-      // Cursor Loop Remove
+      // Cursor Loop Remove (반복 중단)
       cancelAnimationFrame(animationFrameId);
 
-      // Hover Event Remove
+      // Hover Event Remove (Hover 이벤트 제거)
       hoverElements.forEach((element) => {
         element.removeEventListener("mouseenter", handleHoverEnter);
         element.removeEventListener("mouseleave", handleHoverLeave);
@@ -344,7 +346,7 @@ function Home() {
       },
     });
 
-    // Hero Name Start
+    // Hero Name Start (애니메이션 실행 전에 아래쪽에서 100% 잘라 요소가 보이지 않도록 설정)
     gsap.set(".hero__line", {
       clipPath: "inset(0 0 100% 0)",
       y: 40,
@@ -402,18 +404,18 @@ function Home() {
         "-=0.45",
       );
 
-    // Glow Move
+    // Hero 마우스 조명 위치 계산
     const handleHeroMouseMove = (event) => {
       if (!hero || !heroGlow) return;
 
-      // Hero Position
+      // Hero가 브라우저 화면에서 어느 위치에 있는지 계산
       const rect = hero.getBoundingClientRect();
 
       // Mouse Position
       const mouseX = event.clientX - rect.left;
       const mouseY = event.clientY - rect.top;
 
-      // Glow Animation
+      // 마우스 조명 애니메이션 (overwrite: "auto" => 마우스가 빠르게 움직일 때 이전 이동 애니메이션이 계속 쌓이지 않도록 기존 Tween을 적절히 덮어씌움)
       gsap.to(heroGlow, {
         x: mouseX,
         y: mouseY,
@@ -461,7 +463,7 @@ function Home() {
     };
   }, []);
 
-  // Contact 섹션에 사용할 영상 목록
+  // Contact 섹션에 사용할 영상 배열 목록
   const previewVideos = [
     {
       type: "mo",
@@ -590,15 +592,17 @@ function Home() {
 
           <div className="about__grid">
             <blockquote className="about__quote">
-              “좋은 인터페이스는 설명보다 먼저 흐름으로 이해된다고 생각합니다.”
+              “새로운 도구를 빠르게 익히고 실제 화면에 적용하며 작업의 범위를
+              넓혀가고 있습니다.”
             </blockquote>
 
             <div className="about__text">
               <p>
-                저는 변화하는 상황 속에서 더 나은 방식을 찾는 과정을 자연스럽게
-                받아들이는 퍼블리셔입니다. <br />
-                서비스업과 웹 에이전시 경험을 거치며 다양한 사람들과 소통했고,
-                책임감과 문제 해결력을 키웠습니다.
+                웹 퍼블리싱을 기반으로 UI/UX와 Figma를 학습하며 화면의 구조와
+                사용 흐름을 보는 시야를 넓혀왔습니다. <br />
+                최근에는 다양한 AI 프로그램과 프롬프트 작성 방법을 학습하며
+                이미지, 콘텐츠, 인터랙션 아이디어를 구체화하는 데 활용하고
+                있습니다.
               </p>
 
               <div className="strengths">
@@ -607,10 +611,11 @@ function Home() {
                     <div className="strength-card__top">
                       <span className="strength-card__dot"></span>
                     </div>
-                    <strong>UI Structure</strong>
+
+                    <strong>Think in Flow</strong>
                     <p>
-                      콘텐츠의 우선순위를 정리하고, 사용자가 자연스럽게 읽을 수
-                      있는 섹션 흐름을 설계합니다.
+                      콘텐츠를 바로 구현하기보다 무엇이 먼저 보여야 하는지,
+                      사용자가 어떤 순서로 읽게 될지를 먼저 정리합니다.
                     </p>
                   </div>
                 </article>
@@ -621,10 +626,10 @@ function Home() {
                       <span className="strength-card__dot"></span>
                     </div>
 
-                    <strong>Responsive Layout</strong>
+                    <strong>Share and Solve</strong>
                     <p>
-                      PC와 모바일 환경에서 비율, 간격, 정렬이 어색하지 않도록
-                      반응형 구조를 세밀하게 조정합니다.
+                      막히는 부분은 혼자 오래 끌기보다 질문하고 공유합니다.
+                      빠르게 방향을 맞추고 해결하는 협업 방식을 선호합니다.
                     </p>
                   </div>
                 </article>
@@ -635,10 +640,10 @@ function Home() {
                       <span className="strength-card__dot"></span>
                     </div>
 
-                    <strong>Interaction</strong>
+                    <strong>Learn and Apply</strong>
                     <p>
-                      GSAP, Swiper, React를 활용해 콘텐츠의 분위기를 살리는
-                      부드러운 인터랙션을 구현합니다.
+                      Figma와 UI/UX, AI 도구와 프롬프트 작성까지 새로운 방법을
+                      익히고 실제 작업에 적용합니다.
                     </p>
                   </div>
                 </article>
@@ -648,10 +653,11 @@ function Home() {
                     <div className="strength-card__top">
                       <span className="strength-card__dot"></span>
                     </div>
-                    <strong>Publishing Quality</strong>
+
+                    <strong>Work in Sync</strong>
                     <p>
-                      디자인 의도를 유지하면서도 재사용과 유지보수를 고려한
-                      HTML, CSS 구조를 작성합니다.
+                      필요한 부분은 묻고 공유하며 방향을 맞춥니다. 협업
+                      과정에서도 맡은 작업은 끝까지 책임지고 마무리합니다.
                     </p>
                   </div>
                 </article>
